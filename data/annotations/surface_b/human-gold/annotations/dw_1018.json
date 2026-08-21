@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH filtered AS (\n    SELECT\n        c.ACADEMIC_YEAR,\n        c.TERM_CODE,\n        c.SUBJECT_ID,\n        c.TOTAL_UNITS,\n        c.DEPARTMENT_NAME\n    FROM COURSE_CATALOG_SUBJECT_OFFERED c\n    JOIN SUBJECT_SUMMARY s\n      ON s.SUBJECT_ID = c.SUBJECT_ID\n     AND s.TERM_CODE = c.TERM_CODE\n    WHERE c.DEPARTMENT_NAME = 'Mathematics'\n      AND c.IS_OFFERED_THIS_YEAR = 'Y'\n      AND c.TOTAL_UNITS > 6\n      AND s.SUBJECT_ENROLLMENT_NUMBER > 10\n),\nranked AS (\n    SELECT\n        f.*,\n        MAX(f.TOTAL_UNITS) OVER (\n            PARTITION BY f.ACADEMIC_YEAR\n        ) AS MAX_TOTAL_UNITS\n    FROM filtered f\n)\nSELECT\n    r.ACADEMIC_YEAR,\n    r.TOTAL_UNITS AS HIGHEST_TOTAL_UNITS,\n    t.TERM_DESCRIPTION,\n    r.DEPARTMENT_NAME,\n    COUNT(DISTINCT r.SUBJECT_ID) OVER (\n        PARTITION BY r.ACADEMIC_YEAR\n    ) AS NUMBER_OF_UNIQUE_SUBJECTS,\n    MIN(r.TOTAL_UNITS) OVER (\n        PARTITION BY r.ACADEMIC_YEAR\n    ) AS MIN_TOTAL_UNITS\nFROM ranked r\nJOIN ACADEMIC_TERMS_ALL t\n  ON t.TERM_CODE = r.TERM_CODE\nWHERE r.TOTAL_UNITS = r.MAX_TOTAL_UNITS\nORDER BY r.ACADEMIC_YEAR;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH current_year AS (\n    SELECT ACADEMIC_YEAR\n    FROM ACADEMIC_TERMS_ALL\n    WHERE IS_CURRENT_TERM = 'Y'\n),\nfiltered AS (\n    SELECT\n        c.ACADEMIC_YEAR,\n        c.TERM_CODE,\n        c.SUBJECT_ID,\n        c.TOTAL_UNITS,\n        c.DEPARTMENT_NAME\n    FROM COURSE_CATALOG_SUBJECT_OFFERED c\n    JOIN SUBJECT_SUMMARY s\n      ON s.SUBJECT_ID = c.SUBJECT_ID\n     AND s.TERM_CODE = c.TERM_CODE\n    JOIN current_year cy\n      ON cy.ACADEMIC_YEAR = c.ACADEMIC_YEAR\n    WHERE c.DEPARTMENT_NAME = 'Mathematics'\n      AND c.IS_OFFERED_THIS_YEAR = 'Y'\n      AND c.TOTAL_UNITS > 6\n      AND s.SUBJECT_ENROLLMENT_NUMBER > 10\n)\nSELECT\n    f.ACADEMIC_YEAR,\n    MAX(f.TOTAL_UNITS) AS HIGHEST_TOTAL_UNITS,\n    MIN(t.TERM_DESCRIPTION) KEEP (\n        DENSE_RANK FIRST ORDER BY f.TOTAL_UNITS DESC\n    ) AS TERM_DESCRIPTION,\n    MIN(f.DEPARTMENT_NAME) AS DEPARTMENT_NAME,\n    COUNT(DISTINCT f.SUBJECT_ID) AS NUMBER_OF_UNIQUE_SUBJECTS,\n    MIN(f.TOTAL_UNITS) AS MIN_TOTAL_UNITS\nFROM filtered f\nJOIN ACADEMIC_TERMS_ALL t\n  ON t.TERM_CODE = f.TERM_CODE\nGROUP BY f.ACADEMIC_YEAR\nORDER BY f.ACADEMIC_YEAR;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1018",
+  "question_text": "For each academic year, what is the highest total units among all subjects offered in that year from the Mathematics department, the term description for the corresponding term, the department name, the number of unique subjects, and the minimum total units offered, considering only subjects that are offered this year and have more than 6 total units, and only departments and academic years where the subject enrollment number is greater than 10 and the department is Mathematics? List the academic year, highest total units, term description, department name, number of unique subjects, and minimum total units in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 319,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp310",
+      "start": 310,
+      "text": "this year"
+    }
+  ]
+}

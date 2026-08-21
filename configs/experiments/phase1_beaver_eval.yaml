@@ -1,0 +1,28 @@
+# Phase 1 — BEAVER NL2SQL evaluation campaign template.
+# Target: BEAVER (Chen et al., 2024, arXiv:2409.02038) — see ADR-013.
+# Extend or copy per experiment; point runs at this via config resolution.
+
+defaults:
+  - default.yaml
+  - datasets/beaver.yaml
+
+experiment:
+  id: phase1-baseline      # override per run
+  seed: 0
+
+pipeline:
+  stages:                  # order matters
+    - ambiguity_resolution
+    - schema_linking
+    - sql_generation
+    - sql_validation
+    - execution
+  self_correction_rounds: 2
+
+evaluation:
+  metrics:                 # official BEAVER metric group (ADR-013)
+    - execution_accuracy
+    - exact_match
+    - valid_sql_rate
+    # answerability_accuracy is a RESEARCH metric (E6) on a self-labeled
+    # subset, NOT an official BEAVER metric (Chen et al. ships no labels).

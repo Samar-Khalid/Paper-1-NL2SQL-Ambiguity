@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "administrative department from SIS_ADMIN_DEPARTMENT",
+      "sql": "SELECT ad.SIS_ADMIN_DEPARTMENT_NAME FROM SIS_ADMIN_DEPARTMENT ad WHERE ad.SIS_ADMIN_DEPARTMENT_NAME = 'Mechanical Engineering'"
+    },
+    "sql_reading_B": {
+      "note": "department resolved from SIS_DEPARTMENT",
+      "sql": "SELECT d.DEPARTMENT_NAME FROM SIS_DEPARTMENT d WHERE d.DEPARTMENT_NAME = 'Mechanical Engineering'"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R1 candidate, metadata resolution DEFERRED: 'administrative department' may map to SIS_ADMIN_DEPARTMENT (A) or SIS_DEPARTMENT (B); the intended relation requires metadata and is deferred.",
+  "question_id": "dw_1032",
+  "question_text": "For each administrative department whose name is 'Mechanical Engineering' (Course 2), display the administrative department name, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department in the academic year 2024, the department name, the average of the total units for courses offered by that department (considering only courses with total units greater than 0, departments that are degree granting, and excluding the Chemistry department), and the variance of the total units for those courses. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 34,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp9",
+      "start": 9,
+      "text": "administrative department"
+    }
+  ]
+}

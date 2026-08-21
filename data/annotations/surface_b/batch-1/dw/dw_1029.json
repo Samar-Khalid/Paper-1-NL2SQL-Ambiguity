@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "G mapped to 5, other years cast numerically",
+      "sql": "SELECT s.DEPARTMENT, AVG(CASE WHEN s.STUDENT_YEAR = 'G' THEN 5 ELSE CAST(s.STUDENT_YEAR AS UNSIGNED) END) FROM MIT_STUDENT_DIRECTORY s GROUP BY s.DEPARTMENT"
+    },
+    "sql_reading_B": {
+      "note": "explicit mapping table for every student-year value",
+      "sql": "SELECT s.DEPARTMENT, AVG(CASE WHEN s.STUDENT_YEAR = 'G' THEN 5 WHEN s.STUDENT_YEAR = '4' THEN 4 WHEN s.STUDENT_YEAR = '3' THEN 3 ELSE 0 END) FROM MIT_STUDENT_DIRECTORY s GROUP BY s.DEPARTMENT"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). K2 candidate, metadata resolution DEFERRED: the numeric mapping 'G=5, 4=4, 3=3, etc.' is a business rule whose full value mapping is not documented; the readings differ on how unmapped values are handled. Resolution requires metadata and is deferred.",
+  "question_id": "dw_1029",
+  "question_text": "For each department that is degree-granting, has a department budget code above 100000, is not the Political Science department (Course 17), and also has department code '6' or '15' or at least one graduate student, and is not the Economics department, show the department code, department name, school name, the number of unique courses offered by the department, the total number of units for all those courses, the minimum department code, and the average student year (numerically, with G=5, 4=4, 3=3, etc.), in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "K2",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 511,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp447",
+      "start": 447,
+      "text": "the average student year (numerically, with G=5, 4=4, 3=3, etc.)"
+    }
+  ]
+}

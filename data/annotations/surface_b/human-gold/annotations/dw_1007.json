@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "السؤال answerable دون clarification. جميع المقاييس، قيود الأقسام، شرط التسجيل، شرط الـ email، وشرط “offered this year” يمكن ربطها مباشرة بالـ schema، ولا توجد قراءتان معقولتان متعارضتان تؤديان إلى نتائج مختلفة.",
+  "question_id": "dw_1007",
+  "question_text": "For each academic year and term, what are the academic year, academic year description, term code, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the total units of Mathematics subjects offered in each regular, non-future term, and for the corresponding academic term parameter, what are the academic term parameter code, term description, average total units, and variance of the total units of Mathematics subjects offered in the effective term, considering only subjects offered this year? Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

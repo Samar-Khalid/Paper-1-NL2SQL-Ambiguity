@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH student_dept AS (\n    SELECT\n        s.FULL_NAME,\n        s.EMAIL_ADDRESS,\n        s.DEPARTMENT,\n        s.DEPARTMENT_NAME\n    FROM MIT_STUDENT_DIRECTORY s\n    WHERE s.DEPARTMENT = '6'\n      AND s.DEPARTMENT_NAME = 'Electrical Eng & Computer Sci'\n),\ndept_group_avg AS (\n    SELECT\n        m.D_CODE,\n        AVG(TO_NUMBER(m.D_CODE)) OVER (\n            PARTITION BY m.PARENT_D_CODE\n        ) AS AVG_DEPARTMENT_CODE\n    FROM MASTER_DEPT_DCODE_PARENT m\n),\ndegree_dept AS (\n    SELECT\n        d.DEPARTMENT_CODE,\n        d.DEPARTMENT_NAME\n    FROM SIS_DEPARTMENT d\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND d.DEPARTMENT_NAME <> 'Mathematics'\n),\ncip_stats AS (\n    SELECT\n        c.DEPARTMENT,\n        AVG(TO_NUMBER(c.CIP_PROGRAM_CODE)) AS AVG_CIP_PROGRAM_CODE,\n        STDDEV(TO_NUMBER(c.CIP_PROGRAM_CODE)) AS STDDEV_CIP_PROGRAM_CODE\n    FROM SIS_COURSE_DESCRIPTION c\n    WHERE c.IS_DEGREE_GRANTING = 'Y'\n      AND c.DEPARTMENT <> '18'\n    GROUP BY c.DEPARTMENT\n)\nSELECT\n    s.FULL_NAME,\n    s.EMAIL_ADDRESS,\n    s.DEPARTMENT_NAME,\n    sa.SIS_ADMIN_DEPARTMENT_NAME,\n    g.AVG_DEPARTMENT_CODE,\n    d.DEPARTMENT_NAME AS DEGREE_GRANTING_DEPARTMENT_NAME,\n    cs.AVG_CIP_PROGRAM_CODE,\n    cs.STDDEV_CIP_PROGRAM_CODE\nFROM student_dept s\nLEFT JOIN SIS_ADMIN_DEPARTMENT sa\n    ON sa.SIS_ADMIN_DEPARTMENT_CODE = s.DEPARTMENT\nLEFT JOIN MASTER_DEPT_DCODE_PARENT m\n    ON m.D_CODE = s.DEPARTMENT\nLEFT JOIN dept_group_avg g\n    ON g.D_CODE = m.D_CODE\nLEFT JOIN degree_dept d\n    ON d.DEPARTMENT_CODE = s.DEPARTMENT\nLEFT JOIN cip_stats cs\n    ON cs.DEPARTMENT = s.DEPARTMENT\nORDER BY s.FULL_NAME;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH student_dept AS (\n    SELECT\n        s.FULL_NAME,\n        s.EMAIL_ADDRESS,\n        s.DEPARTMENT,\n        s.DEPARTMENT_NAME\n    FROM MIT_STUDENT_DIRECTORY s\n    WHERE s.DEPARTMENT = '6'\n      AND s.DEPARTMENT_NAME = 'Electrical Eng & Computer Sci'\n),\ndegree_dept AS (\n    SELECT\n        d.DEPARTMENT_CODE,\n        d.DEPARTMENT_NAME\n    FROM SIS_DEPARTMENT d\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND d.DEPARTMENT_NAME <> 'Mathematics'\n),\ncip_stats AS (\n    SELECT\n        c.DEPARTMENT,\n        AVG(TO_NUMBER(c.CIP_PROGRAM_CODE)) AS AVG_CIP_PROGRAM_CODE,\n        STDDEV(TO_NUMBER(c.CIP_PROGRAM_CODE)) AS STDDEV_CIP_PROGRAM_CODE\n    FROM SIS_COURSE_DESCRIPTION c\n    JOIN degree_dept d\n      ON d.DEPARTMENT_CODE = c.DEPARTMENT\n    WHERE c.IS_DEGREE_GRANTING = 'Y'\n    GROUP BY c.DEPARTMENT\n)\nSELECT\n    s.FULL_NAME,\n    s.EMAIL_ADDRESS,\n    s.DEPARTMENT_NAME,\n    sa.SIS_ADMIN_DEPARTMENT_NAME,\n    d.DEPARTMENT_NAME AS DEGREE_GRANTING_DEPARTMENT_NAME,\n    cs.AVG_CIP_PROGRAM_CODE,\n    cs.STDDEV_CIP_PROGRAM_CODE\nFROM student_dept s\nLEFT JOIN SIS_ADMIN_DEPARTMENT sa\n    ON sa.SIS_ADMIN_DEPARTMENT_CODE = s.DEPARTMENT\nJOIN degree_dept d\n    ON d.DEPARTMENT_CODE = s.DEPARTMENT\nLEFT JOIN cip_stats cs\n    ON cs.DEPARTMENT = d.DEPARTMENT_CODE\nORDER BY s.FULL_NAME;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1025",
+  "question_text": "For each student in the MIT student directory whose department is '6' (Electrical Engineering and Computer Science) and whose department name is 'Electrical Eng & Computer Sci', show their full name, email address, department name, the corresponding SIS admin department name, the average department code within each department code group, the department name from the degree-granting departments (excluding Mathematics), and the average and standard deviation (using STDDEV only and never STDDEV_POP) of the CIP program codes for all degree-granting courses in that department. List the results ordered by the student's full name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "end": 577,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp527",
+      "start": 527,
+      "text": "for all degree-granting courses in that department"
+    }
+  ]
+}

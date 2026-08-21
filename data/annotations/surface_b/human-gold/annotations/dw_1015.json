@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": null,
+  "question_id": "dw_1015",
+  "question_text": "For the Mathematics department (Course 18), which is degree-granting and offers at least one subject with at least one enrolled student and at least one subject with more than 0 total units, provide the department name, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the number of enrolled students per subject offered by that department, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

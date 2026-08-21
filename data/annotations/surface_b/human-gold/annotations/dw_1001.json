@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "No strict ambiguity spans.",
+  "question_id": "dw_1001",
+  "question_text": "For each department that is not 'Mathematics' (Course 18), and is degree-granting and not the Biology department (Course 7), and whose total number of subject codes is greater than one standard deviation (using STDDEV only and never STDDEV_POP) above the mean across all departments, what are the department name, the average of the total units for subjects offered in the 2022FA term, the range of total units, the variance of total units, and the total number of subject codes? List the results ordered by department name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

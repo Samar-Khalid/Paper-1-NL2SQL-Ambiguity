@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "قراءة الـ TopMathFallSubjects هنا كـ إضافة مستقلة إلى نتائج EnrollmentStats. لذلك لا أعتبر أن كل الصفوف لازم تمتلك enrollment statistics، لأن سبب الإدراج الثاني هو ranking الخاص بعدد المواد في الخريف.",
+      "sql": "WITH enrollment_stats AS (\n    SELECT\n        s.OFFER_DEPT_NAME AS department_name,\n        t.ACADEMIC_YEAR AS academic_year,\n        AVG(s.NUM_ENROLLED_STUDENTS) AS average_enrollment,\n        MAX(s.NUM_ENROLLED_STUDENTS) - MIN(s.NUM_ENROLLED_STUDENTS) AS enrollment_range,\n        VAR_POP(s.NUM_ENROLLED_STUDENTS) AS enrollment_variance,\n        COUNT(DISTINCT s.SUBJECT_ID) AS subject_count\n    FROM SUBJECT_OFFERED_SUMMARY s\n    JOIN ACADEMIC_TERMS_ALL t\n      ON t.TERM_CODE = s.TERM_CODE\n    JOIN SIS_DEPARTMENT d\n      ON d.DEPARTMENT_NAME = s.OFFER_DEPT_NAME\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND d.DEPARTMENT_NAME <> 'Political Science'\n    GROUP BY s.OFFER_DEPT_NAME, t.ACADEMIC_YEAR\n),\nmath_fall AS (\n    SELECT\n        c.DEPARTMENT_NAME AS department_name,\n        c.ACADEMIC_YEAR AS academic_year,\n        COUNT(DISTINCT c.SUBJECT_ID) AS subject_count\n    FROM COURSE_CATALOG_SUBJECT_OFFERED c\n    WHERE c.DEPARTMENT_NAME = 'Mathematics'\n      AND c.IS_OFFERED_FALL_TERM = 'Y'\n    GROUP BY c.DEPARTMENT_NAME, c.ACADEMIC_YEAR\n),\ntop_math AS (\n    SELECT\n        department_name,\n        academic_year,\n        subject_count\n    FROM (\n        SELECT\n            m.*,\n            ROW_NUMBER() OVER (\n                ORDER BY m.subject_count DESC,\n                         m.academic_year DESC\n            ) AS rn\n        FROM math_fall m\n    )\n    WHERE rn <= 10\n)\nSELECT\n    department_name,\n    academic_year,\n    average_enrollment,\n    enrollment_range,\n    enrollment_variance,\n    subject_count,\n    'EnrollmentStats' AS reason\nFROM enrollment_stats\n\nUNION ALL\n\nSELECT\n    department_name,\n    academic_year,\n    NULL AS average_enrollment,\n    NULL AS enrollment_range,\n    NULL AS enrollment_variance,\n    subject_count,\n    'TopMathFallSubjects' AS reason\nFROM top_math;"
+    },
+    "sql_reading_B": {
+      "note": "هنا الـ top 10 لا تستطيع إدخال pair لا ينتمي أصلًا إلى population الأساسية، وبالتالي النتيجة مختلفة عن Reading A.",
+      "sql": "WITH enrollment_stats AS (\n    SELECT\n        s.OFFER_DEPT_NAME AS department_name,\n        t.ACADEMIC_YEAR AS academic_year,\n        AVG(s.NUM_ENROLLED_STUDENTS) AS average_enrollment,\n        MAX(s.NUM_ENROLLED_STUDENTS) - MIN(s.NUM_ENROLLED_STUDENTS) AS enrollment_range,\n        VAR_POP(s.NUM_ENROLLED_STUDENTS) AS enrollment_variance,\n        COUNT(DISTINCT s.SUBJECT_ID) AS subject_count\n    FROM SUBJECT_OFFERED_SUMMARY s\n    JOIN ACADEMIC_TERMS_ALL t\n      ON t.TERM_CODE = s.TERM_CODE\n    JOIN SIS_DEPARTMENT d\n      ON d.DEPARTMENT_NAME = s.OFFER_DEPT_NAME\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND d.DEPARTMENT_NAME <> 'Political Science'\n    GROUP BY s.OFFER_DEPT_NAME, t.ACADEMIC_YEAR\n),\nmath_fall AS (\n    SELECT\n        c.DEPARTMENT_NAME AS department_name,\n        c.ACADEMIC_YEAR AS academic_year,\n        COUNT(DISTINCT c.SUBJECT_ID) AS fall_subject_count\n    FROM COURSE_CATALOG_SUBJECT_OFFERED c\n    WHERE c.DEPARTMENT_NAME = 'Mathematics'\n      AND c.IS_OFFERED_FALL_TERM = 'Y'\n    GROUP BY c.DEPARTMENT_NAME, c.ACADEMIC_YEAR\n),\ntop_math AS (\n    SELECT\n        m.department_name,\n        m.academic_year,\n        m.fall_subject_count\n    FROM math_fall m\n    JOIN enrollment_stats e\n      ON e.department_name = m.department_name\n     AND e.academic_year = m.academic_year\n    ORDER BY m.fall_subject_count DESC\n    FETCH FIRST 10 ROWS ONLY\n)\nSELECT\n    e.department_name,\n    e.academic_year,\n    e.average_enrollment,\n    e.enrollment_range,\n    e.enrollment_variance,\n    e.subject_count,\n    'EnrollmentStats' AS reason\nFROM enrollment_stats e\n\nUNION ALL\n\nSELECT\n    e.department_name,\n    e.academic_year,\n    e.average_enrollment,\n    e.enrollment_range,\n    e.enrollment_variance,\n    e.subject_count,\n    'TopMathFallSubjects' AS reason\nFROM enrollment_stats e\nJOIN top_math m\n  ON m.department_name = e.department_name\n AND m.academic_year = e.academic_year;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1008",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "for the top 10 Mathematics department and academic year pairs with the highest number of subjects offered in the fall term",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

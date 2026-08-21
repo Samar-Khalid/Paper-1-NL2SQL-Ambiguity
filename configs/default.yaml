@@ -1,0 +1,34 @@
+# Global defaults for the Enterprise AI Analyst Framework.
+# Template only — consumed by src/eaa/core/configuration (Phase 0).
+
+project:
+  name: Enterprise-AI-Analyst-Framework
+  phase: 1
+
+logging:
+  level: INFO            # DEBUG | INFO | WARNING | ERROR
+  format: structured     # structured (JSON) | console
+  redaction: true          # true | false (true required for production/research runs)
+
+security:
+  read_only_execution: true
+  default_timeout_seconds: 30
+  max_query_timeout_seconds: 120
+
+llm:
+  provider: null         # e.g., openai | ollama | vllm — set per experiment
+  model: null            # exact model id (recorded with the run)
+  temperature: 0.0
+  max_retries: 3
+  timeout_seconds: 60
+
+evaluation:
+  schema_version: eval-schema-v1
+  confidence_intervals: true
+  bootstrap_resamples: 1000
+  alpha: 0.05
+  human_review: false
+
+experiment:
+  seed: 0
+  record_artifacts: true

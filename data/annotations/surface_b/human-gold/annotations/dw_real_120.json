@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "أقرب mapping للـquery هو:\n\ndepartment name + phone → SIS_ADMIN_DEPARTMENT\nالطلاب + FULL_NAME → MIT_STUDENT_DIRECTORY\nالربط يكون عبر اسم القسم، باستخدام SIS_ADMIN_DEPARTMENT.SIS_ADMIN_DEPARTMENT_NAME مع MIT_STUDENT_DIRECTORY.DEPARTMENT_NAME.\nعدد الطلاب → COUNT(*)\nأطول اسم كامل → MAX(LENGTH(FULL_NAME))",
+  "question_id": "dw_real_120",
+  "question_text": "For each department, list the department name, department phone number, number of students, and the length of the longest student full name in that department.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

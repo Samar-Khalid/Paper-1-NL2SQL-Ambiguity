@@ -1,0 +1,270 @@
+{
+  "band_confusion": {
+    "bands": [
+      "persistent",
+      "metadata_closable",
+      "unambiguous"
+    ],
+    "matrix": {
+      "metadata_closable": {
+        "metadata_closable": 0,
+        "persistent": 0,
+        "unambiguous": 0
+      },
+      "persistent": {
+        "metadata_closable": 0,
+        "persistent": 25,
+        "unambiguous": 0
+      },
+      "unambiguous": {
+        "metadata_closable": 0,
+        "persistent": 19,
+        "unambiguous": 1
+      }
+    }
+  },
+  "classification": {
+    "family_accuracy": 0.0,
+    "localized_spans": 1,
+    "predicted_spans": 200,
+    "type_accuracy": 0.0
+  },
+  "code_confusion": {
+    "codes": [
+      "C1",
+      "C2",
+      "C3",
+      "I2",
+      "K1",
+      "R1",
+      "R2",
+      "S1",
+      "S2",
+      "T1"
+    ],
+    "matrix": {
+      "C1": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "C2": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "C3": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "I2": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "K1": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "R1": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "R2": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "S1": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 1
+      },
+      "S2": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      },
+      "T1": {
+        "C1": 0,
+        "C2": 0,
+        "C3": 0,
+        "I2": 0,
+        "K1": 0,
+        "R1": 0,
+        "R2": 0,
+        "S1": 0,
+        "S2": 0,
+        "T1": 0
+      }
+    }
+  },
+  "detector": "signal-annotator-v1",
+  "existence": {
+    "accuracy": 0.5777777777777777,
+    "ambiguous": {
+      "f1": 0.7246376811594203,
+      "precision": 0.5681818181818182,
+      "recall": 1.0
+    },
+    "counts": {
+      "fn": 0,
+      "fp": 19,
+      "tn": 1,
+      "tp": 25
+    },
+    "macro_f1": 0.40993788819875776,
+    "unambiguous": {
+      "f1": 0.09523809523809523,
+      "precision": 1.0,
+      "recall": 0.05
+    }
+  },
+  "num_questions": 45,
+  "per_family": {
+    "C": {
+      "f1": 0.0,
+      "fn": 1,
+      "fp": 92,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "I": {
+      "f1": 0.0,
+      "fn": 0,
+      "fp": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "K": {
+      "f1": 0.0,
+      "fn": 0,
+      "fp": 24,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "R": {
+      "f1": 0.0,
+      "fn": 1,
+      "fp": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "S": {
+      "f1": 0.0,
+      "fn": 24,
+      "fp": 66,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "T": {
+      "f1": 0.0,
+      "fn": 0,
+      "fp": 10,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    }
+  },
+  "persistence": {
+    "localized_spans": 1,
+    "persistence_accuracy": 1.0
+  },
+  "span": {
+    "iou_0.5": {
+      "f1": 0.0,
+      "fn": 26,
+      "fp": 200,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "iou_0.7": {
+      "f1": 0.0,
+      "fn": 26,
+      "fp": 200,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    },
+    "iou_1": {
+      "f1": 0.0,
+      "fn": 26,
+      "fp": 200,
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0
+    }
+  }
+}

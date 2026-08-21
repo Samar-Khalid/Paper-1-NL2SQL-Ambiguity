@@ -1,0 +1,88 @@
+{
+  "adjudication": "none",
+  "annotation_source": "ai_generated",
+  "artifact": "surface-b-ai-annotation-run",
+  "artifact_version": "surface-b-ai-annotation-v1",
+  "backend": "opencode/big-pickle",
+  "batch_id": "batch-1",
+  "counts": {
+    "codes": {
+      "C1": 4,
+      "C2": 4,
+      "I2": 4,
+      "K1": 4,
+      "K2": 2,
+      "R1": 7,
+      "R2": 4,
+      "S1": 3,
+      "S2": 2,
+      "T1": 5,
+      "T2": 1,
+      "V1": 3,
+      "V3": 2
+    },
+    "num_interpretation_records": 45,
+    "num_questions": 60,
+    "num_spans": 45
+  },
+  "evaluation_mode": "Paper 1 current evaluation mode = reasoning-based ambiguity detection with metadata-aware persistence deferred because no legitimate enrichment source is available; missing metadata is never converted into fabricated metadata-grounded evidence.",
+  "human_gold": false,
+  "kappa": null,
+  "notes": "AI-generated annotations: no human annotators, no kappa, no adjudication; metadata-closable stratum deferred (no legitimate enrichment.json exists).",
+  "protocol_version": "annotation-schema-v1",
+  "provenance_version": "provenance-v1",
+  "required_persistent_families": [
+    "S",
+    "R",
+    "C",
+    "T",
+    "K",
+    "I"
+  ],
+  "selection": {
+    "database_id": "dw",
+    "max_spans_per_family": 8,
+    "metadata_closable_codes": [
+      "L2",
+      "R1",
+      "V1",
+      "V2",
+      "V3",
+      "T2",
+      "K2"
+    ],
+    "metadata_closable_status": "deferred",
+    "persistent_family_counts": {
+      "C": 8,
+      "I": 4,
+      "K": 4,
+      "R": 4,
+      "S": 5,
+      "T": 5
+    },
+    "persistent_family_targets": {
+      "C": 8,
+      "I": 4,
+      "K": 4,
+      "R": 4,
+      "S": 5,
+      "T": 5
+    },
+    "rule": "deterministic, gold-free screening over the candidate pool; strata confirmed or corrected by the annotators at label time (docs/19 §4.2)",
+    "strata": {
+      "metadata_closable": 15,
+      "persistent_ambiguity": 30,
+      "unambiguous": 15
+    },
+    "stratum_targets": {
+      "metadata_closable": 15,
+      "persistent_ambiguity": 30,
+      "unambiguous": 15
+    }
+  },
+  "validation": {
+    "num_questions": 60,
+    "ok": true,
+    "problems": []
+  }
+}

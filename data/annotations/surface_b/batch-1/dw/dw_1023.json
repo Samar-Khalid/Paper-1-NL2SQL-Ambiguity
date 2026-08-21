@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "'not variable units' encoded as IS_VARIABLE_UNITS = 0",
+      "sql": "SELECT c.ACADEMIC_YEAR, COUNT(DISTINCT c.SUBJECT_ID) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.IS_VARIABLE_UNITS = 0 AND c.IS_OFFERED_FALL_TERM = 1 AND c.DEPARTMENT_NAME = 'Mathematics' GROUP BY c.ACADEMIC_YEAR"
+    },
+    "sql_reading_B": {
+      "note": "'not variable units' encoded as IS_VARIABLE_UNITS = 'No'",
+      "sql": "SELECT c.ACADEMIC_YEAR, COUNT(DISTINCT c.SUBJECT_ID) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.IS_VARIABLE_UNITS = 'No' AND c.IS_OFFERED_FALL_TERM = 1 AND c.DEPARTMENT_NAME = 'Mathematics' GROUP BY c.ACADEMIC_YEAR"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). V1 candidate, metadata resolution DEFERRED: the boolean encoding of 'not variable units' (numeric 0 vs text 'No') is a value-encoding ambiguity that requires metadata to resolve.",
+  "question_id": "dw_1023",
+  "question_text": "For each academic year where the Mathematics department has at least one unique subject with subject enrollment number greater than 10, what are the academic year, academic year description, department name, number of unique subjects, minimum total units offered, variance of total units, and standard deviation (using STDDEV only and never STDDEV_POP) of total units for subjects offered in the fall term that are not variable units and are offered by the Mathematics department? Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "V1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 433,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp406",
+      "start": 406,
+      "text": "that are not variable units"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "No strict ambiguity spans.",
+  "question_id": "dw_1001",
+  "spans": []
+}

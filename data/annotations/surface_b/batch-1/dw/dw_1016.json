@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "'advance sign-up' signaled by a non-null prerequisite",
+      "sql": "SELECT t.ACADEMIC_YEAR, VARIANCE(d.MAX_ENROLLMENT) FROM IAP_SUBJECT_DETAIL d JOIN ACADEMIC_TERMS t ON d.TERM_CODE = t.TERM_CODE WHERE d.IS_CANCELLED = 0 AND d.PREREQUISITES IS NOT NULL GROUP BY t.ACADEMIC_YEAR"
+    },
+    "sql_reading_B": {
+      "note": "'advance sign-up' read from the enrollment-type value",
+      "sql": "SELECT t.ACADEMIC_YEAR, VARIANCE(d.MAX_ENROLLMENT) FROM IAP_SUBJECT_DETAIL d JOIN ACADEMIC_TERMS t ON d.TERM_CODE = t.TERM_CODE WHERE d.IS_CANCELLED = 0 AND d.ENROLLMENT_TYPE = 'Advance sign-up' GROUP BY t.ACADEMIC_YEAR"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). K1: 'activities that require advance sign-up' is an external-knowledge predicate over the IAP_SUBJECT_DETAIL schema - a non-null prerequisite (A) or the enrollment-type value (B) are both plausible encodings.",
+  "question_id": "dw_1016",
+  "question_text": "For each academic year, list the academic year description, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for Mathematics department subjects offered in terms within that year, the variance of the maximum enrollment for IAP activities offered in that year by the Mathematics department (considering only activities that require advance sign-up and are not cancelled), and the standard deviation (using STDDEV only and never STDDEV_POP) of the maximum enrollment for those IAP activities. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "K1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 386,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp347",
+      "start": 347,
+      "text": "activities that require advance sign-up"
+    }
+  ]
+}

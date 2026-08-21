@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "for departments that match the Mathematics department (the department with the highest number of undergraduate degree-granting courses)\n\nمعناها الطبيعي في سياق السؤال هو:\n\ndepartments whose number of undergraduate degree-granting courses matches the Mathematics department's number",
+  "question_id": "dw_1004",
+  "spans": []
+}

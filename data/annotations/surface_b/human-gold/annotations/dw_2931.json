@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "Do not return any rounded answers لا يسبب ambiguity؛ فقط يعني عدم تطبيق ROUND() على النتائج",
+  "question_id": "dw_2931",
+  "question_text": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and also include a grand total row for all categories in the format of (null, total average, total variance). Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

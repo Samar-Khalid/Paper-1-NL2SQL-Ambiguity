@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "unanswerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "The question asks for per-student CIP program code statistics (range, variance), but CIP program codes are a course/department-level attribute in SIS_COURSE_DESCRIPTION, not a student-level attribute. The available tables (SIS_SUBJECT_CODE, SIS_DEPARTMENT, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION) do not include an enrollment table linking students to specific courses they take. Without knowing which courses each student is enrolled in, per-student CIP code statistics cannot be computed. The dense rank over school code is also ambiguous in this context since all Mathematics graduate students share the same school code.",
+  "question_id": "dw_1061",
+  "question_text": "Show the department name, department full name, student full name, student email address, dense rank over the school code ordered by school code, the range of CIP program codes, and the variance of CIP program codes for graduate students whose department is degree granting and who are in the Mathematics department, where the CIP program code statistics are computed for degree granting courses in the Mathematics department with non-null CIP program codes. The columns should be: department name, department full name, student full name, student email address, school code dense rank, CIP code range, and CIP code variance, in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

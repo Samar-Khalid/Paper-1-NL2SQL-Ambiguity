@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "نعتبر كل ACTIVITY_TITLE subject، ونعد الـsessions باستخدام الـsession key الفريد.",
+      "sql": "SELECT\n    s.SPONSOR_NAME,\n    COUNT(DISTINCT d.IAP_SUBJECT_SESSION_KEY) AS iap_sessions_hosted,\n    COUNT(DISTINCT d.ACTIVITY_TITLE) AS unique_subjects_organized\nFROM IAP_SUBJECT_DETAIL d\nJOIN IAP_SUBJECT_SPONSOR s\n    ON d.IAP_SUBJECT_SPONSOR_KEY = s.IAP_SUBJECT_SPONSOR_KEY\nGROUP BY s.SPONSOR_NAME;"
+    },
+    "sql_reading_B": {
+      "note": "لو كان هناك subject identifier في metadata أو جدول آخر غير ظاهر في الـschema، فيجب استخدامه بدل ACTIVITY_TITLE في:\n\nCOUNT(DISTINCT <subject_id>)",
+      "sql": "-- لا يمكن تنفيذها بشكل موثوق من الـschema المعروض\n-- لأن IAP_SUBJECT_DETAIL لا يحتوي على SUBJECT_ID / SUBJECT_KEY\n-- يعرّف الـsubject نفسه بشكل صريح."
+    }
+  },
+  "notes": "الـscreening hints هنا لا أتعامل معها كlabels:\n\n[s1] each → لا توجد ambiguity فعلية.\n[c1] number of → مجرد إشارة إلى aggregation، وليس span.\n[k1] IAP → الـschema نفسه يحتوي مجموعة IAP واضحة، لذلك لا نحتاج معرفة خارجية لتعريف الجدول المطلوب.",
+  "question_id": "dw_real_114",
+  "spans": [
+    {
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "unique subjects",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

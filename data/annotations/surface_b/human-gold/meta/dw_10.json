@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "No strict ambiguity identified. 'all those courses' naturally refers to the unique courses offered by the department stated immediately before it.",
+  "question_id": "dw_10",
+  "spans": []
+}

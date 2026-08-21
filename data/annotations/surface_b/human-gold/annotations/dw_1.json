@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "هنا شرط HR_DEPARTMENT_CODE IS NOT NULL ينطبق على الـHR org units، وده أقرب قراءة للنص لأن those تأتي مباشرة بعد HR org units.",
+      "sql": "SELECT\n    o.ORGANIZATION_NAME,\n    AVG(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS AVG_HR_DEPARTMENT_CODE,\n    VARIANCE(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS VAR_HR_DEPARTMENT_CODE,\n    COUNT(*) AS HR_ORG_UNIT_COUNT\nFROM FCLT_ORGANIZATION o\nJOIN HR_ORG_UNIT h\n    ON h.HR_ORG_UNIT_ID = o.HR_ORG_UNIT_ID\nWHERE o.ASSIGNABLE = 'Y'\n  AND o.ORGANIZATION_NAME <> 'ADMISSIONS'\n  AND o.ORGANIZATION_ID NOT IN ('138', '250')\n  AND h.HR_DEPARTMENT_CODE IS NOT NULL\nGROUP BY o.ORGANIZATION_NAME;"
+    },
+    "sql_reading_B": {
+      "note": "هنا those with a non-null HR department code تُفسَّر على أنها organizations، باستخدام الـHR department code الموجود على organization نفسه، ثم تُحسب الـaggregations على الـHR org units المرتبطة بها.",
+      "sql": "SELECT\n    o.ORGANIZATION_NAME,\n    AVG(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS AVG_HR_DEPARTMENT_CODE,\n    VARIANCE(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS VAR_HR_DEPARTMENT_CODE,\n    COUNT(*) AS HR_ORG_UNIT_COUNT\nFROM FCLT_ORGANIZATION o\nJOIN HR_ORG_UNIT h\n    ON h.HR_ORG_UNIT_ID = o.HR_ORG_UNIT_ID\nWHERE o.ASSIGNABLE = 'Y'\n  AND o.ORGANIZATION_NAME <> 'ADMISSIONS'\n  AND o.ORGANIZATION_ID NOT IN ('138', '250')\n  AND o.HR_DEPARTMENT_CODE_OLD IS NOT NULL\nGROUP BY o.ORGANIZATION_NAME;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1",
+  "question_text": "For each assignable organization (excluding 'ADMISSIONS' and those with organization IDs '138' and '250'), provide the organization name, the average and variance of the HR department codes for its associated HR org units, and the number of HR org units per organization, considering only those with a non-null HR department code. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 329,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp289",
+      "start": 289,
+      "text": "those with a non-null HR department code"
+    }
+  ]
+}

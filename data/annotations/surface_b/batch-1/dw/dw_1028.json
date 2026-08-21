@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "running sum partitioned by school",
+      "sql": "SELECT sc.SUBJECT_CODE, d.DEPARTMENT_NAME, SUM(d.DEPT_BUDGET_CODE) OVER (PARTITION BY d.SCHOOL_CODE ORDER BY d.DEPARTMENT_CODE) AS run_sum FROM SIS_SUBJECT_CODE sc JOIN SIS_DEPARTMENT d ON sc.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.DEPARTMENT_NAME = 'Mathematics' AND d.IS_DEGREE_GRANTING = 1"
+    },
+    "sql_reading_B": {
+      "note": "running sum without the school partition",
+      "sql": "SELECT sc.SUBJECT_CODE, d.DEPARTMENT_NAME, SUM(d.DEPT_BUDGET_CODE) OVER (ORDER BY d.DEPARTMENT_CODE) AS run_sum FROM SIS_SUBJECT_CODE sc JOIN SIS_DEPARTMENT d ON sc.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.DEPARTMENT_NAME = 'Mathematics' AND d.IS_DEGREE_GRANTING = 1"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). V3 candidate, metadata resolution DEFERRED: the granularity of the running-sum window ('within each school' partition vs an unbounded order) is ambiguous and requires metadata to resolve.",
+  "question_id": "dw_1028",
+  "question_text": "For each subject code where the department is degree-granting and the department is Mathematics, show the subject code, subject code description, department name, the running sum of department budget codes within each school (ordered by department code), and for the same department, also show the average, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the total units of courses offered by that department, considering only departments that are degree granting, courses that have more than 0 total units, and excluding the Chemistry and Biology departments. Present the results ordered by department code. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "V3",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 224,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp163",
+      "start": 163,
+      "text": "the running sum of department budget codes within each school"
+    }
+  ]
+}

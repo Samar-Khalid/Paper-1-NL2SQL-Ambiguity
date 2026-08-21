@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": " ",
+      "sql": "WITH base AS (\n    SELECT\n        o.ORGANIZATION_ID,\n        o.HR_DEPARTMENT_NAME,\n        o.HR_DEPARTMENT_CODE_OLD AS HR_DEPARTMENT_CODE,\n        o.HR_ORG_UNIT_ID\n    FROM FCLT_ORGANIZATION o\n    WHERE o.ORGANIZATION_NAME LIKE '%Facilities%'\n      AND o.ORGANIZATION_ID NOT IN ('138', '250')\n),\nranked AS (\n    SELECT\n        b.*,\n        DENSE_RANK() OVER (\n            ORDER BY b.HR_DEPARTMENT_CODE\n        ) AS dept_rank\n    FROM base b\n)\nSELECT\n    r.ORGANIZATION_ID,\n    r.dept_rank,\n    h.HR_DEPARTMENT_NAME_LONG,\n    h.HR_ORG_UNIT_TITLE\nFROM ranked r\nLEFT JOIN HR_ORG_UNIT h\n    ON h.HR_ORG_UNIT_ID = r.HR_ORG_UNIT_ID;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH base AS (\n    SELECT\n        o.ORGANIZATION_ID,\n        h.HR_DEPARTMENT_NAME,\n        h.HR_DEPARTMENT_CODE,\n        h.HR_DEPARTMENT_NAME_LONG,\n        h.HR_ORG_UNIT_TITLE\n    FROM FCLT_ORGANIZATION o\n    JOIN HR_ORG_UNIT h\n        ON h.HR_ORG_UNIT_ID = o.HR_ORG_UNIT_ID\n    WHERE o.ORGANIZATION_NAME LIKE '%Facilities%'\n      AND o.ORGANIZATION_ID NOT IN ('138', '250')\n),\nranked AS (\n    SELECT\n        b.*,\n        DENSE_RANK() OVER (\n            ORDER BY b.HR_DEPARTMENT_CODE\n        ) AS dept_rank\n    FROM base b\n)\nSELECT\n    ORGANIZATION_ID,\n    dept_rank,\n    HR_DEPARTMENT_NAME_LONG,\n    HR_ORG_UNIT_TITLE\nFROM ranked;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_102",
+  "question_text": "For organizations whose organization name contains 'Facilities', and that are not organizations '138' or '250', show their organization IDs, the dense rank of their HR department names (considering the current and 2 preceding rows ordered by HR department code), and for each, also show the corresponding HR department name long and the HR org unit title. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 184,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp165",
+      "start": 165,
+      "text": "HR department names"
+    }
+  ]
+}

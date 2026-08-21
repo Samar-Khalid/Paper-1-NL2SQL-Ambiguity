@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "The office can be resolved through EMPLOYEE_DIRECTORY.OFFICE_LOCATION, then matched to FCLT_ROOMS to obtain room/floor/building key and to FCLT_BUILDING_ADDRESS for street address, city, state, and postal code. No strict natural-language ambiguity requires a span.",
+  "question_id": "dw_real_3",
+  "question_text": "What is the room, floor, building key, building street address, city, state, and postal code of Professor Summer Haynes's office?",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

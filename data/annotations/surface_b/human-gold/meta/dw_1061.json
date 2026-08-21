@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "unanswerable"
+  },
+  "interpretations": null,
+  "notes": "The question asks for per-student CIP program code statistics (range, variance), but CIP program codes are a course/department-level attribute in SIS_COURSE_DESCRIPTION, not a student-level attribute. The available tables (SIS_SUBJECT_CODE, SIS_DEPARTMENT, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION) do not include an enrollment table linking students to specific courses they take. Without knowing which courses each student is enrolled in, per-student CIP code statistics cannot be computed. The dense rank over school code is also ambiguous in this context since all Mathematics graduate students share the same school code.",
+  "question_id": "dw_1061",
+  "spans": []
+}

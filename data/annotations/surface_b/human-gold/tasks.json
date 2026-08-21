@@ -1,0 +1,2979 @@
+{
+  "annotator_note": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable",
+  "artifact": "surface-b-human-gold-task-list",
+  "artifact_version": "human-gold-v1",
+  "excluded": [
+    {
+      "question_id": "dw_1013",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1017",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1019",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1020",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1021",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1023",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1024",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1026",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1027",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1028",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1029",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1032",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1034",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1035",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    },
+    {
+      "question_id": "dw_1036",
+      "reason": "resolution deferred in the frozen pilot because no legitimate enrichment source exists (docs/19 §11)",
+      "stratum": "metadata_deferred"
+    }
+  ],
+  "gold_excluded": true,
+  "protocol_version": "annotation-schema-v1",
+  "selection_rule": "usable = frozen batch-1 records in the persistent-ambiguity or unambiguous strata; metadata-deferred and unanswerable records are excluded",
+  "source": {
+    "batch_id": "batch-1",
+    "batch_root": "data\\annotations\\surface_b\\batch-1",
+    "candidates": "data\\annotations\\surface_b\\candidates.json",
+    "label_root": "data\\annotations\\surface_b\\batch-1\\dw"
+  },
+  "tasks": [
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department, what is the maximum number of enrolled students in any course offered by that department in 2019, what is the name of the responsible faculty member for that course, and what is the average number of enrolled students for all such courses in that department, considering only courses where the maximum number of enrolled students is greater than 5, and only including departments of Mathematics (Course 18) and Chemistry (Course 5)? Do not return any rounded answers.",
+      "question_id": "dw_0",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "maximum",
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "18",
+            "2019",
+            "5"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by that"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each assignable organization (excluding 'ADMISSIONS' and those with organization IDs '138' and '250'), provide the organization name, the average and variance of the HR department codes for its associated HR org units, and the number of HR org units per organization, considering only those with a non-null HR department code. Do not return any rounded answers.",
+      "question_id": "dw_1",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "assignable (6 tables: FAC_MAJOR_USE, FAC_ORGANIZATION, FCLT_MAJOR_USE, FCLT_MAJOR_USE_HIST, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "organization (4 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SE_PERSON)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average",
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "excluding",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "138",
+            "250",
+            "ADMISSIONS"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "per organization"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "HR"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department that is degree-granting, has a department budget code above 100000, and is not the Political Science department, give the department code, department name, school name, the number of unique courses offered by the department, the total number of units for all those courses, and the number of unique subject codes associated with those courses. Do not return any rounded answers.",
+      "question_id": "dw_10",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "Among all departments, which are the top 5 departments with the highest average office phone number among graduate students (student year 'G') who have a non-null office phone number? For each of these departments, show the department name, the average and standard deviation (using STDDEV only and never STDDEV_POP) of office phone numbers, and the full name and office phone number of the graduate student in that department with the highest office phone number. Do not return any rounded answers.",
+      "question_id": "dw_100",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "highest",
+            "top"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "5",
+            "G"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each degree-granting department except the Biology department (Course 7), what is the department name and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department in the most recent academic year, and for subjects in the Mathematics department with a total of 12 units offered in the fall term, what are the subject code, subject number, department name, subject title, total units, whether the subject is offered in the fall term, the offering department name, the subject enrollment number, and the row number within the department ordered by subject code? Show the department name and coefficient of variation (using STDDEV only and never STDDEV_POP) first, followed by the Mathematics subject details as available for each department. Do not return any rounded answers.",
+      "question_id": "dw_1000",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "most",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "first",
+            "most"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "except",
+            "never",
+            "not",
+            "whether"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "recent"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "12",
+            "7"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by subject",
+            "by that",
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department that is not 'Mathematics' (Course 18), and is degree-granting and not the Biology department (Course 7), and whose total number of subject codes is greater than one standard deviation (using STDDEV only and never STDDEV_POP) above the mean across all departments, what are the department name, the average of the total units for subjects offered in the 2022FA term, the range of total units, the variance of total units, and the total number of subject codes? List the results ordered by department name. Do not return any rounded answers.",
+      "question_id": "dw_1001",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average",
+            "mean",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "18",
+            "7",
+            "Mathematics"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by department"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each subject title and offering department name in regular terms with more than 5 enrolled students, offered by the Chemistry department (Course 5), and only for courses with materials, provide the subject title, offering department name, the number of reserved course materials, the minimum academic year, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the number of enrolled students in courses with at least one associated material record for the department (considering only Chemistry and Biology departments). Do not return any rounded answers.",
+      "question_id": "dw_1002",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "minimum",
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "least"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "5"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "regular"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each floor in the Stata building (building 32), for rooms loaded into the warehouse on 19-DEC-24, where the largest room square footage on the floor is greater than 100, give the floor name, the name of the building room with the largest square footage, the largest room square footage, and for each space unit on that floor with a room square footage greater than 10, show the building room name, room number, room square footage, and the average room square footage within the floor, ordered by floor name and then by room square footage. Do not return any rounded answers.",
+      "question_id": "dw_1003",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "floor (8 tables: FAC_FLOOR, FAC_ROOMS, FCLT_FLOOR, FCLT_FLOOR_HIST, FCLT_ROOMS, FCLT_ROOMS_HIST, SPACE_FLOOR, ZPM_ROOMS_LOAD)",
+            "room (3 tables: FAC_ROOMS, FCLT_ROOMS, FCLT_ROOMS_HIST)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "BUILDINGS",
+            "LIBRARY_COURSE_INSTRUCTOR"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "largest"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "10",
+            "100",
+            "19",
+            "24",
+            "32"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by floor",
+            "by room"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "DEC"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department that is degree granting (excluding Chemistry), what is the department name, the average of the total units, and the standard deviation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department (considering only subjects with more than 0 total units), and, for departments that match the Mathematics department (the department with the highest number of undergraduate degree-granting courses), also show the department name, school name, and the number of such courses? List the results in order by department name. Do not return any rounded answers.",
+      "question_id": "dw_1004",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "highest"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "excluding",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "0"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by department",
+            "by that"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For the Mathematics department (Course 18), which is degree granting, what are the department code, department name, the minimum number of enrolled students in TIP_SUBJECT_OFFERED (where the number of enrolled students is at least 0 or the total units in SUBJECT_OFFERED_SUMMARY are between 1 and 21), the average total units in TIP_SUBJECT_OFFERED and SUBJECT_OFFERED_SUMMARY, the average total units for subjects offered by that department in the 2022 academic year (excluding Biology/Course 7), and the variance of total units for those subjects in 2022? List the department code, department name, minimum number of enrolled students, average total units (from MathDeptStats), average total units in 2022 (from DeptUnitStats), and variance of total units in 2022, in that order. Do not return any rounded answers.",
+      "question_id": "dw_1005",
+      "signals": [
+        {
+          "evidence": [
+            "any"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average",
+            "minimum",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "least"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "excluding",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "0",
+            "1",
+            "18",
+            "2022",
+            "21",
+            "7"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by that"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department that grants degrees (excluding Chemistry), what is the department name, the average, range, and variance of the number of students enrolled in subjects offered by that department (considering only subjects with at least one enrolled student), and, for the Mathematics department, what is the average and variance of the total units for subjects where the responsible faculty member has a non-null email address and the subject is offered this year? The results should include the department name, average enrolled, range enrolled, variance enrolled, average units, and units variance, in that order. Do not return any rounded answers.",
+      "question_id": "dw_1006",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "least"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "excluding",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "this year"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "by that"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "email"
+          ],
+          "name": "channel-encoding",
+          "signal": "i2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each academic year and term, what are the academic year, academic year description, term code, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the total units of Mathematics subjects offered in each regular, non-future term, and for the corresponding academic term parameter, what are the academic term parameter code, term description, average total units, and variance of the total units of Mathematics subjects offered in the effective term, considering only subjects offered this year? Do not return any rounded answers.",
+      "question_id": "dw_1007",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "description (7 tables: FAC_MAJOR_USE, FAC_ORGANIZATION, FCLT_MAJOR_USE, FCLT_MAJOR_USE_HIST, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_LOOKUP)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "this year"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "regular",
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "List, for each department, the department name, academic year, average number of enrolled students, enrollment range, enrollment variance, and subject count, along with the reason for inclusion ('EnrollmentStats' for departments with calculated enrollment statistics for degree-granting departments excluding Political Science, and 'TopMathFallSubjects' for the top 10 Mathematics department and academic year pairs with the highest number of subjects offered in the fall term). The results should include all these columns in the order: department name, academic year, average enrollment, enrollment range, enrollment variance, subject count, and reason. Do not return any rounded answers.",
+      "question_id": "dw_1008",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "count",
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "highest",
+            "top"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "excluding",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "10",
+            "EnrollmentStats",
+            "TopMathFallSubjects"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "List all departments that either (a) are degree granting and, excluding Chemistry, have at least one subject with more than 0 total units (showing for each such department its name, the average, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of total units for its subjects), or (b) are among the top 10 degree-granting departments by number of subjects offered in the 2022 academic year (excluding Political Science/Course 17), showing for each such department its name and the count of subjects. For each row, also include a column indicating the reason for inclusion ('UnitsStats' for the first case, 'TopSubjects2022' for the second). The columns should be: department name, average total units, variance of total units, standard deviation (using STDDEV only and never STDDEV_POP) of total units, subject count, and reason for inclusion, in that order. Do not return any rounded answers.",
+      "question_id": "dw_1009",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each",
+            "either",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "count",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "first",
+            "least",
+            "top"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "excluding",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "0",
+            "10",
+            "17",
+            "2022",
+            "TopSubjects2022",
+            "UnitsStats"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by number"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For subjects in the current academic term that are in the Political Science department (Course 17), show the subject ID, subject title, department name, and the maximum total units within each school, ordered by subject ID. Do not return any rounded answers.",
+      "question_id": "dw_101",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "maximum",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "17"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by subject"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "ID"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For subjects in the course catalog with a total of 12 units, offered in the fall term, and in the Mathematics department, show the subject code, subject number, department name, subject title, total units, whether the subject is offered in the fall term, the offering department name, the subject enrollment number, the row number within each department ordered by subject code, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the number of enrolled students in the subjects offered by the Mathematics department. Do not return any rounded answers.",
+      "question_id": "dw_1010",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "never",
+            "not",
+            "whether"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "12"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by subject",
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "List, for each department, either (a) the department name along with the average, range, and variance of the total units for letter graded subjects offered in the 2022 academic year (for degree-granting departments except Biology), or (b) the department name, department full name, and the maximum total units among subjects offered in the 2021FA term (for degree-granting departments except Chemistry that offered at least one subject), and indicate the reason for inclusion as either '2022 Letter Graded' or '2021FA Max Units'. The columns should be: department name, department full name, average total units, range of total units, variance of total units, maximum total units, and reason for inclusion, in that order. Do not return any rounded answers.",
+      "question_id": "dw_1011",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "either"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "max",
+            "maximum",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "least"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "except",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "2021FA Max Units",
+            "2022",
+            "2022 Letter Graded"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For subjects offered in the academic year 2024 that are also present in the CIS course catalog and are in the Mathematics department (Course 18), show the subject ID, subject code, subject number, department name, subject short title, subject title, lecture units, lab units, total units, grade type, grade rule, the minimum total units value over each department code group, and the total number of graduate students in the Mathematics department whose department is degree granting and whose student year is 'G', ordered by subject code and subject number. Do not return any rounded answers.",
+      "question_id": "dw_1012",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP",
+            "WAREHOUSE_USERS"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "minimum",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "18",
+            "2024",
+            "G"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by subject"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "CIS",
+            "ID"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department that is degree-granting, excluding the Physics and Biology (Course 7) departments, provide the department name, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for courses offered by that department, the average of the total units for subjects offered by that department in the 2022 academic year, and the variance of the total units for those subjects. List the department name, coefficient of variation (using STDDEV only and never STDDEV_POP), average total units (2022), and variance of total units (2022) in that order. Do not return any rounded answers.",
+      "question_id": "dw_1014",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "excluding",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "2022",
+            "7"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by that"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For the Mathematics department (Course 18), which is degree-granting and offers at least one subject with at least one enrolled student and at least one subject with more than 0 total units, provide the department name, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the number of enrolled students per subject offered by that department, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department. Do not return any rounded answers.",
+      "question_id": "dw_1015",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "least"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "0",
+            "18"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by that",
+            "per subject"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each academic year, list the academic year description, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for Mathematics department subjects offered in terms within that year, the variance of the maximum enrollment for IAP activities offered in that year by the Mathematics department (considering only activities that require advance sign-up and are not cancelled), and the standard deviation (using STDDEV only and never STDDEV_POP) of the maximum enrollment for those IAP activities. Do not return any rounded answers.",
+      "question_id": "dw_1016",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "description (7 tables: FAC_MAJOR_USE, FAC_ORGANIZATION, FCLT_MAJOR_USE, FCLT_MAJOR_USE_HIST, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_LOOKUP)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "maximum",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "IAP",
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "cancelled",
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each academic year, what is the highest total units among all subjects offered in that year from the Mathematics department, the term description for the corresponding term, the department name, the number of unique subjects, and the minimum total units offered, considering only subjects that are offered this year and have more than 6 total units, and only departments and academic years where the subject enrollment number is greater than 10 and the department is Mathematics? List the academic year, highest total units, term description, department name, number of unique subjects, and minimum total units in that order. Do not return any rounded answers.",
+      "question_id": "dw_1018",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "description (7 tables: FAC_MAJOR_USE, FAC_ORGANIZATION, FCLT_MAJOR_USE, FCLT_MAJOR_USE_HIST, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_LOOKUP)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "minimum",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "highest"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "this year"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "10",
+            "6"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For organizations whose organization name contains 'Facilities', and that are not organizations '138' or '250', show their organization IDs, the dense rank of their HR department names (considering the current and 2 preceding rows ordered by HR department code), and for each, also show the corresponding HR department name long and the HR org unit title. Do not return any rounded answers.",
+      "question_id": "dw_102",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "organization (4 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SE_PERSON)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "rank"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "138",
+            "2",
+            "250",
+            "Facilities"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "HR"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each academic year and department in which the Mathematics department (Course 18) had a total number of units for all subjects offered in 'Previous' terms that is more than one standard deviation (using STDDEV only and never STDDEV_POP) above the mean across all such combinations, give the academic year, department name, total number of units, the academic year description, the average total units, and the standard deviation (using STDDEV only and never STDDEV_POP) of total units for Mathematics subjects in that academic year that had at least one required or optional material. Do not return any rounded answers.",
+      "question_id": "dw_1022",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "description (7 tables: FAC_MAJOR_USE, FAC_ORGANIZATION, FCLT_MAJOR_USE, FCLT_MAJOR_USE_HIST, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_LOOKUP)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "average",
+            "mean",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "least"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "previous"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "18",
+            "Previous"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each student in the MIT student directory whose department is '6' (Electrical Engineering and Computer Science) and whose department name is 'Electrical Eng & Computer Sci', show their full name, email address, department name, the corresponding SIS admin department name, the average department code within each department code group, the department name from the degree-granting departments (excluding Mathematics), and the average and standard deviation (using STDDEV only and never STDDEV_POP) of the CIP program codes for all degree-granting courses in that department. List the results ordered by the student's full name. Do not return any rounded answers.",
+      "question_id": "dw_1025",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "CIP",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "excluding",
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "6",
+            "Electrical Eng & Computer Sci"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "CIP",
+            "MIT",
+            "SIS",
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        },
+        {
+          "evidence": [
+            "email"
+          ],
+          "name": "channel-encoding",
+          "signal": "i2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For subjects offered in the term '2019FA' by the Chemistry department, show the subject title, the dense rank of each subject considering the current and 2 preceding rows ordered by the number of enrolled students descending, the full name of the offering department, and the school name of the department, but only include courses that have course materials. Do not return any rounded answers.",
+      "question_id": "dw_103",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "rank"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "2",
+            "2019FA"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by the"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each department in the Mathematics department, provide the department name, the average and variance of the total units for subjects offered by that department (considering only subjects that are offered this year and are letter graded), as well as the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the number of unique subject codes per course offered by that department (considering only degree-granting courses). List the columns in the following order: department name, average total units, total units variance, subject code count range, subject code count variance, and subject code count standard deviation (using STDDEV only and never STDDEV_POP). Do not return any rounded answers.",
+      "question_id": "dw_1030",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each",
+            "never"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "year (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "average",
+            "count",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "never",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "this year"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "by that",
+            "per course"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "STDDEV"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "standard"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "For each graduate student in the Political Science department, show their first name, last name, email address, department name, school name, and the maximum department budget code for each student considering the current row and the next 2 rows ordered by last name, along with each subject offered in the term '2016SP' with a total number of units greater than 1 in the Political Science department, including the subject ID, subject title, and the running sum of total units within each school name group ordered by subject ID. List all columns in the following order: first name, last name, email address, department name, school name, maximum department budget code, subject ID, subject title, and running sum of total units. Do not return any rounded answers.",
+      "question_id": "dw_1031",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "LIBRARY_COURSE_INSTRUCTOR",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "maximum",
+            "number of",
+            "sum",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "first",
+            "last"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "relative-temporal",
+          "signal": "t1"
+        },
+        {
+          "evidence": [
+            "1",
+            "2",
+            "2016SP"
+          ],
+          "name": "value-literal",
+          "signal": "v1"
+        },
+        {
+          "evidence": [
+            "by last",
+            "by subject"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "ID"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "current"
+          ],
+          "name": "business-rule",
+          "signal": "k2"
+        },
+        {
+          "evidence": [
+            "email"
+          ],
+          "name": "channel-encoding",
+          "signal": "i2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "Show the department name, department full name, student full name, student email address, dense rank over the school code, CIP program code range, and CIP program code variance for all graduate students in degree-granting Mathematics departments, as well as for all Mathematics departments that are degree granting and have at least one course with a non-null CIP program code, including the CIP program code range and variance for those departments even if they have no such students. List the results ordered by department full name and student full name. Do not return any rounded answers.",
+      "question_id": "dw_1033",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "no"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "CIP",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "least",
+            "rank"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "at least",
+            "no",
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "by department"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "CIP"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "email"
+          ],
+          "name": "channel-encoding",
+          "signal": "i2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "persistent_ambiguity",
+      "question": "Show the department name, department full name, student full name, student email address, dense rank over the school code ordered by school code, the range of CIP program codes, and the variance of CIP program codes for graduate students whose department is degree granting and who are in the Mathematics department, where the CIP program code statistics are computed for degree granting courses in the Mathematics department with non-null CIP program codes. The columns should be: department name, department full name, student full name, student email address, school code dense rank, CIP code range, and CIP code variance, in that order. Do not return any rounded answers.",
+      "question_id": "dw_1061",
+      "signals": [
+        {
+          "evidence": [
+            "any"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "by",
+            "for",
+            "with"
+          ],
+          "name": "attachment",
+          "signal": "s2"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "CIP",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        },
+        {
+          "evidence": [
+            "rank"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        },
+        {
+          "evidence": [
+            "by school"
+          ],
+          "name": "granularity",
+          "signal": "v3"
+        },
+        {
+          "evidence": [
+            "CIP"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        },
+        {
+          "evidence": [
+            "email"
+          ],
+          "name": "channel-encoding",
+          "signal": "i2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and the total number of activities in the category. Do not return any rounded answers.",
+      "question_id": "dw_2713",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "average",
+            "maximum",
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and also show the difference between the average and the variance for each category. Do not return any rounded answers.",
+      "question_id": "dw_2766",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "average",
+            "maximum"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and also include a grand total row for all categories in the format of (null, total average, total variance). Do not return any rounded answers.",
+      "question_id": "dw_2931",
+      "signals": [
+        {
+          "evidence": [
+            "all",
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "average",
+            "maximum",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For each school, provide the school name and calculate the average and variance of the total units for subjects offered in the 2012SU term. Do not return any rounded answers.",
+      "question_id": "dw_2979",
+      "signals": [
+        {
+          "evidence": [
+            "any",
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "average",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "not"
+          ],
+          "name": "existence-negation",
+          "signal": "c3"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "List the name and floor of the building with the largest floor number.",
+      "question_id": "dw_real_10",
+      "signals": [
+        {
+          "evidence": [
+            "floor (8 tables: FAC_FLOOR, FAC_ROOMS, FCLT_FLOOR, FCLT_FLOOR_HIST, FCLT_ROOMS, FCLT_ROOMS_HIST, SPACE_FLOOR, ZPM_ROOMS_LOAD)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "largest"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For each sponsor, list the sponsor name, the number of IAP sessions hosted, and the number of unique subjects organized.",
+      "question_id": "dw_real_114",
+      "signals": [
+        {
+          "evidence": [
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "IAP"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "List the names of the buildings with the most floors. If there are ties, list each one separately.",
+      "question_id": "dw_real_116",
+      "signals": [
+        {
+          "evidence": [
+            "each",
+            "most"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "floor (8 tables: FAC_FLOOR, FAC_ROOMS, FCLT_FLOOR, FCLT_FLOOR_HIST, FCLT_ROOMS, FCLT_ROOMS_HIST, SPACE_FLOOR, ZPM_ROOMS_LOAD)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "most"
+          ],
+          "name": "top-n-ranking",
+          "signal": "c2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For subjects offered in the summer term, list the subject titles, number of instructors, and the length of the longest instructor name.",
+      "question_id": "dw_real_117",
+      "signals": [
+        {
+          "evidence": [
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "For each department, list the department name, department phone number, number of students, and the length of the longest student full name in that department.",
+      "question_id": "dw_real_120",
+      "signals": [
+        {
+          "evidence": [
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "What is total number of subjects, the total fee, and the shortest and longest sessions, for all virtual IAP sessions?",
+      "question_id": "dw_real_16",
+      "signals": [
+        {
+          "evidence": [
+            "all"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "number of",
+            "total"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        },
+        {
+          "evidence": [
+            "IAP"
+          ],
+          "name": "external-knowledge",
+          "signal": "k1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "List the unique course instructor names, course titles, and the amount of material for each course instructor key and the key of subject offered.",
+      "question_id": "dw_real_2",
+      "signals": [
+        {
+          "evidence": [
+            "each"
+          ],
+          "name": "quantifier-scope",
+          "signal": "s1"
+        },
+        {
+          "evidence": [
+            "course (5 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "title (2 tables: TIP_MATERIAL, WAREHOUSE_USERS)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "What is the room, floor, building key, building street address, city, state, and postal code of Professor Summer Haynes's office?",
+      "question_id": "dw_real_3",
+      "signals": [
+        {
+          "evidence": [
+            "city (4 tables: FAC_BUILDING_ADDRESS, FCLT_BUILDING_ADDRESS, FCLT_BUILDING_ADDRESS_HIST, IR_INSTITUTION)",
+            "floor (8 tables: FAC_FLOOR, FAC_ROOMS, FCLT_FLOOR, FCLT_FLOOR_HIST, FCLT_ROOMS, FCLT_ROOMS_HIST, SPACE_FLOOR, ZPM_ROOMS_LOAD)",
+            "room (3 tables: FAC_ROOMS, FCLT_ROOMS, FCLT_ROOMS_HIST)",
+            "state (4 tables: FAC_BUILDING_ADDRESS, FCLT_BUILDING_ADDRESS, FCLT_BUILDING_ADDRESS_HIST, IR_INSTITUTION)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "BUILDINGS",
+            "SIS_LOOKUP"
+          ],
+          "name": "multi-entity",
+          "signal": "r2"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "Show the details of rooms including the full name of the rooms, the building names, floor numbers, the organizations occupying them, name of the departments occupying them, and the percentage of the room area over the assignable floor area and building.",
+      "question_id": "dw_real_33",
+      "signals": [
+        {
+          "evidence": [
+            "area (3 tables: FAC_ROOMS, FCLT_ROOMS, FCLT_ROOMS_HIST)",
+            "assignable (6 tables: FAC_MAJOR_USE, FAC_ORGANIZATION, FCLT_MAJOR_USE, FCLT_MAJOR_USE_HIST, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "floor (8 tables: FAC_FLOOR, FAC_ROOMS, FCLT_FLOOR, FCLT_FLOOR_HIST, FCLT_ROOMS, FCLT_ROOMS_HIST, SPACE_FLOOR, ZPM_ROOMS_LOAD)",
+            "organization (4 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SE_PERSON)",
+            "room (3 tables: FAC_ROOMS, FCLT_ROOMS, FCLT_ROOMS_HIST)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "percentage"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "Show the details of rooms including the full name of the rooms, the building names, floor numbers, the organizations occupying them, name of the departments occupying them, and the percentage of the room area over the floor area and building.",
+      "question_id": "dw_real_34",
+      "signals": [
+        {
+          "evidence": [
+            "area (3 tables: FAC_ROOMS, FCLT_ROOMS, FCLT_ROOMS_HIST)",
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)",
+            "floor (8 tables: FAC_FLOOR, FAC_ROOMS, FCLT_FLOOR, FCLT_FLOOR_HIST, FCLT_ROOMS, FCLT_ROOMS_HIST, SPACE_FLOOR, ZPM_ROOMS_LOAD)",
+            "organization (4 tables: FAC_ORGANIZATION, FCLT_ORGANIZATION, FCLT_ORGANIZATION_HIST, SE_PERSON)",
+            "room (3 tables: FAC_ROOMS, FCLT_ROOMS, FCLT_ROOMS_HIST)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "percentage"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        }
+      ]
+    },
+    {
+      "database_id": "dw",
+      "frozen_stratum": "unambiguous",
+      "question": "Regarding the mailing list about duo users, provide the number of students in this list, and the number of departments and schools associated with these students.",
+      "question_id": "dw_real_51",
+      "signals": [
+        {
+          "evidence": [
+            "department (4 tables: LIBRARY_COURSE_INSTRUCTOR, MIT_STUDENT_DIRECTORY, SIS_COURSE_DESCRIPTION, STUDENT_DEGREE_PROGRAM)"
+          ],
+          "name": "shared-term-across-tables",
+          "signal": "r1"
+        },
+        {
+          "evidence": [
+            "number of"
+          ],
+          "name": "aggregation-metric",
+          "signal": "c1"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "excluded_metadata_deferred": 15,
+    "excluded_unanswerable": 0,
+    "persistent_ambiguity": 30,
+    "unambiguous": 15,
+    "usable": 45
+  }
+}

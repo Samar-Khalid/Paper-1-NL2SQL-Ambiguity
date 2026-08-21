@@ -1,0 +1,45 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "COUNT(*)"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "COUNT(DISTINCT LIBRARY_RESERVE_CATALOG_KEY)"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1002",
+  "question_text": "For each subject title and offering department name in regular terms with more than 5 enrolled students, offered by the Chemistry department (Course 5), and only for courses with materials, provide the subject title, offering department name, the number of reserved course materials, the minimum academic year, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the number of enrolled students in courses with at least one associated material record for the department (considering only Chemistry and Biology departments). Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "end": 547,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp476",
+      "start": 476,
+      "text": "for the department (considering only Chemistry and Biology departments)"
+    },
+    {
+      "ambiguity_type": "S2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 282,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp243",
+      "start": 243,
+      "text": "the number of reserved course materials"
+    }
+  ]
+}

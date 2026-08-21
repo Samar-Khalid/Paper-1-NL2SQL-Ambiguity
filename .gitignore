@@ -1,0 +1,127 @@
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.mypy_cache/
+.ruff_cache/
+.pyre_cache/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.coverage_html/
+.cache
+pytest-cache/
+.hypothesis/
+.tox/
+.nox/
+.mr.developer.cfg
+.pybuilder/
+.cache/
+
+# ============================================================
+# Virtual environments
+# ============================================================
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# ============================================================
+# IDEs / editors
+# ============================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============================================================
+# Environment / secrets
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# ============================================================
+# Data (raw and derived datasets are NOT committed)
+# Download/register datasets; never push data files.
+# ============================================================
+data/
+!data/annotations/
+!data/annotations/**
+*.parquet
+*.sqlite
+*.sqlite3
+*.db
+*.duckdb
+*.csv.zst
+!tests/fixtures/**/*.csv
+!tests/fixtures/**/*.sqlite
+
+# ============================================================
+# Experiments: RECORDS are committed, RUN ARTIFACTS are not.
+# ============================================================
+experiments/runs/
+!experiments/runs/surface_b_human_gold_eval/
+!experiments/runs/surface_b_human_gold_eval/**
+experiments/*/runs/
+experiments/sweeps/
+experiments/compare/
+*.jsonl
+
+# ============================================================
+# Results: summaries are committed, heavy artifacts are not.
+# ============================================================
+results/artifacts/
+results/plots/
+*.png
+*.svg
+!architecture/diagrams/**/*.svg
+!architecture/diagrams/**/*.png
+
+# ============================================================
+# Notebooks: scratch outputs and checkpoints are not committed.
+# ============================================================
+notebooks/scratch/
+.ipynb_checkpoints/
+*.nbl_checkpoints/
+*.nbconvert.ipynb
+
+# ============================================================
+# Documentation build
+# ============================================================
+site/
+docs/_build/
+
+# ============================================================
+# OS cruft
+# ============================================================
+Thumbs.db
+Desktop.ini

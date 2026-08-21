@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: same grouping and measures as dw_2713 plus an explicitly requested difference column; no second plausible reading.",
+  "question_id": "dw_2766",
+  "question_text": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and also show the difference between the average and the variance for each category. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

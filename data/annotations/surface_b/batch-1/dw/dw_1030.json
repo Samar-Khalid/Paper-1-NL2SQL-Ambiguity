@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "'this year' resolved by the IS_OFFERED_THIS_YEAR flag",
+      "sql": "SELECT c.DEPARTMENT_NAME, AVG(c.TOTAL_UNITS), VARIANCE(c.TOTAL_UNITS) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.IS_OFFERED_THIS_YEAR = 1 AND c.GRADE_TYPE = 'Letter' GROUP BY c.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "'this year' resolved as the latest catalog academic year",
+      "sql": "SELECT c.DEPARTMENT_NAME, AVG(c.TOTAL_UNITS), VARIANCE(c.TOTAL_UNITS) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.ACADEMIC_YEAR = (SELECT MAX(x.ACADEMIC_YEAR) FROM COURSE_CATALOG_SUBJECT_OFFERED x) AND c.GRADE_TYPE = 'Letter' GROUP BY c.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). T1: 'subjects that are offered this year' - the IS_OFFERED_THIS_YEAR flag (A) versus the most recent catalog academic year (B).",
+  "question_id": "dw_1030",
+  "question_text": "For each department in the Mathematics department, provide the department name, the average and variance of the total units for subjects offered by that department (considering only subjects that are offered this year and are letter graded), as well as the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the number of unique subject codes per course offered by that department (considering only degree-granting courses). List the columns in the following order: department name, average total units, total units variance, subject code count range, subject code count variance, and subject code count standard deviation (using STDDEV only and never STDDEV_POP). Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "T1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 217,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp200",
+      "start": 200,
+      "text": "offered this year"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "The question is semantically well-defined from MIT_STUDENT_DIRECTORY: filter to graduate students (STUDENT_YEAR = 'G') with non-null OFFICE_PHONE, aggregate by department, rank departments by descending average phone number, then select the highest-phone graduate student within each top-5 department. STDDEV is explicitly required instead of STDDEV_POP.",
+  "question_id": "dw_100",
+  "question_text": "Among all departments, which are the top 5 departments with the highest average office phone number among graduate students (student year 'G') who have a non-null office phone number? For each of these departments, show the department name, the average and standard deviation (using STDDEV only and never STDDEV_POP) of office phone numbers, and the full name and office phone number of the graduate student in that department with the highest office phone number. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "'those' = HR org units; filter the org-unit rows",
+      "sql": "SELECT o.ORGANIZATION_NAME, AVG(h.HR_DEPARTMENT_CODE), COUNT(h.HR_ORG_UNIT_ID) FROM FCLT_ORGANIZATION o JOIN HR_ORG_UNIT h ON o.HR_ORG_UNIT_ID = h.HR_ORG_UNIT_ID WHERE h.HR_DEPARTMENT_CODE IS NOT NULL GROUP BY o.ORGANIZATION_NAME"
+    },
+    "sql_reading_B": {
+      "note": "'those' = organizations; filter the organization rows",
+      "sql": "SELECT o.ORGANIZATION_NAME, AVG(h.HR_DEPARTMENT_CODE), COUNT(h.HR_ORG_UNIT_ID) FROM FCLT_ORGANIZATION o JOIN HR_ORG_UNIT h ON o.HR_ORG_UNIT_ID = h.HR_ORG_UNIT_ID WHERE o.HR_DEPARTMENT_CODE_OLD IS NOT NULL GROUP BY o.ORGANIZATION_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). S1: the pronoun 'those' in the last clause can refer to the HR org units being aggregated (A) or to the organizations themselves (B). The two filters are schema-consistent.",
+  "question_id": "dw_1",
+  "question_text": "For each assignable organization (excluding 'ADMISSIONS' and those with organization IDs '138' and '250'), provide the organization name, the average and variance of the HR department codes for its associated HR org units, and the number of HR org units per organization, considering only those with a non-null HR department code. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 329,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp272",
+      "start": 272,
+      "text": "considering only those with a non-null HR department code"
+    }
+  ]
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Human Gold - Surface B annotation</title>
+<style>
+  :root { --accent:#1a6fb5; --border:#d9dee3; --bg:#f6f8fa; --ok:#1a7f37; --err:#cf222e; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.5 system-ui, "Segoe UI", sans-serif; background:var(--bg); color:#1f2328; }
+  header { background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0; }
+  header .meta { color:#57606a; font-size:13px; }
+  main { display:grid; grid-template-columns: 320px 1fr; gap:14px; padding:14px 18px; align-items:start; }
+  aside { background:#fff; border:1px solid var(--border); border-radius:8px; padding:10px; max-height:calc(100vh - 120px); overflow:auto; }
+  aside input[type=search] { width:100%; padding:6px 8px; border:1px solid var(--border); border-radius:6px; margin-bottom:8px; }
+  .task { padding:8px 10px; border:1px solid var(--border); border-radius:6px; margin-bottom:6px; cursor:pointer; background:#fff; }
+  .task.active { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+  .task .tid { font-weight:600; font-size:12px; color:var(--accent); display:flex; justify-content:space-between; }
+  .task .q { font-size:12px; color:#57606a; margin-top:2px; }
+  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:#d0d7de; }
+  .dot.done { background:var(--ok); }
+  section.panel { background:#fff; border:1px solid var(--border); border-radius:8px; padding:16px; }
+  h2 { font-size:15px; margin:0 0 8px; }
+  h3 { font-size:13px; margin:18px 0 6px; color:#57606a; text-transform:uppercase; letter-spacing:.04em; }
+  .question { padding:10px 12px; background:#fbfdff; border:1px solid var(--border); border-radius:6px; user-select:text; }
+  .codechip { display:inline-block; font-size:11px; padding:1px 7px; border-radius:10px; background:#e8f1fa; color:#0b5394; border:1px solid #cfe1f3; margin:2px 4px 2px 0; }
+  table { border-collapse:collapse; width:100%; font-size:12px; }
+  th, td { border:1px solid var(--border); padding:4px 8px; text-align:left; vertical-align:top; }
+  th { background:#f2f5f8; }
+  .pk { font-weight:600; }
+  .fk { color:var(--accent); }
+  .row { display:flex; gap:8px; align-items:center; margin:6px 0; flex-wrap:wrap; }
+  label { font-size:13px; }
+  select, input[type=text], input[type=number], textarea { padding:5px 7px; border:1px solid var(--border); border-radius:6px; font:inherit; }
+  textarea { width:100%; min-height:64px; resize:vertical; }
+  .spanrow { border:1px solid var(--border); border-radius:6px; padding:8px; margin:6px 0; background:#fafbfc; }
+  .btn { border:1px solid var(--border); background:#fff; border-radius:6px; padding:6px 12px; cursor:pointer; font:inherit; }
+  .btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  #status { font-size:13px; margin-left:8px; }
+  #status.ok { color:var(--ok); } #status.err { color:var(--err); }
+  details { border:1px solid var(--border); border-radius:6px; padding:6px 10px; margin-top:6px; }
+  summary { cursor:pointer; font-size:13px; }
+  .empty { color:#57606a; font-style:italic; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Human Gold - Surface B annotation</h1>
+  <span class="meta" id="header-meta"></span>
+</header>
+<main>
+  <aside>
+    <input type="search" id="filter" placeholder="Filter by id or text">
+    <div id="tasklist"></div>
+  </aside>
+  <section class="panel">
+    <div id="panel-empty" class="empty">Select a question from the task list.</div>
+    <div id="panel" hidden>
+      <h2><span id="qid"></span> <span class="meta" id="qdb"></span></h2>
+      <div class="question" id="qtext"></div>
+
+      <details id="signals-box">
+        <summary>Signal hints (screening hints only, not labels)</summary>
+        <div id="signals"></div>
+      </details>
+      <details id="schema-box">
+        <summary>Warehouse schema</summary>
+        <div id="schema"></div>
+      </details>
+
+      <h3>Answerability</h3>
+      <div class="row">
+        <label><input type="radio" name="answerability" value="answerable" checked> Answerable</label>
+        <label><input type="radio" name="answerability" value="unanswerable"> Unanswerable</label>
+        <label>Confidence <input type="number" id="confidence" min="0" max="1" step="0.05" value="1.0"></label>
+      </div>
+
+      <h3>Ambiguity spans</h3>
+      <div id="spans"></div>
+      <div class="row">
+        <button class="btn" id="add-span" type="button">Add span</button>
+        <button class="btn" id="clear-spans" type="button">Clear spans</button>
+      </div>
+
+      <h3>Interpretations (required when a strict-ambiguity span exists)</h3>
+      <div id="readings-box" hidden>
+        <label>SQL reading A</label>
+        <textarea id="sql_a" placeholder="SELECT ..."></textarea>
+        <label>Note A</label>
+        <textarea id="note_a" placeholder="Optional"></textarea>
+        <label>SQL reading B</label>
+        <textarea id="sql_b" placeholder="SELECT ..."></textarea>
+        <label>Note B</label>
+        <textarea id="note_b" placeholder="Optional"></textarea>
+      </div>
+
+      <h3>Notes</h3>
+      <textarea id="notes" placeholder="Optional free-text notes"></textarea>
+
+      <div class="row">
+        <button class="btn primary" id="save" type="button">Save</button>
+        <button class="btn" id="regenerate" type="button">Regenerate derived files</button>
+        <span id="status"></span>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+"use strict";
+const CODES = ["S1","S2","R1","R2","V1","V2","V3","C1","C2","C3","T1","T2","K1","K2","I2","I3"];
+const RISKS = ["low","medium","high"];
+const CHANNELS = ["clarification","assumption","metadata"];
+
+let tasks = [];
+let schemas = {};
+let annotated = new Set();
+let current = null;
+let currentSaved = false;
+
+async function api(path, opts) {
+  const res = await fetch(path, opts);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error((data.error) || (data.problems || []).join("; ") || res.statusText);
+  return data;
+}
+
+function el(tag, attrs, text) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) node.setAttribute(k, v);
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function esc(s) {
+  const div = document.createElement("div");
+  div.textContent = s == null ? "" : String(s);
+  return div.innerHTML;
+}
+
+async function loadAll() {
+  const [taskData, schemaData, status] = await Promise.all([
+    api("/api/tasks"), api("/api/schemas"), api("/api/status"),
+  ]);
+  tasks = taskData.tasks;
+  schemas = schemaData;
+  annotated = new Set(status.annotated_ids);
+  document.getElementById("header-meta").textContent =
+    "annotator: " + status.annotator_id + " | " + status.annotated + "/" + status.total + " done";
+  renderList();
+}
+
+function renderList() {
+  const list = document.getElementById("tasklist");
+  list.innerHTML = "";
+  const q = document.getElementById("filter").value.toLowerCase();
+  for (const t of tasks) {
+    if (q && t.question_id.toLowerCase().indexOf(q) === -1 &&
+        t.question.toLowerCase().indexOf(q) === -1) continue;
+    const row = el("div", { class: "task", "data-id": t.question_id });
+    const top = el("div", { class: "tid" });
+    top.appendChild(el("span", null, t.question_id));
+    top.appendChild(el("span", { class: "dot" + (annotated.has(t.question_id) ? " done" : "") }));
+    row.appendChild(top);
+    row.appendChild(el("div", { class: "q" }, t.question.slice(0, 140) + (t.question.length > 140 ? "..." : "")));
+    row.addEventListener("click", () => openTask(t.question_id));
+    list.appendChild(row);
+  }
+}
+
+async function openTask(id) {
+  const t = await api("/api/task/" + encodeURIComponent(id));
+  current = t;
+  currentSaved = t.saved;
+  document.getElementById("panel-empty").hidden = true;
+  document.getElementById("panel").hidden = false;
+  document.getElementById("qid").textContent = t.question_id;
+  document.getElementById("qdb").textContent = "db: " + t.database_id;
+  document.getElementById("qtext").textContent = t.question;
+
+  const sig = document.getElementById("signals");
+  sig.innerHTML = "";
+  if (!t.signals || !t.signals.length) {
+    sig.appendChild(el("div", { class: "empty" }, "No screening signal fired for this question."));
+  } else {
+    for (const s of t.signals) {
+      sig.appendChild(el("div", null, "[" + s.signal + "] " + s.name + ": " + ((s.evidence || []).join(", "))));
+    }
+  }
+  document.getElementById("signals-box").open = false;
+
+  const schema = schemas[t.database_id];
+  const box = document.getElementById("schema");
+  box.innerHTML = "";
+  if (!schema) {
+    box.appendChild(el("div", { class: "empty" }, "Schema unavailable for this database."));
+  } else {
+    const table = el("table");
+    table.appendChild(el("tr", null, el("th", null, "Table")));
+    for (const t2 of schema.tables) {
+      const tr = el("tr");
+      const td = el("td");
+      td.appendChild(el("div", { class: "pk" }, t2.name));
+      const sub = el("table");
+      const head = el("tr");
+      for (const h of ["Column", "Type", "PK", "FK"]) head.appendChild(el("th", null, h));
+      sub.appendChild(head);
+      for (const c of t2.columns) {
+        const cr = el("tr");
+        cr.appendChild(el("td", null, c.name));
+        cr.appendChild(el("td", null, c.data_type));
+        cr.appendChild(el("td", null, c.primary_key ? "PK" : ""));
+        cr.appendChild(el("td", { class: "fk" }, c.foreign_key
+          ? c.foreign_key.references_table + "." + c.foreign_key.references_column : ""));
+        sub.appendChild(cr);
+      }
+      td.appendChild(sub);
+      tr.appendChild(td);
+      table.appendChild(tr);
+    }
+    box.appendChild(table);
+  }
+  document.getElementById("schema-box").open = false;
+
+  document.querySelector('input[name="answerability"][value="answerable"]').checked = true;
+  document.getElementById("confidence").value = "1.0";
+  document.getElementById("spans").innerHTML = "";
+  document.getElementById("sql_a").value = "";
+  document.getElementById("sql_b").value = "";
+  document.getElementById("note_a").value = "";
+  document.getElementById("note_b").value = "";
+  document.getElementById("notes").value = "";
+  document.getElementById("status").textContent = currentSaved ? "saved" : "not saved";
+  document.getElementById("status").className = currentSaved ? "ok" : "";
+}
+
+function spanRows() {
+  return Array.from(document.querySelectorAll("#spans .spanrow")).map((row) => ({
+    type: row.querySelector(".sp-type").value,
+    phrase: row.querySelector(".sp-phrase").value,
+    assumption_risk: row.querySelector(".sp-risk").value,
+    resolution_channel: row.querySelector(".sp-channel").value,
+    clarification_required: row.querySelector(".sp-clar").checked,
+    metadata_resolution: row.querySelector(".sp-meta").checked,
+  }));
+}
+
+function updateReadingsVisibility() {
+  const spans = spanRows();
+  const needs = spans.some((s) => s.resolution_channel !== "metadata");
+  document.getElementById("readings-box").hidden = !needs;
+}
+
+function addSpanRow(span) {
+  const wrap = el("div", { class: "spanrow" });
+  const type = el("select", { class: "sp-type" });
+  for (const c of CODES) type.appendChild(el("option", { value: c }, c));
+  type.value = (span && span.type) || CODES[0];
+  wrap.appendChild(el("label", null, "Code "));
+  wrap.appendChild(type);
+
+  const phrase = el("input", { class: "sp-phrase", type: "text" });
+  phrase.placeholder = "exact phrase from the question";
+  if (span) phrase.value = span.phrase || "";
+  wrap.appendChild(el("label", null, "Phrase "));
+  wrap.appendChild(phrase);
+
+  const risk = el("select", { class: "sp-risk" });
+  for (const r of RISKS) risk.appendChild(el("option", { value: r }, r));
+  risk.value = (span && span.assumption_risk) || "medium";
+  wrap.appendChild(el("label", null, "Risk "));
+  wrap.appendChild(risk);
+
+  const channel = el("select", { class: "sp-channel" });
+  for (const c of CHANNELS) channel.appendChild(el("option", { value: c }, c));
+  channel.value = (span && span.resolution_channel) || "clarification";
+  wrap.appendChild(el("label", null, "Channel "));
+  wrap.appendChild(channel);
+
+  const clar = el("input", { class: "sp-clar", type: "checkbox" });
+  clar.checked = span ? !!span.clarification_required : true;
+  wrap.appendChild(el("label", null, "Clarification "));
+  wrap.appendChild(clar);
+
+  const meta = el("input", { class: "sp-meta", type: "checkbox" });
+  meta.checked = span ? !!span.metadata_resolution : false;
+  wrap.appendChild(el("label", null, "Metadata-resolved "));
+  wrap.appendChild(meta);
+
+  const del = el("button", { class: "btn", type: "button" }, "Remove");
+  del.addEventListener("click", () => { wrap.remove(); updateReadingsVisibility(); });
+  wrap.appendChild(del);
+
+  channel.addEventListener("change", updateReadingsVisibility);
+  clar.addEventListener("change", updateReadingsVisibility);
+  document.getElementById("spans").appendChild(wrap);
+}
+
+document.getElementById("add-span").addEventListener("click", () => { addSpanRow(null); updateReadingsVisibility(); });
+document.getElementById("clear-spans").addEventListener("click", () => {
+  document.getElementById("spans").innerHTML = "";
+  updateReadingsVisibility();
+});
+document.getElementById("filter").addEventListener("input", renderList);
+
+async function save() {
+  if (!current) return;
+  const status = document.getElementById("status");
+  status.textContent = "saving...";
+  status.className = "";
+  const answerability = document.querySelector('input[name="answerability"]:checked').value;
+  const payload = {
+    answerability: {
+      label: answerability,
+      confidence: parseFloat(document.getElementById("confidence").value) || 1.0,
+    },
+    spans: spanRows(),
+    interpretations: null,
+    notes: document.getElementById("notes").value || null,
+  };
+  const needs = payload.spans.some((s) => s.resolution_channel !== "metadata");
+  if (needs) {
+    const sqlA = document.getElementById("sql_a").value.trim();
+    const sqlB = document.getElementById("sql_b").value.trim();
+    payload.interpretations = {
+      sql_reading_A: { sql: sqlA, note: document.getElementById("note_a").value || null },
+      sql_reading_B: { sql: sqlB, note: document.getElementById("note_b").value || null },
+    };
+  }
+  try {
+    const res = await api("/api/task/" + encodeURIComponent(current.question_id) + "/annotation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    currentSaved = res.saved;
+    annotated.add(current.question_id);
+    status.textContent = "saved";
+    status.className = "ok";
+    renderList();
+    loadStatus();
+  } catch (err) {
+    status.textContent = "error: " + err.message;
+    status.className = "err";
+  }
+}
+
+async function loadStatus() {
+  const status = await api("/api/status");
+  document.getElementById("header-meta").textContent =
+    "annotator: " + status.annotator_id + " | " + status.annotated + "/" + status.total + " done";
+}
+
+document.getElementById("save").addEventListener("click", save);
+document.getElementById("regenerate").addEventListener("click", async () => {
+  const status = document.getElementById("status");
+  try {
+    const res = await api("/api/regenerate", { method: "POST" });
+    status.textContent = "regenerated " + res.regenerated + " derived files";
+    status.className = "ok";
+  } catch (err) {
+    status.textContent = "error: " + err.message;
+    status.className = "err";
+  }
+});
+
+loadAll().catch((err) => {
+  document.getElementById("status").textContent = "load error: " + err.message;
+  document.getElementById("status").className = "err";
+});
+</script>
+</body>
+</html>

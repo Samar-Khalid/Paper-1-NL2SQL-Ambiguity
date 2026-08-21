@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 0.96,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "The wording is semantically sufficient. by the Chemistry department clearly refers to the offering department, reinforced by the requested offering-department output. current and 2 preceding rows specifies a three-row rolling frame ordered by enrolled students descending; its difficulty is SQL implementation rather than linguistic ambiguity. have course materials can be resolved from the explicit IS_NO_COURSE_MATERIAL indicator in TIP_SUBJECT_OFFERED, so no strict ambiguity span is necessary.",
+  "question_id": "dw_103",
+  "question_text": "For subjects offered in the term '2019FA' by the Chemistry department, show the subject title, the dense rank of each subject considering the current and 2 preceding rows ordered by the number of enrolled students descending, the full name of the offering department, and the school name of the department, but only include courses that have course materials. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

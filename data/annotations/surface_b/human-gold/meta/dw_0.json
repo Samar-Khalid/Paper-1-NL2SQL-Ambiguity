@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH dept_courses AS (\n    SELECT\n        s.OFFER_DEPT_CODE AS department_code,\n        s.OFFER_DEPT_NAME AS department_name,\n        s.COURSE_NUMBER,\n        s.SUBJECT_ID,\n        s.NUM_ENROLLED_STUDENTS,\n        s.RESPONSIBLE_FACULTY_NAME\n    FROM SUBJECT_OFFERED s\n    WHERE s.TERM_CODE LIKE '2019%'\n      AND s.OFFER_DEPT_CODE IN ('18', '5')\n),\ndept_stats AS (\n    SELECT\n        department_code,\n        MAX(NUM_ENROLLED_STUDENTS) AS max_enrollment\n    FROM dept_courses\n    GROUP BY department_code\n)\nSELECT\n    d.department_name,\n    d.max_enrollment,\n    ...\n    AVG(c.NUM_ENROLLED_STUDENTS) AS avg_enrollment\nFROM dept_stats d\nJOIN dept_courses c\n  ON c.department_code = d.department_code\nWHERE d.max_enrollment > 5\nGROUP BY d.department_name, d.max_enrollment;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    department,\n    MAX(NUM_ENROLLED_STUDENTS) AS max_enrollment,\n    AVG(NUM_ENROLLED_STUDENTS) AS avg_enrollment\nFROM ...\nWHERE ...\n  AND NUM_ENROLLED_STUDENTS > 5\nGROUP BY department;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_0",
+  "spans": [
+    {
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "all such courses",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

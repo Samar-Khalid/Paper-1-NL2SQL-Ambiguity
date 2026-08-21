@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: 'each subject category' with category name, average/variance of maximum enrollment, and activity count maps unambiguously onto IAP_SUBJECT_CATEGORY/IAP_SUBJECT_DETAIL aggregates.",
+  "question_id": "dw_2713",
+  "question_text": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and the total number of activities in the category. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

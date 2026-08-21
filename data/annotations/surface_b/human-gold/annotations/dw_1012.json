@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "EXISTS (\n    SELECT 1\n    FROM CIS_COURSE_CATALOG c\n    WHERE c.SUBJECT_ID = s.SUBJECT_ID\n)"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "EXISTS (\n    SELECT 1\n    FROM CIS_COURSE_CATALOG c\n    WHERE c.SUBJECT_ID = s.SUBJECT_ID\n      AND c.ACADEMIC_YEAR = '2024'\n)"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1012",
+  "question_text": "For subjects offered in the academic year 2024 that are also present in the CIS course catalog and are in the Mathematics department (Course 18), show the subject ID, subject code, subject number, department name, subject short title, subject title, lecture units, lab units, total units, grade type, grade rule, the minimum total units value over each department code group, and the total number of graduate students in the Mathematics department whose department is degree granting and whose student year is 'G', ordered by subject code and subject number. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 94,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp56",
+      "start": 56,
+      "text": "also present in the CIS course catalog"
+    }
+  ]
+}

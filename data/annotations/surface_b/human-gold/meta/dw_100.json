@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "The question is semantically well-defined from MIT_STUDENT_DIRECTORY: filter to graduate students (STUDENT_YEAR = 'G') with non-null OFFICE_PHONE, aggregate by department, rank departments by descending average phone number, then select the highest-phone graduate student within each top-5 department. STDDEV is explicitly required instead of STDDEV_POP.",
+  "question_id": "dw_100",
+  "spans": []
+}

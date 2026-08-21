@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "enrollment read from SUBJECT_OFFERED_SUMMARY",
+      "sql": "SELECT s.DEPARTMENT_NAME, AVG(sos.SUBJECT_ENROLLMENT_NUMBER) FROM SIS_DEPARTMENT s JOIN SUBJECT_OFFERED_SUMMARY sos ON s.DEPARTMENT_CODE = sos.OFFER_DEPT_CODE WHERE s.DEPARTMENT_NAME = 'Mathematics' AND sos.SUBJECT_ENROLLMENT_NUMBER > 0 GROUP BY s.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "enrollment read from LIBRARY_SUBJECT_OFFERED",
+      "sql": "SELECT s.DEPARTMENT_NAME, AVG(lso.NUM_ENROLLED_STUDENTS) FROM SIS_DEPARTMENT s JOIN LIBRARY_SUBJECT_OFFERED lso ON s.DEPARTMENT_CODE = lso.OFFER_DEPT_CODE WHERE s.DEPARTMENT_NAME = 'Mathematics' AND lso.NUM_ENROLLED_STUDENTS > 0 GROUP BY s.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R1 candidate, metadata resolution DEFERRED: the table behind 'enrolled students in courses' is ambiguous (SUBJECT_OFFERED_SUMMARY vs LIBRARY_SUBJECT_OFFERED). Pinning it requires metadata that no legitimate enrichment.json provides, so metadata_resolution=False and resolution_channel=metadata.",
+  "question_id": "dw_1013",
+  "question_text": "For each department, show the department name, the average, range, and variance of the total units for subjects offered in the 2022 academic year that are letter graded (only including departments that are degree-granting and excluding the Biology department), as well as the average, range, and variance of the number of enrolled students in courses offered by that department (considering only courses with more than 0 enrolled students, departments whose name is not null, and only including departments whose name is 'Mathematics'). Present the columns in the following order: department name, average total units, range of total units, variance of total units, average enrollment, enrollment range, and enrollment variance. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 377,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp308",
+      "start": 308,
+      "text": "the number of enrolled students in courses offered by that department"
+    }
+  ]
+}

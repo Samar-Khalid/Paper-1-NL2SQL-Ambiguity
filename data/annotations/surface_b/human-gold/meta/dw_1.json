@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "هنا شرط HR_DEPARTMENT_CODE IS NOT NULL ينطبق على الـHR org units، وده أقرب قراءة للنص لأن those تأتي مباشرة بعد HR org units.",
+      "sql": "SELECT\n    o.ORGANIZATION_NAME,\n    AVG(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS AVG_HR_DEPARTMENT_CODE,\n    VARIANCE(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS VAR_HR_DEPARTMENT_CODE,\n    COUNT(*) AS HR_ORG_UNIT_COUNT\nFROM FCLT_ORGANIZATION o\nJOIN HR_ORG_UNIT h\n    ON h.HR_ORG_UNIT_ID = o.HR_ORG_UNIT_ID\nWHERE o.ASSIGNABLE = 'Y'\n  AND o.ORGANIZATION_NAME <> 'ADMISSIONS'\n  AND o.ORGANIZATION_ID NOT IN ('138', '250')\n  AND h.HR_DEPARTMENT_CODE IS NOT NULL\nGROUP BY o.ORGANIZATION_NAME;"
+    },
+    "sql_reading_B": {
+      "note": "هنا those with a non-null HR department code تُفسَّر على أنها organizations، باستخدام الـHR department code الموجود على organization نفسه، ثم تُحسب الـaggregations على الـHR org units المرتبطة بها.",
+      "sql": "SELECT\n    o.ORGANIZATION_NAME,\n    AVG(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS AVG_HR_DEPARTMENT_CODE,\n    VARIANCE(TO_NUMBER(h.HR_DEPARTMENT_CODE)) AS VAR_HR_DEPARTMENT_CODE,\n    COUNT(*) AS HR_ORG_UNIT_COUNT\nFROM FCLT_ORGANIZATION o\nJOIN HR_ORG_UNIT h\n    ON h.HR_ORG_UNIT_ID = o.HR_ORG_UNIT_ID\nWHERE o.ASSIGNABLE = 'Y'\n  AND o.ORGANIZATION_NAME <> 'ADMISSIONS'\n  AND o.ORGANIZATION_ID NOT IN ('138', '250')\n  AND o.HR_DEPARTMENT_CODE_OLD IS NOT NULL\nGROUP BY o.ORGANIZATION_NAME;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "those with a non-null HR department code",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

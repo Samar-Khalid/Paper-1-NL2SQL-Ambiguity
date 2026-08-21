@@ -1,0 +1,25 @@
+# BEAVER dataset configuration template.
+# Target: BEAVER (Chen et al., 2024), arXiv:2409.02038 — enterprise text-to-SQL.
+# See src/eaa/datasets/adapters/beaver/, docs/05, and ADR-013.
+
+dataset:
+  name: beaver
+  phase: 1
+  split: dev              # dev | test (official BEAVER splits)
+  dialect: mysql          # BEAVER DW/NW are distributed in MySQL dialect (ADR-013)
+  data_root: data/raw/beaver   # gitignored raw download; see adapter README
+  linking_mode: retrieval_free # retrieval_free | retrieval (two official settings)
+  table_budget: 10        # k for the retrieval setting (paper uses k=10)
+  metric_groups:          # official BEAVER metric groups (ADR-013)
+    - execution_accuracy
+    - table_retrieval_recall
+    - subtask_scores
+    - query_categories
+  manifest:
+    version: "1.0"
+    checksum: null        # filled after download; recorded in every run
+    license: "research-use"
+    citation: "BEAVER: An Enterprise Benchmark for Text-to-SQL (Chen et al., 2024, arXiv:2409.02038)"
+
+schema:
+  enriched: true          # use metadata enrichment for BEAVER tables

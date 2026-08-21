@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "reserved materials counted from the library reserve tables",
+      "sql": "SELECT lso.SUBJECT_TITLE, COUNT(DISTINCT lrcd.LIBRARY_RESERVE_CATALOG_KEY) FROM LIBRARY_SUBJECT_OFFERED lso JOIN LIBRARY_RESERVE_MATRL_DETAIL lrmd ON lso.LIBRARY_SUBJECT_OFFERED_KEY = lrmd.LIBRARY_SUBJECT_OFFERED_KEY JOIN LIBRARY_RESERVE_CATALOG lrcd ON lrmd.LIBRARY_RESERVE_CATALOG_KEY = lrcd.LIBRARY_RESERVE_CATALOG_KEY WHERE lso.OFFER_DEPT_NAME = 'Chemistry' GROUP BY lso.SUBJECT_TITLE"
+    },
+    "sql_reading_B": {
+      "note": "course materials counted from the TIP material tables",
+      "sql": "SELECT tso.SUBJECT_TITLE, COUNT(td.TIP_MATERIAL_KEY) FROM TIP_SUBJECT_OFFERED tso JOIN TIP_DETAIL td ON tso.TIP_SUBJECT_OFFERED_KEY = td.TIP_SUBJECT_OFFERED_KEY WHERE tso.OFFER_DEPT_NAME = 'Chemistry' GROUP BY tso.SUBJECT_TITLE"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C1: the aggregate 'number of reserved course materials' is ambiguous about which material catalog is counted - the library reserve catalog (A) or the TIP course-material set (B).",
+  "question_id": "dw_1002",
+  "question_text": "For each subject title and offering department name in regular terms with more than 5 enrolled students, offered by the Chemistry department (Course 5), and only for courses with materials, provide the subject title, offering department name, the number of reserved course materials, the minimum academic year, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the number of enrolled students in courses with at least one associated material record for the department (considering only Chemistry and Biology departments). Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 282,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp243",
+      "start": 243,
+      "text": "the number of reserved course materials"
+    }
+  ]
+}

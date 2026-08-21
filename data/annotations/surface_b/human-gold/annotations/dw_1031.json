@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH students AS (\n    SELECT\n        s.FIRST_NAME,\n        s.LAST_NAME,\n        s.EMAIL_ADDRESS,\n        s.DEPARTMENT_NAME,\n        d.SCHOOL_NAME,\n        MAX(d.DEPT_BUDGET_CODE) OVER (\n            ORDER BY s.LAST_NAME\n            ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING\n        ) AS MAX_DEPT_BUDGET_CODE,\n        d.SCHOOL_NAME AS STUDENT_SCHOOL_NAME\n    FROM MIT_STUDENT_DIRECTORY s\n    JOIN SIS_DEPARTMENT d\n      ON d.DEPARTMENT_NAME = s.DEPARTMENT_NAME\n    WHERE s.DEPARTMENT_NAME = 'Political Science'\n      AND s.STUDENT_YEAR LIKE 'G%'\n),\nsubjects AS (\n    SELECT\n        o.SUBJECT_ID,\n        o.SUBJECT_TITLE,\n        o.TOTAL_UNITS,\n        o.OFFER_SCHOOL_NAME AS SUBJECT_SCHOOL_NAME,\n        SUM(o.TOTAL_UNITS) OVER (\n            PARTITION BY o.OFFER_SCHOOL_NAME\n            ORDER BY o.SUBJECT_ID\n            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n        ) AS RUNNING_SUM_TOTAL_UNITS\n    FROM SUBJECT_OFFERED_SUMMARY o\n    WHERE o.TERM_CODE = '2016SP'\n      AND o.OFFER_DEPT_NAME = 'Political Science'\n      AND o.TOTAL_UNITS > 1\n)\nSELECT\n    st.FIRST_NAME,\n    st.LAST_NAME,\n    st.EMAIL_ADDRESS,\n    st.DEPARTMENT_NAME,\n    st.SCHOOL_NAME,\n    st.MAX_DEPT_BUDGET_CODE,\n    su.SUBJECT_ID,\n    su.SUBJECT_TITLE,\n    SUM(su.TOTAL_UNITS) OVER (\n        PARTITION BY st.STUDENT_SCHOOL_NAME\n        ORDER BY su.SUBJECT_ID\n        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n    ) AS RUNNING_SUM_TOTAL_UNITS\nFROM students st\nCROSS JOIN subjects su\nORDER BY st.LAST_NAME, su.SUBJECT_ID;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH students AS (\n    SELECT\n        s.FIRST_NAME,\n        s.LAST_NAME,\n        s.EMAIL_ADDRESS,\n        s.DEPARTMENT_NAME,\n        d.SCHOOL_NAME,\n        MAX(d.DEPT_BUDGET_CODE) OVER (\n            ORDER BY s.LAST_NAME\n            ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING\n        ) AS MAX_DEPT_BUDGET_CODE\n    FROM MIT_STUDENT_DIRECTORY s\n    JOIN SIS_DEPARTMENT d\n      ON d.DEPARTMENT_NAME = s.DEPARTMENT_NAME\n    WHERE s.DEPARTMENT_NAME = 'Political Science'\n      AND s.STUDENT_YEAR LIKE 'G%'\n),\nsubjects AS (\n    SELECT\n        o.SUBJECT_ID,\n        o.SUBJECT_TITLE,\n        o.TOTAL_UNITS,\n        o.OFFER_SCHOOL_NAME,\n        SUM(o.TOTAL_UNITS) OVER (\n            PARTITION BY o.OFFER_SCHOOL_NAME\n            ORDER BY o.SUBJECT_ID\n            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n        ) AS RUNNING_SUM_TOTAL_UNITS\n    FROM SUBJECT_OFFERED_SUMMARY o\n    WHERE o.TERM_CODE = '2016SP'\n      AND o.OFFER_DEPT_NAME = 'Political Science'\n      AND o.TOTAL_UNITS > 1\n)\nSELECT\n    st.FIRST_NAME,\n    st.LAST_NAME,\n    st.EMAIL_ADDRESS,\n    st.DEPARTMENT_NAME,\n    st.SCHOOL_NAME,\n    st.MAX_DEPT_BUDGET_CODE,\n    su.SUBJECT_ID,\n    su.SUBJECT_TITLE,\n    su.RUNNING_SUM_TOTAL_UNITS\nFROM students st\nCROSS JOIN subjects su\nORDER BY st.LAST_NAME, su.SUBJECT_ID;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1031",
+  "question_text": "For each graduate student in the Political Science department, show their first name, last name, email address, department name, school name, and the maximum department budget code for each student considering the current row and the next 2 rows ordered by last name, along with each subject offered in the term '2016SP' with a total number of units greater than 1 in the Political Science department, including the subject ID, subject title, and the running sum of total units within each school name group ordered by subject ID. List all columns in the following order: first name, last name, email address, department name, school name, maximum department budget code, subject ID, subject title, and running sum of total units. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 507,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp478",
+      "start": 478,
+      "text": "within each school name group"
+    }
+  ]
+}

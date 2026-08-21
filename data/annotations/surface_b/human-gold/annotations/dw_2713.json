@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "SELECT\n    c.IAP_CATEGORY_NAME AS category_name,\n    AVG(d.MAX_ENROLLMENT) AS avg_max_enrollment,\n    VAR_SAMP(d.MAX_ENROLLMENT) AS variance_max_enrollment,\n    COUNT(*) AS total_activities\nFROM IAP_SUBJECT_CATEGORY c\nJOIN IAP_SUBJECT_DETAIL d\n    ON d.IAP_SUBJECT_CATEGORY_KEY = c.IAP_SUBJECT_CATEGORY_KEY\nGROUP BY c.IAP_CATEGORY_NAME;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    c.IAP_CATEGORY_NAME AS category_name,\n    AVG(d.MAX_ENROLLMENT) AS avg_max_enrollment,\n    VAR_POP(d.MAX_ENROLLMENT) AS variance_max_enrollment,\n    COUNT(*) AS total_activities\nFROM IAP_SUBJECT_CATEGORY c\nJOIN IAP_SUBJECT_DETAIL d\n    ON d.IAP_SUBJECT_CATEGORY_KEY = c.IAP_SUBJECT_CATEGORY_KEY\nGROUP BY c.IAP_CATEGORY_NAME;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_2713",
+  "question_text": "For each subject category, provide the category name, the average and variance of the maximum enrollment across all activities in that category, and the total number of activities in the category. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 78,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp70",
+      "start": 70,
+      "text": "variance"
+    }
+  ]
+}

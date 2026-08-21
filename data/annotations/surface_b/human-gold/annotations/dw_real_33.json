@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "المهم هنا إننا ما نسجلش span لمجرد إن الجملة ركيكة أو ناقصة نحويًا.\nفي المثال السابق كان عندنا قراءتان واضحتان، وكل قراءة تغيّر مجموعة الصفوف وبالتالي النتيجة. هنا لا توجد قراءتان متكافئتان بنفس القوة؛ واحدة طبيعية جدًا، والأخرى ضعيفة وغير مدعومة جيدًا بالـ schema.",
+  "question_id": "dw_real_33",
+  "question_text": "Show the details of rooms including the full name of the rooms, the building names, floor numbers, the organizations occupying them, name of the departments occupying them, and the percentage of the room area over the assignable floor area and building.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: distinct instructor names, course titles, and material amounts keyed by instructor and subject; the keyed grouping is explicit.",
+  "question_id": "dw_real_2",
+  "question_text": "List the unique course instructor names, course titles, and the amount of material for each course instructor key and the key of subject offered.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

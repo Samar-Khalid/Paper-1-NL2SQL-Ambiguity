@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "materials resolved through the TIP detail channel",
+      "sql": "SELECT d.DEPARTMENT_NAME, STDDEV(c.TOTAL_UNITS) / AVG(c.TOTAL_UNITS) FROM SIS_DEPARTMENT d JOIN COURSE_CATALOG_SUBJECT_OFFERED c ON d.DEPARTMENT_CODE = c.DEPARTMENT_CODE JOIN TIP_DETAIL td ON c.SUBJECT_ID = td.SUBJECT_ID WHERE d.DEPARTMENT_NAME = 'Mathematics' GROUP BY d.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "reserved materials resolved through the library reserve channel",
+      "sql": "SELECT d.DEPARTMENT_NAME, STDDEV(c.TOTAL_UNITS) / AVG(c.TOTAL_UNITS) FROM SIS_DEPARTMENT d JOIN COURSE_CATALOG_SUBJECT_OFFERED c ON d.DEPARTMENT_CODE = c.DEPARTMENT_CODE JOIN LIBRARY_RESERVE_MATRL_DETAIL lrmd ON c.SUBJECT_ID = lrmd.SUBJECT_ID WHERE d.DEPARTMENT_NAME = 'Mathematics' GROUP BY d.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R1 candidate, metadata resolution DEFERRED: 'reserved library materials' maps to TIP material detail (A) or the library reserve detail (B); metadata is required to pin the material catalog.",
+  "question_id": "dw_1026",
+  "question_text": "For each department, show the department name, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for reserved library materials (considering only regular terms and only for the Mathematics department), and the total number of units for all subjects in the course catalog that are offered in the fall term, are part of a degree-granting program, and are in the Mathematics department. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 166,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp140",
+      "start": 140,
+      "text": "reserved library materials"
+    }
+  ]
+}

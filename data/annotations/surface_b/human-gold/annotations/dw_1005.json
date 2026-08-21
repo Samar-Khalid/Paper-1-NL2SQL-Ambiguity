@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "TIP_SUBJECT_OFFERED does not contain TOTAL_UNITS; TOTAL_UNITS must be sourced from SUBJECT_OFFERED_SUMMARY.\nNo strict ambiguity span is warranted because the remaining wording is resolvable from the schema.",
+  "question_id": "dw_1005",
+  "question_text": "For the Mathematics department (Course 18), which is degree granting, what are the department code, department name, the minimum number of enrolled students in TIP_SUBJECT_OFFERED (where the number of enrolled students is at least 0 or the total units in SUBJECT_OFFERED_SUMMARY are between 1 and 21), the average total units in TIP_SUBJECT_OFFERED and SUBJECT_OFFERED_SUMMARY, the average total units for subjects offered by that department in the 2022 academic year (excluding Biology/Course 7), and the variance of total units for those subjects in 2022? List the department code, department name, minimum number of enrolled students, average total units (from MathDeptStats), average total units in 2022 (from DeptUnitStats), and variance of total units in 2022, in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

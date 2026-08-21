@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "SELECT\n    c.IAP_CATEGORY_NAME AS category_name,\n    AVG(d.MAX_ENROLLMENT) AS avg_max_enrollment,\n    VAR_POP(d.MAX_ENROLLMENT) AS variance_max_enrollment,\n    AVG(d.MAX_ENROLLMENT) - VAR_POP(d.MAX_ENROLLMENT) AS difference\nFROM IAP_SUBJECT_CATEGORY c\nJOIN IAP_SUBJECT_DETAIL d\n    ON d.IAP_SUBJECT_CATEGORY_KEY = c.IAP_SUBJECT_CATEGORY_KEY\nGROUP BY c.IAP_CATEGORY_NAME;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    c.IAP_CATEGORY_NAME AS category_name,\n    AVG(d.MAX_ENROLLMENT) AS avg_max_enrollment,\n    VAR_SAMP(d.MAX_ENROLLMENT) AS variance_max_enrollment,\n    AVG(d.MAX_ENROLLMENT) - VAR_SAMP(d.MAX_ENROLLMENT) AS difference\nFROM IAP_SUBJECT_CATEGORY c\nJOIN IAP_SUBJECT_DETAIL d\n    ON d.IAP_SUBJECT_CATEGORY_KEY = c.IAP_SUBJECT_CATEGORY_KEY\nGROUP BY c.IAP_CATEGORY_NAME;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_2766",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "variance",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "subject code description from SIS_SUBJECT_CODE",
+      "sql": "SELECT lso.SUBJECT_TITLE, sc.SUBJECT_CODE_DESC FROM LIBRARY_SUBJECT_OFFERED lso JOIN SIS_SUBJECT_CODE sc ON lso.OFFER_DEPT_CODE = sc.DEPARTMENT_CODE WHERE lso.TERM_CODE = '2017JA' AND lso.OFFER_DEPT_NAME = 'Chemistry'"
+    },
+    "sql_reading_B": {
+      "note": "description resolved through the SIS lookup channel",
+      "sql": "SELECT lso.SUBJECT_TITLE, lk.DESCRIPTION FROM LIBRARY_SUBJECT_OFFERED lso JOIN SIS_LOOKUP lk ON lso.SUBJECT_ID = lk.CODE WHERE lso.TERM_CODE = '2017JA' AND lso.OFFER_DEPT_NAME = 'Chemistry'"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R1 candidate, metadata resolution DEFERRED: 'subject code description' can map to SIS_SUBJECT_CODE.SUBJECT_CODE_DESC (A) or the SIS_LOOKUP description (B); the intended mapping needs metadata that does not exist, so the resolution is deferred.",
+  "question_id": "dw_1017",
+  "question_text": "For each degree-granting department except the Physics department (Course 8), give the department name and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department in the 2022 academic year, along with, for each subject offered in the term '2017JA' by the Chemistry department (Course 5), the subject title, number of enrolled students, offering department name, department full name, subject code, subject code description, and the minimum number of enrolled students over each subject code group, including only courses with materials. Present the results for departments that match the Chemistry department code, and order by department name and subject code. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 495,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp471",
+      "start": 471,
+      "text": "subject code description"
+    }
+  ]
+}

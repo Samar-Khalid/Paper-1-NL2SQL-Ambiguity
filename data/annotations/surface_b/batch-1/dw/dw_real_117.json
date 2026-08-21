@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: summer-term subjects with instructor count and longest instructor name; no second plausible reading.",
+  "question_id": "dw_real_117",
+  "question_text": "For subjects offered in the summer term, list the subject titles, number of instructors, and the length of the longest instructor name.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

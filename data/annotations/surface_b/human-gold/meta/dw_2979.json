@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "SELECT\n    SCHOOL_NAME,\n    AVG(TOTAL_UNITS) AS avg_total_units,\n    VAR_POP(TOTAL_UNITS) AS variance_total_units\nFROM SUBJECT_SUMMARY\nWHERE TERM_CODE = '2012SU'\nGROUP BY SCHOOL_NAME;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    SCHOOL_NAME,\n    AVG(TOTAL_UNITS) AS avg_total_units,\n    VAR_SAMP(TOTAL_UNITS) AS variance_total_units\nFROM SUBJECT_SUMMARY\nWHERE TERM_CODE = '2012SU'\nGROUP BY SCHOOL_NAME;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_2979",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "variance",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

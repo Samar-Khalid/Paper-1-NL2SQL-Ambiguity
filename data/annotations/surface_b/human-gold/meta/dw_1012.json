@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "EXISTS (\n    SELECT 1\n    FROM CIS_COURSE_CATALOG c\n    WHERE c.SUBJECT_ID = s.SUBJECT_ID\n)"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "EXISTS (\n    SELECT 1\n    FROM CIS_COURSE_CATALOG c\n    WHERE c.SUBJECT_ID = s.SUBJECT_ID\n      AND c.ACADEMIC_YEAR = '2024'\n)"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1012",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "also present in the CIS course catalog",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

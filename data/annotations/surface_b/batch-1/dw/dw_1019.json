@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "'times offered' counts every offering row",
+      "sql": "SELECT c.COURSE_NUMBER, COUNT(*) AS times_offered FROM SUBJECT_OFFERED c JOIN SIS_DEPARTMENT d ON c.OFFER_DEPT_CODE = d.DEPARTMENT_CODE WHERE d.DEPARTMENT_NAME = 'Mathematics' GROUP BY c.COURSE_NUMBER ORDER BY COUNT(*) DESC LIMIT 3"
+    },
+    "sql_reading_B": {
+      "note": "'times offered' counts distinct offering terms",
+      "sql": "SELECT c.COURSE_NUMBER, COUNT(DISTINCT c.TERM_CODE) AS times_offered FROM SUBJECT_OFFERED c JOIN SIS_DEPARTMENT d ON c.OFFER_DEPT_CODE = d.DEPARTMENT_CODE WHERE d.DEPARTMENT_NAME = 'Mathematics' GROUP BY c.COURSE_NUMBER ORDER BY COUNT(DISTINCT c.TERM_CODE) DESC LIMIT 3"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). K2 candidate, metadata resolution DEFERRED: the business rule for 'number of times offered' (offering rows vs distinct terms) is not stated and cannot be pinned without enrichment metadata; resolution deferred.",
+  "question_id": "dw_1019",
+  "question_text": "For the top 3 most frequently offered courses in the Mathematics department, display each course's number, course description, subject title, number of times offered, department name, number of unique course descriptions for that course and department, and the minimum CIP program code for that course and department. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "K2",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 165,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp142",
+      "start": 142,
+      "text": "number of times offered"
+    }
+  ]
+}

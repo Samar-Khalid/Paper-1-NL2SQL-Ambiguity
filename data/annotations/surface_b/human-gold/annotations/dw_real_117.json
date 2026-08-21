@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "The request is answerable from the schema. Summer offerings are directly identified by COURSE_CATALOG_SUBJECT_OFFERED.IS_OFFERED_SUMMER_TERM. Instructor counts and longest instructor-name length can be derived through LIBRARY_SUBJECT_OFFERED → LIBRARY_RESERVE_MATRL_DETAIL → LIBRARY_COURSE_INSTRUCTOR. No strict ambiguity span is required. The exact stored value representing “offered in summer” is not shown in the schema, so the predicate value ('Y', etc.) must be confirmed from metadata/data values.",
+  "question_id": "dw_real_117",
+  "question_text": "For subjects offered in the summer term, list the subject titles, number of instructors, and the length of the longest instructor name.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

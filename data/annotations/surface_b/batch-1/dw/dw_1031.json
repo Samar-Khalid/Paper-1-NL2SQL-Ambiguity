@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "email read from the student directory channel",
+      "sql": "SELECT s.FIRST_NAME, s.LAST_NAME, s.EMAIL_ADDRESS FROM MIT_STUDENT_DIRECTORY s WHERE s.DEPARTMENT_NAME = 'Political Science'"
+    },
+    "sql_reading_B": {
+      "note": "email read from the employee directory channel",
+      "sql": "SELECT s.FIRST_NAME, s.LAST_NAME, e.EMAIL_ADDRESS FROM MIT_STUDENT_DIRECTORY s JOIN EMPLOYEE_DIRECTORY e ON s.FULL_NAME = e.FULL_NAME WHERE s.DEPARTMENT_NAME = 'Political Science'"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). I2: the displayed 'email address' can be encoded in the student directory (A) or the employee directory (B); both are real channel tables in the schema.",
+  "question_id": "dw_1031",
+  "question_text": "For each graduate student in the Political Science department, show their first name, last name, email address, department name, school name, and the maximum department budget code for each student considering the current row and the next 2 rows ordered by last name, along with each subject offered in the term '2016SP' with a total number of units greater than 1 in the Political Science department, including the subject ID, subject title, and the running sum of total units within each school name group ordered by subject ID. List all columns in the following order: first name, last name, email address, department name, school name, maximum department budget code, subject ID, subject title, and running sum of total units. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "I2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 110,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp97",
+      "start": 97,
+      "text": "email address"
+    }
+  ]
+}

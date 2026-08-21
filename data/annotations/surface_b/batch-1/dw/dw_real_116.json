@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: buildings with the most floors, ties listed separately - the tie rule is explicit.",
+  "question_id": "dw_real_116",
+  "question_text": "List the names of the buildings with the most floors. If there are ties, list each one separately.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

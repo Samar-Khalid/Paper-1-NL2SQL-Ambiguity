@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "SELECT\n    r.ROOM_FULL_NAME,\n    b.BUILDING_NAME_LONG AS BUILDING_NAME,\n    r.FLOOR,\n    r.ORGANIZATION_NAME,\n    d.HR_DEPARTMENT_NAME,\n    100.0 * r.AREA / NULLIF(f.EXT_GROSS_AREA, 0) AS ROOM_PERCENT_OF_FLOOR,\n    100.0 * r.AREA / NULLIF(b.EXT_GROSS_AREA, 0) AS ROOM_PERCENT_OF_BUILDING\nFROM FCLT_ROOMS r\nJOIN FCLT_FLOOR f\n    ON r.FCLT_FLOOR_KEY = f.FCLT_FLOOR_KEY\nJOIN FCLT_BUILDING b\n    ON r.FCLT_BUILDING_KEY = b.FCLT_BUILDING_KEY\nLEFT JOIN HR_ORG_UNIT d\n    ON r.DEPT_CODE = d.HR_DEPARTMENT_CODE;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    r.ROOM_FULL_NAME,\n    b.BUILDING_NAME_LONG AS BUILDING_NAME,\n    r.FLOOR,\n    r.ORGANIZATION_NAME,\n    d.HR_DEPARTMENT_NAME,\n    100.0 * r.AREA / NULLIF(f.ASSIGNABLE_AREA, 0) AS ROOM_PERCENT_OF_FLOOR,\n    100.0 * r.AREA / NULLIF(b.ASSIGNABLE_AREA, 0) AS ROOM_PERCENT_OF_BUILDING\nFROM FCLT_ROOMS r\nJOIN FCLT_FLOOR f\n    ON r.FCLT_FLOOR_KEY = f.FCLT_FLOOR_KEY\nJOIN FCLT_BUILDING b\n    ON r.FCLT_BUILDING_KEY = b.FCLT_BUILDING_KEY\nLEFT JOIN HR_ORG_UNIT d\n    ON r.DEPT_CODE = d.HR_DEPARTMENT_CODE;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_real_34",
+  "question_text": "Show the details of rooms including the full name of the rooms, the building names, floor numbers, the organizations occupying them, name of the departments occupying them, and the percentage of the room area over the floor area and building.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 241,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp214",
+      "start": 214,
+      "text": "the floor area and building"
+    }
+  ]
+}

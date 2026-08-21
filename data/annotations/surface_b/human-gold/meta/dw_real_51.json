@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH duo_list AS (\n    SELECT MOIRA_LIST_KEY\n    FROM MOIRA_LIST\n    WHERE LOWER(MOIRA_LIST_NAME) = 'duo users'\n),\nlist_students AS (\n    SELECT DISTINCT d.MOIRA_LIST_MEMBER_FULL_NAME AS FULL_NAME\n    FROM MOIRA_LIST_DETAIL d\n    JOIN duo_list l\n      ON d.MOIRA_LIST_KEY = l.MOIRA_LIST_KEY\n    JOIN MIT_STUDENT_DIRECTORY s\n      ON d.MOIRA_LIST_MEMBER_FULL_NAME = s.FULL_NAME\n)\nSELECT\n    COUNT(DISTINCT ls.FULL_NAME) AS student_count,\n    COUNT(DISTINCT s.DEPARTMENT) AS department_count,\n    COUNT(DISTINCT sd.SCHOOL_NAME) AS school_count\nFROM list_students ls\nJOIN MIT_STUDENT_DIRECTORY s\n  ON ls.FULL_NAME = s.FULL_NAME\nLEFT JOIN STUDENT_DEPARTMENT sd\n  ON s.DEPARTMENT = sd.DEPARTMENT_CODE;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH duo_list AS (\n    SELECT MOIRA_LIST_KEY\n    FROM MOIRA_LIST\n    WHERE LOWER(MOIRA_LIST_DESCRIPTION) LIKE '%duo users%'\n),\nlist_students AS (\n    SELECT DISTINCT d.MOIRA_LIST_MEMBER_FULL_NAME AS FULL_NAME\n    FROM MOIRA_LIST_DETAIL d\n    JOIN duo_list l\n      ON d.MOIRA_LIST_KEY = l.MOIRA_LIST_KEY\n    JOIN MIT_STUDENT_DIRECTORY s\n      ON d.MOIRA_LIST_MEMBER_FULL_NAME = s.FULL_NAME\n)\nSELECT\n    COUNT(DISTINCT ls.FULL_NAME) AS student_count,\n    COUNT(DISTINCT s.DEPARTMENT) AS department_count,\n    COUNT(DISTINCT sd.SCHOOL_NAME) AS school_count\nFROM list_students ls\nJOIN MIT_STUDENT_DIRECTORY s\n  ON ls.FULL_NAME = s.FULL_NAME\nLEFT JOIN STUDENT_DEPARTMENT sd\n  ON s.DEPARTMENT = sd.DEPARTMENT_CODE;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_real_51",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "mailing list about duo users",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

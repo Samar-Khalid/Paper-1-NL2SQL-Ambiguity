@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "enrollment from SUBJECT_OFFERED_SUMMARY",
+      "sql": "SELECT sos.OFFER_DEPT_NAME, AVG(sos.SUBJECT_ENROLLMENT_NUMBER) FROM SUBJECT_OFFERED_SUMMARY sos WHERE sos.SUBJECT_ENROLLMENT_NUMBER > 0 GROUP BY sos.OFFER_DEPT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "enrollment from LIBRARY_SUBJECT_OFFERED",
+      "sql": "SELECT lso.OFFER_DEPT_NAME, AVG(lso.NUM_ENROLLED_STUDENTS) FROM LIBRARY_SUBJECT_OFFERED lso WHERE lso.NUM_ENROLLED_STUDENTS > 0 GROUP BY lso.OFFER_DEPT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C1: 'the number of students enrolled in subjects' is not pinned to a single enrollment measure; SUBJECT_ENROLLMENT_NUMBER (A) and NUM_ENROLLED_STUDENTS (B) are both schema columns for enrollment.",
+  "question_id": "dw_1006",
+  "question_text": "For each department that grants degrees (excluding Chemistry), what is the department name, the average, range, and variance of the number of students enrolled in subjects offered by that department (considering only subjects with at least one enrolled student), and, for the Mathematics department, what is the average and variance of the total units for subjects where the responsible faculty member has a non-null email address and the subject is offered this year? The results should include the department name, average enrolled, range enrolled, variance enrolled, average units, and units variance, in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 171,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp128",
+      "start": 128,
+      "text": "the number of students enrolled in subjects"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# NVBench 2.0 dataset configuration template.
+# See src/eaa/datasets/adapters/nvbench/ and docs/05_Dataset_Strategy.md.
+
+dataset:
+  name: nvbench
+  phase: 2
+  split: dev              # dev | test (official NVBench 2.0 splits)
+  manifest:
+    version: "2.0"
+    checksum: null        # filled after download; recorded in every run
+    license: "research-use"
+    citation: "NVBench 2.0: ... (see adapter manifest)"
+
+visualization:
+  intent_level: full      # how much of the intent hierarchy is used
+  render: false           # render images only when needed (slow)

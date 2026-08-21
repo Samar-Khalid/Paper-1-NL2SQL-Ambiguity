@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "for departments that match the Mathematics department (the department with the highest number of undergraduate degree-granting courses)\n\nمعناها الطبيعي في سياق السؤال هو:\n\ndepartments whose number of undergraduate degree-granting courses matches the Mathematics department's number",
+  "question_id": "dw_1004",
+  "question_text": "For each department that is degree granting (excluding Chemistry), what is the department name, the average of the total units, and the standard deviation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department (considering only subjects with more than 0 total units), and, for departments that match the Mathematics department (the department with the highest number of undergraduate degree-granting courses), also show the department name, school name, and the number of such courses? List the results in order by department name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "unique titles counted over all offering rows",
+      "sql": "SELECT c.OFFER_DEPT_NAME, COUNT(DISTINCT c.SUBJECT_TITLE) FROM SUBJECT_OFFERED c GROUP BY c.OFFER_DEPT_NAME ORDER BY COUNT(DISTINCT c.SUBJECT_TITLE) DESC LIMIT 10"
+    },
+    "sql_reading_B": {
+      "note": "unique titles counted within the 2016SP term",
+      "sql": "SELECT c.OFFER_DEPT_NAME, COUNT(DISTINCT c.SUBJECT_TITLE) FROM SUBJECT_OFFERED c WHERE c.TERM_CODE = '2016SP' GROUP BY c.OFFER_DEPT_NAME ORDER BY COUNT(DISTINCT c.SUBJECT_TITLE) DESC LIMIT 10"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). V3 candidate, metadata resolution DEFERRED: the granularity of 'the number of unique subject titles offered' (all rows vs the 2016SP term) is not pinned; resolution needs metadata and is deferred.",
+  "question_id": "dw_1021",
+  "question_text": "For the top 10 degree-granting departments (excluding Chemistry and Political Science) by the number of unique subject titles offered (where at least one subject has more than 0 enrolled students and the department offered at least one subject in the term '2016SP'), give the department name, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the number of subjects offered per term by that department, and the total count of unique subject titles, listing these columns in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "V3",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 133,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp90",
+      "start": 90,
+      "text": "the number of unique subject titles offered"
+    }
+  ]
+}

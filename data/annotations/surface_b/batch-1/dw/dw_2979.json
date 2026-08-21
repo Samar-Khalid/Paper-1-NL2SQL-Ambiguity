@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: per-school average and variance of total units for the fixed 2012SU term; the term literal pins the filter.",
+  "question_id": "dw_2979",
+  "question_text": "For each school, provide the school name and calculate the average and variance of the total units for subjects offered in the 2012SU term. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

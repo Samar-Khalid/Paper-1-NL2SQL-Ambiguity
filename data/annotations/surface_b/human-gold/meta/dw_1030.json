@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH math_subjects AS (\n    SELECT\n        s.DEPARTMENT_NAME,\n        s.SUBJECT_ID,\n        s.TOTAL_UNITS\n    FROM COURSE_CATALOG_SUBJECT_OFFERED s\n    WHERE s.DEPARTMENT_NAME = 'Mathematics'\n      AND s.IS_OFFERED_THIS_YEAR = 'Y'\n      AND UPPER(s.GRADE_TYPE) = 'LETTER'\n),\ncourse_subject_counts AS (\n    SELECT\n        sc.COURSE_NUMBER,\n        COUNT(DISTINCT sc.SUBJECT_CODE) AS subject_code_count\n    FROM SIS_SUBJECT_CODE sc\n    JOIN SIS_COURSE_DESCRIPTION cd\n      ON cd.COURSE = sc.COURSE_NUMBER\n    WHERE sc.DEPARTMENT_NAME = 'Mathematics'\n      AND cd.IS_DEGREE_GRANTING = 'Y'\n    GROUP BY sc.COURSE_NUMBER\n)\nSELECT\n    'Mathematics' AS department_name,\n    AVG(ms.TOTAL_UNITS) AS average_total_units,\n    VARIANCE(ms.TOTAL_UNITS) AS total_units_variance,\n    MAX(c.subject_code_count) - MIN(c.subject_code_count) AS subject_code_count_range,\n    VARIANCE(c.subject_code_count) AS subject_code_count_variance,\n    STDDEV(c.subject_code_count) AS subject_code_count_standard_deviation\nFROM math_subjects ms\nCROSS JOIN course_subject_counts c;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "-- أولًا: تحديد جميع child departments الموجودة داخل Mathematics\nWITH math_departments AS (\n    ...\n),\n...\nSELECT\n    department_name,\n    AVG(total_units),\n    VARIANCE(total_units),\n    ...\nFROM ...\nGROUP BY department_name;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1030",
+  "spans": [
+    {
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "in the Mathematics department",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

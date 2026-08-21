@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "one global most-recent academic year",
+      "sql": "SELECT s.DEPARTMENT_NAME, STDDEV(s.TOTAL_UNITS) / AVG(s.TOTAL_UNITS) FROM SUBJECT_SUMMARY s JOIN SIS_DEPARTMENT d ON s.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME <> 'Biology' AND s.TERM_CODE = (SELECT MAX(t.TERM_CODE) FROM ACADEMIC_TERMS t) GROUP BY s.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "the most-recent year is resolved per department",
+      "sql": "SELECT s.DEPARTMENT_NAME, STDDEV(s.TOTAL_UNITS) / AVG(s.TOTAL_UNITS) FROM SUBJECT_SUMMARY s JOIN SIS_DEPARTMENT d ON s.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME <> 'Biology' AND s.TERM_CODE IN (SELECT t.TERM_CODE FROM ACADEMIC_TERMS t WHERE t.ACADEMIC_YEAR = (SELECT MAX(t2.ACADEMIC_YEAR) FROM ACADEMIC_TERMS t2 WHERE t2.TERM_CODE IN (SELECT DISTINCT s2.TERM_CODE FROM SUBJECT_SUMMARY s2 WHERE s2.DEPARTMENT_CODE = s.DEPARTMENT_CODE))) GROUP BY s.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). S1: the scope of 'the most recent academic year' is ambiguous - one global year for every department (A) versus the latest year in which each department offered subjects (B).",
+  "question_id": "dw_1000",
+  "question_text": "For each degree-granting department except the Biology department (Course 7), what is the department name and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department in the most recent academic year, and for subjects in the Mathematics department with a total of 12 units offered in the fall term, what are the subject code, subject number, department name, subject title, total units, whether the subject is offered in the fall term, the offering department name, the subject enrollment number, and the row number within the department ordered by subject code? Show the department name and coefficient of variation (using STDDEV only and never STDDEV_POP) first, followed by the Mathematics subject details as available for each department. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 271,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp239",
+      "start": 239,
+      "text": "in the most recent academic year"
+    }
+  ]
+}

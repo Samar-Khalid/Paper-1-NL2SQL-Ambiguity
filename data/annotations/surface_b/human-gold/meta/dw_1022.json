@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "No strict ambiguity span. “Previous” is treated as the literal term-selector value,\nSTDDEV is explicitly required, and the material condition is a straightforward\nexistence condition for required or optional material.",
+  "question_id": "dw_1022",
+  "spans": []
+}

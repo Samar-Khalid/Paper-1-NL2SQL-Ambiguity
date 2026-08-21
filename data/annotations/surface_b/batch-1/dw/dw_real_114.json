@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: per-sponsor count of IAP sessions and unique subjects; the join to IAP_SUBJECT_SPONSOR is unambiguous.",
+  "question_id": "dw_real_114",
+  "question_text": "For each sponsor, list the sponsor name, the number of IAP sessions hosted, and the number of unique subjects organized.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

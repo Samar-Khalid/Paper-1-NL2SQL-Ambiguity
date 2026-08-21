@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "هنا variance فُسرت على أنها sample variance.",
+      "sql": "WITH dept_enrollment AS (\n    SELECT\n        s.OFFER_DEPT_NAME AS department_name,\n        s.NUM_ENROLLED_STUDENTS\n    FROM SUBJECT_OFFERED_SUMMARY s\n    JOIN SIS_DEPARTMENT d\n      ON d.DEPARTMENT_NAME = s.OFFER_DEPT_NAME\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND s.OFFER_DEPT_NAME <> 'Chemistry'\n      AND s.NUM_ENROLLED_STUDENTS >= 1\n),\ndept_stats AS (\n    SELECT\n        department_name,\n        AVG(NUM_ENROLLED_STUDENTS) AS average_enrolled,\n        MAX(NUM_ENROLLED_STUDENTS) - MIN(NUM_ENROLLED_STUDENTS) AS range_enrolled,\n        VAR_SAMP(NUM_ENROLLED_STUDENTS) AS variance_enrolled\n    FROM dept_enrollment\n    GROUP BY department_name\n),\nmath_units AS (\n    SELECT\n        AVG(s.TOTAL_UNITS) AS average_units,\n        VAR_SAMP(s.TOTAL_UNITS) AS units_variance\n    FROM SUBJECT_OFFERED_SUMMARY s\n    JOIN OPA_PERSON_CURRENT p\n      ON p.MIT_ID = s.RESPONSIBLE_FACULTY_MIT_ID\n    WHERE s.OFFER_DEPT_NAME = 'Mathematics'\n      AND p.EMAIL_ADDRESS IS NOT NULL\n      AND EXISTS (\n          SELECT 1\n          FROM COURSE_CATALOG_SUBJECT_OFFERED c\n          WHERE c.SUBJECT_ID = s.SUBJECT_ID\n            AND c.IS_OFFERED_THIS_YEAR = 'Y'\n      )\n)\nSELECT\n    d.department_name,\n    d.average_enrolled,\n    d.range_enrolled,\n    d.variance_enrolled,\n    CASE\n        WHEN d.department_name = 'Mathematics'\n        THEN m.average_units\n    END AS average_units,\n    CASE\n        WHEN d.department_name = 'Mathematics'\n        THEN m.units_variance\n    END AS units_variance\nFROM dept_stats d\nCROSS JOIN math_units m\nORDER BY d.department_name;"
+    },
+    "sql_reading_B": {
+      "note": "هنا variance فُسرت على أنها population variance",
+      "sql": "WITH dept_enrollment AS (\n    SELECT\n        s.OFFER_DEPT_NAME AS department_name,\n        s.NUM_ENROLLED_STUDENTS\n    FROM SUBJECT_OFFERED_SUMMARY s\n    JOIN SIS_DEPARTMENT d\n      ON d.DEPARTMENT_NAME = s.OFFER_DEPT_NAME\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND s.OFFER_DEPT_NAME <> 'Chemistry'\n      AND s.NUM_ENROLLED_STUDENTS >= 1\n),\ndept_stats AS (\n    SELECT\n        department_name,\n        AVG(NUM_ENROLLED_STUDENTS) AS average_enrolled,\n        MAX(NUM_ENROLLED_STUDENTS) - MIN(NUM_ENROLLED_STUDENTS) AS range_enrolled,\n        VAR_POP(NUM_ENROLLED_STUDENTS) AS variance_enrolled\n    FROM dept_enrollment\n    GROUP BY department_name\n),\nmath_units AS (\n    SELECT\n        AVG(s.TOTAL_UNITS) AS average_units,\n        VAR_POP(s.TOTAL_UNITS) AS units_variance\n    FROM SUBJECT_OFFERED_SUMMARY s\n    JOIN OPA_PERSON_CURRENT p\n      ON p.MIT_ID = s.RESPONSIBLE_FACULTY_MIT_ID\n    WHERE s.OFFER_DEPT_NAME = 'Mathematics'\n      AND p.EMAIL_ADDRESS IS NOT NULL\n      AND EXISTS (\n          SELECT 1\n          FROM COURSE_CATALOG_SUBJECT_OFFERED c\n          WHERE c.SUBJECT_ID = s.SUBJECT_ID\n            AND c.IS_OFFERED_THIS_YEAR = 'Y'\n      )\n)\nSELECT\n    d.department_name,\n    d.average_enrolled,\n    d.range_enrolled,\n    d.variance_enrolled,\n    CASE\n        WHEN d.department_name = 'Mathematics'\n        THEN m.average_units\n    END AS average_units,\n    CASE\n        WHEN d.department_name = 'Mathematics'\n        THEN m.units_variance\n    END AS units_variance\nFROM dept_stats d\nCROSS JOIN math_units m\nORDER BY d.department_name;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1006",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "variance",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

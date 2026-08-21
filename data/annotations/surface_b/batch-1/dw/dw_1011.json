@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "max total units from the course catalog for 2021FA",
+      "sql": "SELECT c.DEPARTMENT_NAME, MAX(c.TOTAL_UNITS) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.TERM_CODE = '2021FA' GROUP BY c.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "max total units from the subject summary for 2021FA",
+      "sql": "SELECT s.DEPARTMENT_NAME, MAX(s.TOTAL_UNITS) FROM SUBJECT_SUMMARY s WHERE s.TERM_CODE = '2021FA' GROUP BY s.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C2: the 'maximum total units' over 2021FA subjects can be drawn from the course catalog (A) or the subject summary (B); different offerings can be captured by the two tables.",
+  "question_id": "dw_1011",
+  "question_text": "List, for each department, either (a) the department name along with the average, range, and variance of the total units for letter graded subjects offered in the 2022 academic year (for degree-granting departments except Biology), or (b) the department name, department full name, and the maximum total units among subjects offered in the 2021FA term (for degree-granting departments except Chemistry that offered at least one subject), and indicate the reason for inclusion as either '2022 Letter Graded' or '2021FA Max Units'. The columns should be: department name, department full name, average total units, range of total units, variance of total units, maximum total units, and reason for inclusion, in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 351,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp286",
+      "start": 286,
+      "text": "the maximum total units among subjects offered in the 2021FA term"
+    }
+  ]
+}

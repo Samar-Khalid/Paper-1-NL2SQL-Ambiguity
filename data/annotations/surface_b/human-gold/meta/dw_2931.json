@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "Do not return any rounded answers لا يسبب ambiguity؛ فقط يعني عدم تطبيق ROUND() على النتائج",
+  "question_id": "dw_2931",
+  "spans": []
+}

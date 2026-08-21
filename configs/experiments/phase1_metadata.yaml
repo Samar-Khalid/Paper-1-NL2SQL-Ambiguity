@@ -1,0 +1,46 @@
+# Phase 1 — Metadata enrichment NL2SQL evaluation (M1.4).
+# Metadata-ON arm of the controlled M1.4 experiment: the adapter publishes an
+# enrichment sidecar (generic EnrichmentData core contract), the driver wraps
+# the schema provider with eaa.metadata.EnrichedSchemaProvider, and the prompt
+# builder renders the enriched prompt variant (enriched-v1). Everything else
+# (config, adapter, split, seed, LLM, metrics) matches phase1_baseline.yaml so
+# the ON/OFF comparison isolates the metadata factor.
+#
+# Dry-run with the deterministic echo backend; for research runs set
+# llm.provider + llm.model (+ base_url/api_key_env) per run.
+
+defaults:
+  - default.yaml
+  - datasets/beaver.yaml
+
+experiment:
+  id: phase1-metadata      # override per run
+  seed: 0
+  record_artifacts: true
+
+schema:
+  enriched: true           # metadata-ON arm: Question + Enriched Schema -> LLM -> SQL
+
+pipeline:
+  stages:                  # baseline generation path only (M1.2), no research stages
+    - prompt_builder
+    - llm_generation
+    - validation
+  prompt_version: baseline-v1   # configured default; the effective prompt is
+  max_llm_calls: 1              # enriched-v1 (recorded per run) when the schema
+  self_correction_rounds: 0     # resolved by the wrapped provider is enriched.
+
+evaluation:
+  metrics:                 # identical metric set to phase1_baseline.yaml
+    - exact_match
+    - clean_prediction_rate
+
+llm:
+  provider: echo           # deterministic; override for real runs (e.g. openai)
+  model: echo-local-v1
+  temperature: 0.0
+  max_retries: 0
+  timeout_seconds: 60
+
+dataset:
+  split: dev               # dev | test (official BEAVER splits)

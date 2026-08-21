@@ -1,0 +1,44 @@
+# Phase 1 — Baseline NL2SQL evaluation (M1.3).
+# Reproducible floor measurement for the baseline pipeline (M1.2) on BEAVER.
+# This is the metadata-OFF arm of the M1.4 controlled experiment: no metadata
+# enrichment, ambiguity resolution, or self-correction. Dataset version/manifest
+# and the prompt version are recorded in every run's config.resolved.json + meta.json.
+#
+# Dry-run with the deterministic echo backend; for research runs set
+# llm.provider + llm.model (+ base_url/api_key_env) per run.
+
+defaults:
+  - default.yaml
+  - datasets/beaver.yaml
+
+experiment:
+  id: phase1-baseline      # override per run
+  seed: 0
+  record_artifacts: true
+
+schema:
+  enriched: false          # metadata-OFF arm: baseline Question + Schema -> LLM -> SQL
+
+pipeline:
+  stages:                  # baseline generation path only (M1.2), no research stages
+    - prompt_builder
+    - llm_generation
+    - validation
+  prompt_version: baseline-v1
+  max_llm_calls: 1         # one generation call per task; no correction loop
+  self_correction_rounds: 0
+
+evaluation:
+  metrics:                 # dataset-independent core metrics only (registered in core)
+    - exact_match
+    - clean_prediction_rate
+
+llm:
+  provider: echo           # deterministic; override for real runs (e.g. openai)
+  model: echo-local-v1
+  temperature: 0.0
+  max_retries: 0
+  timeout_seconds: 60
+
+dataset:
+  split: dev               # dev | test (official BEAVER splits)

@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "No strict ambiguity span. “Previous” is treated as the literal term-selector value,\nSTDDEV is explicitly required, and the material condition is a straightforward\nexistence condition for required or optional material.",
+  "question_id": "dw_1022",
+  "question_text": "For each academic year and department in which the Mathematics department (Course 18) had a total number of units for all subjects offered in 'Previous' terms that is more than one standard deviation (using STDDEV only and never STDDEV_POP) above the mean across all such combinations, give the academic year, department name, total number of units, the academic year description, the average total units, and the standard deviation (using STDDEV only and never STDDEV_POP) of total units for Mathematics subjects in that academic year that had at least one required or optional material. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

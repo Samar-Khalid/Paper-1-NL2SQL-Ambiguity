@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "unanswerable"
+  },
+  "interpretations": null,
+  "notes": "The query cannot be fully answered from the provided schema because\nIAP_SUBJECT_DETAIL contains MAX_ENROLLMENT, TERM_CODE, ENROLLMENT_TYPE,\nand IS_CANCELLED, but no SUBJECT_ID/DEPARTMENT_CODE/DEPARTMENT_NAME or\nclear key linking an IAP activity to Mathematics. Therefore the\nMathematics-department subset of IAP activities cannot be determined\nreliably, preventing computation of the requested variance and STDDEV.",
+  "question_id": "dw_1016",
+  "spans": []
+}

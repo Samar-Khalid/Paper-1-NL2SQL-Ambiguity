@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this research artifact, please cite it as follows."
+title: "Paper 1: NL2SQL Ambiguity Detection"
+abstract: >-
+  A standalone research artifact for detecting and classifying ambiguity in
+  natural-language-to-SQL questions. Includes the M1.5 ambiguity taxonomy,
+  deterministic SignalAnnotator baseline, Human Gold evaluation set, and
+  reproducible evaluation results.
+authors:
+  - family-names: "Samar"
+    given-names: "Eng"
+keywords:
+  - nl2sql
+  - ambiguity-detection
+  - text-to-sql
+  - large-language-models
+  - evaluation
+date-released: "2026-08-21"
+version: "1.0.0"
+license: "Apache-2.0"
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Samar"
+      given-names: "Eng"
+  title: "Paper 1: NL2SQL Ambiguity Detection"
+  version: "1.0.0"
+  year: "2026"

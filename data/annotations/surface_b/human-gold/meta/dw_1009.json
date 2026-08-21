@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "-- Case (a)\nWITH units_stats AS (\n    SELECT\n        d.DEPARTMENT_CODE,\n        d.DEPARTMENT_NAME,\n        AVG(s.TOTAL_UNITS) AS avg_total_units,\n        VARIANCE(s.TOTAL_UNITS) AS variance_total_units,\n        STDDEV(s.TOTAL_UNITS) AS stddev_total_units,\n        COUNT(*) AS subject_count\n    FROM SIS_DEPARTMENT d\n    JOIN SUBJECT_SUMMARY s\n      ON s.DEPARTMENT_CODE = d.DEPARTMENT_CODE\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND d.DEPARTMENT_NAME <> 'Chemistry'\n      AND s.TOTAL_UNITS > 0\n    GROUP BY d.DEPARTMENT_CODE, d.DEPARTMENT_NAME\n),\n\ntop_subjects_2022 AS (\n    SELECT\n        d.DEPARTMENT_CODE,\n        d.DEPARTMENT_NAME,\n        COUNT(DISTINCT c.SUBJECT_ID) AS subject_count\n    FROM SIS_DEPARTMENT d\n    JOIN COURSE_CATALOG_SUBJECT_OFFERED c\n      ON c.DEPARTMENT_CODE = d.DEPARTMENT_CODE\n    WHERE d.IS_DEGREE_GRANTING = 'Y'\n      AND c.ACADEMIC_YEAR = '2022'\n      AND d.DEPARTMENT_NAME <> 'Political Science'\n    GROUP BY d.DEPARTMENT_CODE, d.DEPARTMENT_NAME\n),\nranked_top AS (\n    SELECT t.*,\n           ROW_NUMBER() OVER (\n               ORDER BY t.subject_count DESC\n           ) AS rn\n    FROM top_subjects_2022 t\n)\n\nSELECT\n    DEPARTMENT_NAME,\n    avg_total_units,\n    variance_total_units,\n    stddev_total_units,\n    subject_count,\n    'UnitsStats' AS reason\nFROM units_stats\n\nUNION ALL\n\nSELECT\n    DEPARTMENT_NAME,\n    NULL AS avg_total_units,\n    NULL AS variance_total_units,\n    NULL AS stddev_total_units,\n    subject_count,\n    'TopSubjects2022' AS reason\nFROM ranked_top\nWHERE rn <= 10;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WHERE\n    (qualifies_for_units_stats AND NOT qualifies_for_top_subjects)\n OR (qualifies_for_top_subjects AND NOT qualifies_for_units_stats)"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1009",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "either (a) are degree granting and, excluding Chemistry, have at least one subject with more than 0 total units (showing for each such department its name, the average, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of total units for its subjects), or (b) are among the top 10 degree-granting departments by number of subjects offered in the 2022 academic year (excluding Political Science/Course 17)",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: room details with the specified percentage over the assignable floor area and building; every measure is named.",
+  "question_id": "dw_real_33",
+  "question_text": "Show the details of rooms including the full name of the rooms, the building names, floor numbers, the organizations occupying them, name of the departments occupying them, and the percentage of the room area over the assignable floor area and building.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

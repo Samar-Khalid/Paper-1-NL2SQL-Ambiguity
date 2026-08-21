@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "No strict ambiguity identified. 'all those courses' naturally refers to the unique courses offered by the department stated immediately before it.",
+  "question_id": "dw_10",
+  "question_text": "For each department that is degree-granting, has a department budget code above 100000, and is not the Political Science department, give the department code, department name, school name, the number of unique courses offered by the department, the total number of units for all those courses, and the number of unique subject codes associated with those courses. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

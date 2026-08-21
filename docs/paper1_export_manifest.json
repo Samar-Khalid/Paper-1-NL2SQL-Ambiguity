@@ -1,0 +1,114 @@
+{
+  "manifest_version": "1.0",
+  "target_repo": "Paper-1-NL2SQL-Ambiguity",
+  "created_at": "2026-08-08",
+  "decision": "export_manifest_only",
+  "decision_rationale": "Literal copy deferred until BEAVER redistribution terms are confirmed and the exported dependency surface is verified in an isolated checkout. Thesis repository remains untouched.",
+  "frozen_gold": {
+    "lock": "data/annotations/surface_b/surface_b.v1.lock",
+    "batch": "data/annotations/surface_b/batch-1",
+    "sha256": "e215880a439656dfce29d0d9e4f466193fb78f60bf3b894aef9734bc0d469db7",
+    "num_questions": 60,
+    "annotation_source": "ai_generated",
+    "human_gold": false
+  },
+  "pilot_run": {
+    "root": "experiments/runs/surface_b_detector_eval",
+    "evaluation_mode": "AI_GOLD_PILOT",
+    "baseline": {
+      "existence_macro_f1": 0.49519230769230765,
+      "existence_accuracy": 0.7666666666666667,
+      "span_iou_0.5_f1": 0.018518518518518517,
+      "span_iou_0.5_precision": 0.010752688172043012,
+      "span_iou_0.5_recall": 0.06666666666666667
+    }
+  },
+  "include": {
+    "taxonomy_and_contracts": [
+      "src/eaa/core/contracts/ambiguity.py",
+      "src/eaa/core/contracts/base.py",
+      "src/eaa/core/contracts/gold.py",
+      "src/eaa/core/contracts/schema.py",
+      "src/eaa/core/contracts/task.py",
+      "src/eaa/core/contracts/metrics.py",
+      "src/eaa/core/contracts/README.md"
+    ],
+    "detectors": [
+      "src/eaa/ambiguity_resolution/detector.py",
+      "src/eaa/ambiguity_resolution/resolver.py",
+      "src/eaa/ambiguity_resolution/answerability.py",
+      "src/eaa/ambiguity_resolution/formalizer.py",
+      "src/eaa/ambiguity_resolution/errors.py",
+      "src/eaa/ambiguity_resolution/detectors/",
+      "src/eaa/ambiguity_resolution/evaluation/"
+    ],
+    "annotation_infrastructure": [
+      "src/eaa/ambiguity_resolution/annotations/"
+    ],
+    "evaluation_driver": [
+      "src/eaa/experiments/surface_b_detector_evaluation.py"
+    ],
+    "experiment_config": [
+      "configs/experiments/phase1_beaver_eval.yaml"
+    ],
+    "reproducibility_artifacts": [
+      "data/annotations/surface_b/surface_b.v1.lock",
+      "data/annotations/surface_b/batch-1/",
+      "experiments/runs/surface_b_detector_eval/"
+    ],
+    "docs": [
+      "docs/12_M1_5_Ambiguity_Experiment_Design.md",
+      "docs/13_M1_5_Annotation_Protocol.md",
+      "docs/14_M1_5_Ambiguity_Detector_Architecture.md",
+      "docs/15_M1_5_Detector_Evaluation_Design.md",
+      "docs/19_M1_5_Surface_B_Annotation_Plan.md",
+      "docs/20_Paper1_Analysis_and_Status.md",
+      "docs/21_Paper1_Standalone_Export_Plan.md"
+    ],
+    "tests": [
+      "tests/unit/ambiguity_resolution/"
+    ],
+    "scaffolding": [
+      "pyproject.toml",
+      "Makefile",
+      ".pre-commit-config.yaml",
+      "AGENTS.md",
+      ".gitignore",
+      "CITATION.cff"
+    ],
+    "dataset": "ACQUISITION_INSTRUCTIONS_ONLY (data/raw/beaver is gated; contents not exported)"
+  },
+  "exclude": [
+    "src/eaa/visualization/",
+    "configs/experiments/phase2_nvbench_eval.yaml",
+    "experiments/phase2_nl2vis/",
+    "docs/16_Thesis_Research_Questions_and_Contribution_Framework.md",
+    "docs/17_Thesis_Chapter_Mapping.md",
+    "docs/18_Paper_Outline_and_Writing_Plan.md",
+    "papers/",
+    "results/",
+    "experiments/phase1_nl2sql/",
+    "experiments/runs/ (except surface_b_detector_eval)",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".ruff_cache/",
+    "*.egg-info/",
+    "*.env",
+    "credentials",
+    "data/raw/beaver/** (contents)"
+  ],
+  "verification": [
+    "pip install -e . succeeds in isolated checkout",
+    "make check passes (lint, typecheck, tests)",
+    "pilot reruns identical: existence macro-F1 0.4952, accuracy 0.7667, span IoU>=0.5 F1 0.0185, evaluation_mode AI_GOLD_PILOT",
+    "lock sha256 matches e215880a439656dfce29d0d9e4f466193fb78f60bf3b894aef9734bc0d469db7",
+    "no gated BEAVER contents, secrets, or visualization code",
+    "no remote push without explicit approval"
+  ],
+  "never_automatic": [
+    "push or publish the standalone repo",
+    "copy gated BEAVER data",
+    "alter the frozen annotation artifact"
+  ]
+}

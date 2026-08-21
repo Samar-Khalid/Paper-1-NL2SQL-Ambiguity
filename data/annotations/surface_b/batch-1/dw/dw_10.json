@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "'those courses' = the unique course rows; sum once per catalog row",
+      "sql": "SELECT d.DEPARTMENT_CODE, COUNT(DISTINCT c.SUBJECT_ID), SUM(c.TOTAL_UNITS) FROM COURSE_CATALOG_SUBJECT_OFFERED c JOIN SIS_DEPARTMENT d ON c.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPT_BUDGET_CODE > 100000 AND d.DEPARTMENT_NAME <> 'Political Science' GROUP BY d.DEPARTMENT_CODE"
+    },
+    "sql_reading_B": {
+      "note": "'those courses' = the unique course set; dedupe unit totals",
+      "sql": "SELECT d.DEPARTMENT_CODE, COUNT(DISTINCT c.SUBJECT_ID), SUM(DISTINCT c.TOTAL_UNITS) FROM COURSE_CATALOG_SUBJECT_OFFERED c JOIN SIS_DEPARTMENT d ON c.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPT_BUDGET_CODE > 100000 AND d.DEPARTMENT_NAME <> 'Political Science' GROUP BY d.DEPARTMENT_CODE"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). S2: 'for all those courses' attaches either to every offering row of the department (A) or to the unique course set (B), changing the unit total when a course appears in multiple terms.",
+  "question_id": "dw_10",
+  "question_text": "For each department that is degree-granting, has a department budget code above 100000, and is not the Political Science department, give the department code, department name, school name, the number of unique courses offered by the department, the total number of units for all those courses, and the number of unique subject codes associated with those courses. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 292,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp245",
+      "start": 245,
+      "text": "the total number of units for all those courses"
+    }
+  ]
+}

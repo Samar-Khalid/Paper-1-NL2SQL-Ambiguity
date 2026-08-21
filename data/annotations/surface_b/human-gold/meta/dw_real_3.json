@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "The office can be resolved through EMPLOYEE_DIRECTORY.OFFICE_LOCATION, then matched to FCLT_ROOMS to obtain room/floor/building key and to FCLT_BUILDING_ADDRESS for street address, city, state, and postal code. No strict natural-language ambiguity requires a span.",
+  "question_id": "dw_real_3",
+  "spans": []
+}

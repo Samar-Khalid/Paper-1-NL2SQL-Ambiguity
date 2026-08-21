@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "subjects counted over 2022 offering rows",
+      "sql": "SELECT c.OFFER_DEPT_NAME, COUNT(c.SUBJECT_ID) FROM SUBJECT_OFFERED c WHERE c.TERM_CODE LIKE '2022%' GROUP BY c.OFFER_DEPT_NAME ORDER BY COUNT(c.SUBJECT_ID) DESC LIMIT 10"
+    },
+    "sql_reading_B": {
+      "note": "distinct subjects counted in the 2022 catalog",
+      "sql": "SELECT c.DEPARTMENT_NAME, COUNT(DISTINCT c.SUBJECT_ID) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.ACADEMIC_YEAR = 2022 GROUP BY c.DEPARTMENT_NAME ORDER BY COUNT(DISTINCT c.SUBJECT_ID) DESC LIMIT 10"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C2: 'top 10 ... by number of subjects offered in the 2022 academic year' can count per-term offering rows (A) or distinct catalog subjects (B).",
+  "question_id": "dw_1009",
+  "question_text": "List all departments that either (a) are degree granting and, excluding Chemistry, have at least one subject with more than 0 total units (showing for each such department its name, the average, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of total units for its subjects), or (b) are among the top 10 degree-granting departments by number of subjects offered in the 2022 academic year (excluding Political Science/Course 17), showing for each such department its name and the count of subjects. For each row, also include a column indicating the reason for inclusion ('UnitsStats' for the first case, 'TopSubjects2022' for the second). The columns should be: department name, average total units, variance of total units, standard deviation (using STDDEV only and never STDDEV_POP) of total units, subject count, and reason for inclusion, in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 414,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp320",
+      "start": 320,
+      "text": "the top 10 degree-granting departments by number of subjects offered in the 2022 academic year"
+    }
+  ]
+}

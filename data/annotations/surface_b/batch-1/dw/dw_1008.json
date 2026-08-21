@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "ranked by number of fall-offering catalog rows",
+      "sql": "SELECT c.DEPARTMENT_CODE, c.ACADEMIC_YEAR, COUNT(c.SUBJECT_ID) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.IS_OFFERED_FALL_TERM = 1 AND c.DEPARTMENT_NAME = 'Mathematics' GROUP BY c.DEPARTMENT_CODE, c.ACADEMIC_YEAR ORDER BY COUNT(c.SUBJECT_ID) DESC LIMIT 10"
+    },
+    "sql_reading_B": {
+      "note": "ranked by number of distinct fall-offered subjects",
+      "sql": "SELECT c.DEPARTMENT_CODE, c.ACADEMIC_YEAR, COUNT(DISTINCT c.SUBJECT_ID) FROM COURSE_CATALOG_SUBJECT_OFFERED c WHERE c.IS_OFFERED_FALL_TERM = 1 AND c.DEPARTMENT_NAME = 'Mathematics' GROUP BY c.DEPARTMENT_CODE, c.ACADEMIC_YEAR ORDER BY COUNT(DISTINCT c.SUBJECT_ID) DESC LIMIT 10"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C2: 'the top 10 ... pairs with the highest number of subjects' is ambiguous between counting offering rows (A) and counting distinct subjects (B) when a subject appears in several fall catalog rows.",
+  "question_id": "dw_1008",
+  "question_text": "List, for each department, the department name, academic year, average number of enrolled students, enrollment range, enrollment variance, and subject count, along with the reason for inclusion ('EnrollmentStats' for departments with calculated enrollment statistics for degree-granting departments excluding Political Science, and 'TopMathFallSubjects' for the top 10 Mathematics department and academic year pairs with the highest number of subjects offered in the fall term). The results should include all these columns in the order: department name, academic year, average enrollment, enrollment range, enrollment variance, subject count, and reason. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 415,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp358",
+      "start": 358,
+      "text": "the top 10 Mathematics department and academic year pairs"
+    }
+  ]
+}

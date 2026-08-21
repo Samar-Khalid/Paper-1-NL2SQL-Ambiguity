@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "2008 resolved by term-code prefix",
+      "sql": "SELECT s.OFFER_DEPT_NAME, VARIANCE(s.TOTAL_UNITS) FROM SUBJECT_OFFERED_SUMMARY s WHERE s.TERM_CODE LIKE '2008%' GROUP BY s.OFFER_DEPT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "2008 resolved through the academic-year attribute",
+      "sql": "SELECT s.OFFER_DEPT_NAME, VARIANCE(s.TOTAL_UNITS) FROM SUBJECT_OFFERED_SUMMARY s JOIN ACADEMIC_TERMS t ON s.TERM_CODE = t.TERM_CODE WHERE t.ACADEMIC_YEAR = 2008 GROUP BY s.OFFER_DEPT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). T2 candidate, metadata resolution DEFERRED: 'in the 2008 academic year' can be applied as a term-code prefix (A) or through the ACADEMIC_YEAR attribute (B); the intended calendar mapping needs metadata and is deferred.",
+  "question_id": "dw_1027",
+  "question_text": "For each degree-granting department except Chemistry (Course 5), provide the department's name, the range and variance of the total units for subjects offered by that department in the 2008 academic year, and for each subject offered by the Mathematics department in the 2022 academic year with a maximum total units greater than 6, include the subject title, the maximum total units for that subject, and the department name from the course catalog. Present the results ordered by department name and subject title. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "T2",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 203,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp178",
+      "start": 178,
+      "text": "in the 2008 academic year"
+    }
+  ]
+}

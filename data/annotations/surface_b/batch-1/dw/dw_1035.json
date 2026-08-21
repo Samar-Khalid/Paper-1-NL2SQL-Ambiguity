@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "school values read from the department dimension",
+      "sql": "SELECT d.DEPARTMENT_NAME FROM SIS_DEPARTMENT d WHERE d.SCHOOL_NAME IN ('Engineering', 'Non-MIT') AND d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME <> 'Chemistry'"
+    },
+    "sql_reading_B": {
+      "note": "school values read from the subject summary dimension",
+      "sql": "SELECT s.DEPARTMENT_NAME FROM SUBJECT_SUMMARY s WHERE s.SCHOOL_NAME IN ('Engineering', 'Non-MIT') GROUP BY s.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). V1 candidate, metadata resolution DEFERRED: the school values 'Engineering' and 'Non-MIT' can be read from SIS_DEPARTMENT (A) or SUBJECT_SUMMARY (B); which school dimension carries the intended values requires metadata and is deferred.",
+  "question_id": "dw_1035",
+  "question_text": "For each department that is not \"Political Science\" (Course 17), has a total number of units for courses in the \"Engineering\" or \"Non-MIT\" schools greater than 1000, grants degrees, and is not the Chemistry department (Course 5), list the department name, the total number of units, the average number of students enrolled in subjects offered by that department, the range of enrolled students, the variance of enrolled students, and calculate the ratio of total units to average enrolled students rounded to two decimal places, ordering the results by this ratio in descending order.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "V1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 146,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp105",
+      "start": 105,
+      "text": "in the \"Engineering\" or \"Non-MIT\" schools"
+    }
+  ]
+}

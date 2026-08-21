@@ -1,0 +1,36 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "COUNT(*)"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "COUNT(DISTINCT LIBRARY_RESERVE_CATALOG_KEY)"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1002",
+  "spans": [
+    {
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "for the department (considering only Chemistry and Biology departments)",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    },
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "the number of reserved course materials",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

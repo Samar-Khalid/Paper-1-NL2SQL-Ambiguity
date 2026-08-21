@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "the phone filter applies to the students averaged",
+      "sql": "SELECT s.DEPARTMENT_NAME, AVG(s.OFFICE_PHONE) FROM MIT_STUDENT_DIRECTORY s WHERE s.STUDENT_YEAR = 'G' AND s.OFFICE_PHONE IS NOT NULL GROUP BY s.DEPARTMENT_NAME ORDER BY AVG(s.OFFICE_PHONE) DESC LIMIT 5"
+    },
+    "sql_reading_B": {
+      "note": "the phone filter selects the departments considered",
+      "sql": "SELECT s.DEPARTMENT_NAME, AVG(s.OFFICE_PHONE) FROM MIT_STUDENT_DIRECTORY s WHERE s.STUDENT_YEAR = 'G' AND s.DEPARTMENT_NAME IN (SELECT DISTINCT t.DEPARTMENT_NAME FROM MIT_STUDENT_DIRECTORY t WHERE t.OFFICE_PHONE IS NOT NULL) GROUP BY s.DEPARTMENT_NAME ORDER BY AVG(s.OFFICE_PHONE) DESC LIMIT 5"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). S2: the relative clause 'who have a non-null office phone number' attaches to the graduate students whose phone is averaged (A) or to the set of departments ranked (B).",
+  "question_id": "dw_100",
+  "question_text": "Among all departments, which are the top 5 departments with the highest average office phone number among graduate students (student year 'G') who have a non-null office phone number? For each of these departments, show the department name, the average and standard deviation (using STDDEV only and never STDDEV_POP) of office phone numbers, and the full name and office phone number of the graduate student in that department with the highest office phone number. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 182,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp143",
+      "start": 143,
+      "text": "who have a non-null office phone number"
+    }
+  ]
+}

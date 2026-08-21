@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "subject codes counted from SIS_SUBJECT_CODE",
+      "sql": "SELECT d.DEPARTMENT_NAME, COUNT(DISTINCT sc.SUBJECT_CODE) FROM SIS_SUBJECT_CODE sc JOIN SIS_DEPARTMENT d ON sc.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME NOT IN ('Mathematics', 'Biology') GROUP BY d.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "subject codes counted from the course catalog",
+      "sql": "SELECT d.DEPARTMENT_NAME, COUNT(DISTINCT c.SUBJECT_CODE) FROM COURSE_CATALOG_SUBJECT_OFFERED c JOIN SIS_DEPARTMENT d ON c.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME NOT IN ('Mathematics', 'Biology') GROUP BY d.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R2: the join path behind 'the total number of subject codes' is not pinned by the text - SIS_SUBJECT_CODE (A) and COURSE_CATALOG_SUBJECT_OFFERED (B) are both plausible sources.",
+  "question_id": "dw_1001",
+  "question_text": "For each department that is not 'Mathematics' (Course 18), and is degree-granting and not the Biology department (Course 7), and whose total number of subject codes is greater than one standard deviation (using STDDEV only and never STDDEV_POP) above the mean across all departments, what are the department name, the average of the total units for subjects offered in the 2022FA term, the range of total units, the variance of total units, and the total number of subject codes? List the results ordered by department name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 478,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp445",
+      "start": 445,
+      "text": "the total number of subject codes"
+    }
+  ]
+}

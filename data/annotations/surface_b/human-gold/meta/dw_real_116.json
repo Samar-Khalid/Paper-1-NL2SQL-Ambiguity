@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH floor_counts AS (\n    SELECT\n        f.FCLT_BUILDING_KEY,\n        COUNT(*) AS floor_count\n    FROM FCLT_FLOOR f\n    GROUP BY f.FCLT_BUILDING_KEY\n),\nmax_count AS (\n    SELECT MAX(floor_count) AS max_floor_count\n    FROM floor_counts\n)\nSELECT b.BUILDING_NAME\nFROM floor_counts fc\nJOIN max_count mc\n    ON fc.floor_count = mc.max_floor_count\nJOIN FCLT_BUILDING b\n    ON b.FCLT_BUILDING_KEY = fc.FCLT_BUILDING_KEY;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH building_levels AS (\n    SELECT\n        f.FCLT_BUILDING_KEY,\n        MAX(TO_NUMBER(f.FLOOR_SORT_SEQUENCE)) AS max_floor_level\n    FROM FCLT_FLOOR f\n    WHERE REGEXP_LIKE(f.FLOOR_SORT_SEQUENCE, '^[0-9]+$')\n    GROUP BY f.FCLT_BUILDING_KEY\n),\nmax_level AS (\n    SELECT MAX(max_floor_level) AS global_max_level\n    FROM building_levels\n)\nSELECT b.BUILDING_NAME\nFROM building_levels bl\nJOIN max_level ml\n    ON bl.max_floor_level = ml.global_max_level\nJOIN FCLT_BUILDING b\n    ON b.FCLT_BUILDING_KEY = bl.FCLT_BUILDING_KEY;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_real_116",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "the most floors",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

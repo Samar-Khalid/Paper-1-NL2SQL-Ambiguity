@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "السؤال answerable دون clarification. جميع المقاييس، قيود الأقسام، شرط التسجيل، شرط الـ email، وشرط “offered this year” يمكن ربطها مباشرة بالـ schema، ولا توجد قراءتان معقولتان متعارضتان تؤديان إلى نتائج مختلفة.",
+  "question_id": "dw_1007",
+  "spans": []
+}

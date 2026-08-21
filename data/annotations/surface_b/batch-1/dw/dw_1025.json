@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "email read from the student directory channel",
+      "sql": "SELECT s.FULL_NAME, s.EMAIL_ADDRESS FROM MIT_STUDENT_DIRECTORY s WHERE s.DEPARTMENT = '6' AND s.DEPARTMENT_NAME = 'Electrical Eng & Computer Sci'"
+    },
+    "sql_reading_B": {
+      "note": "email read from the warehouse users channel",
+      "sql": "SELECT s.FULL_NAME, w.EMAIL_ADDRESS FROM MIT_STUDENT_DIRECTORY s JOIN WAREHOUSE_USERS w ON s.EMAIL_ADDRESS = w.EMAIL_ADDRESS WHERE s.DEPARTMENT = '6' AND s.DEPARTMENT_NAME = 'Electrical Eng & Computer Sci'"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). I2: 'email address' is an output-channel field that exists in more than one table; the student directory (A) and warehouse users (B) are both plausible channel sources for the displayed email.",
+  "question_id": "dw_1025",
+  "question_text": "For each student in the MIT student directory whose department is '6' (Electrical Engineering and Computer Science) and whose department name is 'Electrical Eng & Computer Sci', show their full name, email address, department name, the corresponding SIS admin department name, the average department code within each department code group, the department name from the degree-granting departments (excluding Mathematics), and the average and standard deviation (using STDDEV only and never STDDEV_POP) of the CIP program codes for all degree-granting courses in that department. List the results ordered by the student's full name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "I2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 213,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp200",
+      "start": 200,
+      "text": "email address"
+    }
+  ]
+}

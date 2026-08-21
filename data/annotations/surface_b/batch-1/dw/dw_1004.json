@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "ranked by SIS_COURSE_DESCRIPTION degree-granting course rows",
+      "sql": "SELECT scd.DEPARTMENT_NAME FROM SIS_COURSE_DESCRIPTION scd JOIN SIS_DEPARTMENT d ON scd.DEPARTMENT = d.DEPARTMENT_CODE WHERE scd.IS_DEGREE_GRANTING = 1 GROUP BY scd.DEPARTMENT_NAME ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    "sql_reading_B": {
+      "note": "ranked by distinct subjects in the course catalog",
+      "sql": "SELECT c.DEPARTMENT_NAME FROM COURSE_CATALOG_SUBJECT_OFFERED c JOIN SIS_DEPARTMENT d ON c.DEPARTMENT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 GROUP BY c.DEPARTMENT_NAME ORDER BY COUNT(DISTINCT c.SUBJECT_ID) DESC LIMIT 1"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C2: the 'highest number of undergraduate degree-granting courses' rank can be computed over SIS_COURSE_DESCRIPTION rows (A) or over distinct catalog subjects (B); the two top departments may differ.",
+  "question_id": "dw_1004",
+  "question_text": "For each department that is degree granting (excluding Chemistry), what is the department name, the average of the total units, and the standard deviation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department (considering only subjects with more than 0 total units), and, for departments that match the Mathematics department (the department with the highest number of undergraduate degree-granting courses), also show the department name, school name, and the number of such courses? List the results in order by department name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 452,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp373",
+      "start": 373,
+      "text": "the department with the highest number of undergraduate degree-granting courses"
+    }
+  ]
+}

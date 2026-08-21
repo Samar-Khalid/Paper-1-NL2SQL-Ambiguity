@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 0.98,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "TIP_SUBJECT_OFFERED does not contain TOTAL_UNITS; TOTAL_UNITS must be sourced from SUBJECT_OFFERED_SUMMARY.\nNo strict ambiguity span is warranted because the remaining wording is resolvable from the schema.",
+  "question_id": "dw_1005",
+  "spans": []
+}

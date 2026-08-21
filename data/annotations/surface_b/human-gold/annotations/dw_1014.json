@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "No strict ambiguity identified. The 2022 academic-year constraint clearly modifies the average and variance of total units, while the coefficient of variation is requested for courses offered by each department without a year restriction. STDDEV is explicitly required instead of STDDEV_POP.",
+  "question_id": "dw_1014",
+  "question_text": "For each department that is degree-granting, excluding the Physics and Biology (Course 7) departments, provide the department name, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for courses offered by that department, the average of the total units for subjects offered by that department in the 2022 academic year, and the variance of the total units for those subjects. List the department name, coefficient of variation (using STDDEV only and never STDDEV_POP), average total units (2022), and variance of total units (2022) in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "\"subjects in the Mathematics department\" = subject department itself",
+      "sql": "WITH math_subjects AS (\n    SELECT\n        c.SUBJECT_CODE,\n        c.SUBJECT_NUMBER,\n        c.DEPARTMENT_NAME,\n        c.SUBJECT_TITLE,\n        c.TOTAL_UNITS,\n        c.IS_OFFERED_FALL_TERM,\n        o.OFFER_DEPT_NAME,\n        s.SUBJECT_ENROLLMENT_NUMBER\n    FROM COURSE_CATALOG_SUBJECT_OFFERED c\n    LEFT JOIN SUBJECT_SUMMARY s\n        ON s.SUBJECT_ID = c.SUBJECT_ID\n       AND s.TERM_CODE = c.EFFECTIVE_TERM_CODE\n    LEFT JOIN SUBJECT_OFFERED o\n        ON o.SUBJECT_ID = c.SUBJECT_ID\n       AND o.TERM_CODE = c.EFFECTIVE_TERM_CODE\n    WHERE c.DEPARTMENT_NAME = 'Mathematics'\n      AND c.TOTAL_UNITS = 12\n      AND c.IS_OFFERED_FALL_TERM = 'Y'\n)\nSELECT\n    SUBJECT_CODE,\n    SUBJECT_NUMBER,\n    DEPARTMENT_NAME,\n    SUBJECT_TITLE,\n    TOTAL_UNITS,\n    IS_OFFERED_FALL_TERM,\n    OFFER_DEPT_NAME,\n    SUBJECT_ENROLLMENT_NUMBER,\n    ROW_NUMBER() OVER (\n        PARTITION BY OFFER_DEPT_NAME\n        ORDER BY SUBJECT_CODE\n    ) AS ROW_NUM\nFROM math_subjects;"
+    },
+    "sql_reading_B": {
+      "note": "\"subjects in the Mathematics department\" = subjects whose offering department is Mathematics.",
+      "sql": "WITH math_subjects AS (\n    SELECT\n        c.SUBJECT_CODE,\n        c.SUBJECT_NUMBER,\n        c.DEPARTMENT_NAME,\n        c.SUBJECT_TITLE,\n        c.TOTAL_UNITS,\n        c.IS_OFFERED_FALL_TERM,\n        o.OFFER_DEPT_NAME,\n        s.SUBJECT_ENROLLMENT_NUMBER\n    FROM COURSE_CATALOG_SUBJECT_OFFERED c\n    LEFT JOIN SUBJECT_SUMMARY s\n        ON s.SUBJECT_ID = c.SUBJECT_ID\n       AND s.TERM_CODE = c.EFFECTIVE_TERM_CODE\n    LEFT JOIN SUBJECT_OFFERED o\n        ON o.SUBJECT_ID = c.SUBJECT_ID\n       AND o.TERM_CODE = c.EFFECTIVE_TERM_CODE\n    WHERE o.OFFER_DEPT_NAME = 'Mathematics'\n      AND c.TOTAL_UNITS = 12\n      AND c.IS_OFFERED_FALL_TERM = 'Y'\n)\nSELECT\n    SUBJECT_CODE,\n    SUBJECT_NUMBER,\n    DEPARTMENT_NAME,\n    SUBJECT_TITLE,\n    TOTAL_UNITS,\n    IS_OFFERED_FALL_TERM,\n    OFFER_DEPT_NAME,\n    SUBJECT_ENROLLMENT_NUMBER,\n    ROW_NUMBER() OVER (\n        PARTITION BY DEPARTMENT_NAME\n        ORDER BY SUBJECT_CODE\n    ) AS ROW_NUM\nFROM math_subjects;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1000",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "subjects in the Mathematics department",
+      "resolution_channel": "clarification",
+      "type": "S2"
+    }
+  ]
+}

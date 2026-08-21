@@ -1,0 +1,1172 @@
+{
+  "dw_0": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_0",
+    "third_annotator_id": null
+  },
+  "dw_1": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1",
+    "third_annotator_id": null
+  },
+  "dw_10": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_10",
+    "third_annotator_id": null
+  },
+  "dw_100": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_100",
+    "third_annotator_id": null
+  },
+  "dw_1000": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1000",
+    "third_annotator_id": null
+  },
+  "dw_1001": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1001",
+    "third_annotator_id": null
+  },
+  "dw_1002": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1002",
+    "third_annotator_id": null
+  },
+  "dw_1003": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1003",
+    "third_annotator_id": null
+  },
+  "dw_1004": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1004",
+    "third_annotator_id": null
+  },
+  "dw_1005": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1005",
+    "third_annotator_id": null
+  },
+  "dw_1006": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1006",
+    "third_annotator_id": null
+  },
+  "dw_1007": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1007",
+    "third_annotator_id": null
+  },
+  "dw_1008": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1008",
+    "third_annotator_id": null
+  },
+  "dw_1009": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1009",
+    "third_annotator_id": null
+  },
+  "dw_101": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_101",
+    "third_annotator_id": null
+  },
+  "dw_1010": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1010",
+    "third_annotator_id": null
+  },
+  "dw_1011": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1011",
+    "third_annotator_id": null
+  },
+  "dw_1012": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1012",
+    "third_annotator_id": null
+  },
+  "dw_1014": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1014",
+    "third_annotator_id": null
+  },
+  "dw_1015": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1015",
+    "third_annotator_id": null
+  },
+  "dw_1016": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1016",
+    "third_annotator_id": null
+  },
+  "dw_1018": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1018",
+    "third_annotator_id": null
+  },
+  "dw_102": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_102",
+    "third_annotator_id": null
+  },
+  "dw_1022": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1022",
+    "third_annotator_id": null
+  },
+  "dw_1025": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1025",
+    "third_annotator_id": null
+  },
+  "dw_103": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_103",
+    "third_annotator_id": null
+  },
+  "dw_1030": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1030",
+    "third_annotator_id": null
+  },
+  "dw_1031": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1031",
+    "third_annotator_id": null
+  },
+  "dw_1033": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1033",
+    "third_annotator_id": null
+  },
+  "dw_1061": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_1061",
+    "third_annotator_id": null
+  },
+  "dw_2713": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_2713",
+    "third_annotator_id": null
+  },
+  "dw_2766": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_2766",
+    "third_annotator_id": null
+  },
+  "dw_2931": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_2931",
+    "third_annotator_id": null
+  },
+  "dw_2979": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_2979",
+    "third_annotator_id": null
+  },
+  "dw_real_10": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_10",
+    "third_annotator_id": null
+  },
+  "dw_real_114": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_114",
+    "third_annotator_id": null
+  },
+  "dw_real_116": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_116",
+    "third_annotator_id": null
+  },
+  "dw_real_117": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_117",
+    "third_annotator_id": null
+  },
+  "dw_real_120": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_120",
+    "third_annotator_id": null
+  },
+  "dw_real_16": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_16",
+    "third_annotator_id": null
+  },
+  "dw_real_2": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_2",
+    "third_annotator_id": null
+  },
+  "dw_real_3": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_3",
+    "third_annotator_id": null
+  },
+  "dw_real_33": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_33",
+    "third_annotator_id": null
+  },
+  "dw_real_34": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_34",
+    "third_annotator_id": null
+  },
+  "dw_real_51": {
+    "adjudication": {
+      "outcome": null,
+      "required": false,
+      "resolved_span_ids": [],
+      "senior_annotator_id": null
+    },
+    "annotation_source": "human",
+    "annotator_ids": [
+      "samar"
+    ],
+    "enrichment_snapshot": {
+      "database_id": "dw",
+      "derivation": "sha256(<exact bytes of <raw-data-root>/<database_id>/enrichment.json>)",
+      "token": null
+    },
+    "human_gold": true,
+    "inter_annotator_agreement": {
+      "available": false,
+      "reason": "single human annotator (the researcher); a second independent annotator was not available, so inter-annotator agreement is not applicable"
+    },
+    "protocol_version": "annotation-schema-v1",
+    "provenance_version": "provenance-v1",
+    "question_id": "dw_real_51",
+    "third_annotator_id": null
+  }
+}

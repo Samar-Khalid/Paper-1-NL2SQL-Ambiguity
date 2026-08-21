@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "filter per course: include courses with enrollment > 5",
+      "sql": "SELECT so.OFFER_DEPT_NAME, MAX(so.NUM_ENROLLED_STUDENTS), AVG(so.NUM_ENROLLED_STUDENTS) FROM LIBRARY_SUBJECT_OFFERED so WHERE so.TERM_CODE LIKE '2019%' AND so.NUM_ENROLLED_STUDENTS > 5 GROUP BY so.OFFER_DEPT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "filter per department: keep departments whose max enrollment > 5",
+      "sql": "SELECT so.OFFER_DEPT_NAME, MAX(so.NUM_ENROLLED_STUDENTS), AVG(so.NUM_ENROLLED_STUDENTS) FROM LIBRARY_SUBJECT_OFFERED so WHERE so.TERM_CODE LIKE '2019%' GROUP BY so.OFFER_DEPT_NAME HAVING MAX(so.NUM_ENROLLED_STUDENTS) > 5"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). S1: the quantifier 'maximum ... greater than 5' can scope over the per-course enrollment rows (A) or over the per-department maximum (B). Both readings are consistent with the text and the LIBRARY_SUBJECT_OFFERED enrollment schema.",
+  "question_id": "dw_0",
+  "question_text": "For each department, what is the maximum number of enrolled students in any course offered by that department in 2019, what is the name of the responsible faculty member for that course, and what is the average number of enrolled students for all such courses in that department, considering only courses where the maximum number of enrolled students is greater than 5, and only including departments of Mathematics (Course 18) and Chemistry (Course 5)? Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 368,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp305",
+      "start": 305,
+      "text": "where the maximum number of enrolled students is greater than 5"
+    }
+  ]
+}

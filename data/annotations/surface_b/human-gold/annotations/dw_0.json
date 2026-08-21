@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH dept_courses AS (\n    SELECT\n        s.OFFER_DEPT_CODE AS department_code,\n        s.OFFER_DEPT_NAME AS department_name,\n        s.COURSE_NUMBER,\n        s.SUBJECT_ID,\n        s.NUM_ENROLLED_STUDENTS,\n        s.RESPONSIBLE_FACULTY_NAME\n    FROM SUBJECT_OFFERED s\n    WHERE s.TERM_CODE LIKE '2019%'\n      AND s.OFFER_DEPT_CODE IN ('18', '5')\n),\ndept_stats AS (\n    SELECT\n        department_code,\n        MAX(NUM_ENROLLED_STUDENTS) AS max_enrollment\n    FROM dept_courses\n    GROUP BY department_code\n)\nSELECT\n    d.department_name,\n    d.max_enrollment,\n    ...\n    AVG(c.NUM_ENROLLED_STUDENTS) AS avg_enrollment\nFROM dept_stats d\nJOIN dept_courses c\n  ON c.department_code = d.department_code\nWHERE d.max_enrollment > 5\nGROUP BY d.department_name, d.max_enrollment;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    department,\n    MAX(NUM_ENROLLED_STUDENTS) AS max_enrollment,\n    AVG(NUM_ENROLLED_STUDENTS) AS avg_enrollment\nFROM ...\nWHERE ...\n  AND NUM_ENROLLED_STUDENTS > 5\nGROUP BY department;"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_0",
+  "question_text": "For each department, what is the maximum number of enrolled students in any course offered by that department in 2019, what is the name of the responsible faculty member for that course, and what is the average number of enrolled students for all such courses in that department, considering only courses where the maximum number of enrolled students is greater than 5, and only including departments of Mathematics (Course 18) and Chemistry (Course 5)? Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "high",
+      "clarification_required": true,
+      "end": 259,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp243",
+      "start": 243,
+      "text": "all such courses"
+    }
+  ]
+}

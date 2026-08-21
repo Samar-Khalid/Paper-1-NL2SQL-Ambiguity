@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "coefficient of variation over per-subject enrollment",
+      "sql": "SELECT STDDEV(s.SUBJECT_ENROLLMENT_NUMBER) / AVG(s.SUBJECT_ENROLLMENT_NUMBER) FROM SUBJECT_OFFERED_SUMMARY s JOIN SIS_DEPARTMENT d ON s.OFFER_DEPT_CODE = d.DEPARTMENT_CODE WHERE d.DEPARTMENT_NAME = 'Mathematics'"
+    },
+    "sql_reading_B": {
+      "note": "coefficient of variation over total units",
+      "sql": "SELECT STDDEV(s.TOTAL_UNITS) / AVG(s.TOTAL_UNITS) FROM SUBJECT_OFFERED_SUMMARY s JOIN SIS_DEPARTMENT d ON s.OFFER_DEPT_CODE = d.DEPARTMENT_CODE WHERE d.DEPARTMENT_NAME = 'Mathematics'"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). K1: the coefficient-of-variation metric can be applied to the enrollment measure (A) or to total units (B); the text names both measures and does not pin the one the CV is computed over.",
+  "question_id": "dw_1015",
+  "question_text": "For the Mathematics department (Course 18), which is degree-granting and offers at least one subject with at least one enrolled student and at least one subject with more than 0 total units, provide the department name, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the number of enrolled students per subject offered by that department, and the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "K1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 512,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp384",
+      "start": 384,
+      "text": "the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for subjects offered by that department"
+    }
+  ]
+}

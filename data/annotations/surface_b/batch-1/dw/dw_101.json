@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "window max computed over all subjects per school",
+      "sql": "SELECT s.SUBJECT_ID, s.SUBJECT_TITLE, s.SCHOOL_NAME, MAX(s.TOTAL_UNITS) OVER (PARTITION BY s.SCHOOL_CODE) AS max_units FROM SUBJECT_SUMMARY s JOIN ACADEMIC_TERMS t ON s.TERM_CODE = t.TERM_CODE WHERE t.IS_CURRENT_TERM = 1 AND s.DEPARTMENT_NAME = 'Political Science' ORDER BY s.SUBJECT_ID"
+    },
+    "sql_reading_B": {
+      "note": "grouped max per school returned alongside each subject",
+      "sql": "SELECT s.SUBJECT_ID, s.SUBJECT_TITLE, s.SCHOOL_NAME, g.max_units FROM SUBJECT_SUMMARY s JOIN (SELECT SCHOOL_CODE, MAX(TOTAL_UNITS) AS max_units FROM SUBJECT_SUMMARY GROUP BY SCHOOL_CODE) g ON s.SCHOOL_CODE = g.SCHOOL_CODE JOIN ACADEMIC_TERMS t ON s.TERM_CODE = t.TERM_CODE WHERE t.IS_CURRENT_TERM = 1 AND s.DEPARTMENT_NAME = 'Political Science' ORDER BY s.SUBJECT_ID"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). C1: 'the maximum total units within each school' can be a window maximum attached to every subject (A) or a grouped maximum joined back (B); the displayed value is the same but the row semantics and SQL differ.",
+  "question_id": "dw_101",
+  "question_text": "For subjects in the current academic term that are in the Political Science department (Course 17), show the subject ID, subject title, department name, and the maximum total units within each school, ordered by subject ID. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "C1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 199,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp157",
+      "start": 157,
+      "text": "the maximum total units within each school"
+    }
+  ]
+}

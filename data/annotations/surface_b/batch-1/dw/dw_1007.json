@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "ACADEMIC_TERMS is the driver; the parameter is looked up",
+      "sql": "SELECT t.TERM_CODE, t.ACADEMIC_YEAR_DESC, atp.TERM_PARAMETER, AVG(s.TOTAL_UNITS) FROM ACADEMIC_TERMS t LEFT JOIN ACADEMIC_TERM_PARAMETER atp ON t.TERM_CODE = atp.TERM_CODE JOIN SUBJECT_SUMMARY s ON s.TERM_CODE = t.TERM_CODE WHERE t.IS_REGULAR_TERM = 1 AND t.IS_CURRENT_TERM = 0 GROUP BY t.TERM_CODE, atp.TERM_PARAMETER"
+    },
+    "sql_reading_B": {
+      "note": "ACADEMIC_TERM_PARAMETER is the driver; terms resolve through it",
+      "sql": "SELECT t.TERM_CODE, t.ACADEMIC_YEAR_DESC, atp.TERM_PARAMETER, AVG(s.TOTAL_UNITS) FROM ACADEMIC_TERM_PARAMETER atp JOIN SUBJECT_SUMMARY s ON s.TERM_CODE = atp.TERM_CODE JOIN ACADEMIC_TERMS t ON t.TERM_CODE = atp.TERM_CODE WHERE atp.IS_CURRENT_TERM = 1 GROUP BY t.TERM_CODE, atp.TERM_PARAMETER"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R2: 'the corresponding academic term parameter' leaves the join direction between ACADEMIC_TERMS and ACADEMIC_TERM_PARAMETER open (A: terms first; B: parameters first), and with it which 'effective term' drives the aggregate.",
+  "question_id": "dw_1007",
+  "question_text": "For each academic year and term, what are the academic year, academic year description, term code, the range, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of the total units of Mathematics subjects offered in each regular, non-future term, and for the corresponding academic term parameter, what are the academic term parameter code, term description, average total units, and variance of the total units of Mathematics subjects offered in the effective term, considering only subjects offered this year? Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 318,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp277",
+      "start": 277,
+      "text": "the corresponding academic term parameter"
+    }
+  ]
+}

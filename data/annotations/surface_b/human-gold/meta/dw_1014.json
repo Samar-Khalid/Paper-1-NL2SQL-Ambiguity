@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "No strict ambiguity identified. The 2022 academic-year constraint clearly modifies the average and variance of total units, while the coefficient of variation is requested for courses offered by each department without a year restriction. STDDEV is explicitly required instead of STDDEV_POP.",
+  "question_id": "dw_1014",
+  "spans": []
+}

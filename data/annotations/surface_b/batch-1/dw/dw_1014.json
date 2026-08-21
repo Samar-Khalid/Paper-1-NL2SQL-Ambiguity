@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "STDDEV (sample) used as the spread measure",
+      "sql": "SELECT d.DEPARTMENT_NAME, STDDEV(s.TOTAL_UNITS) / AVG(s.TOTAL_UNITS) AS cv FROM SUBJECT_OFFERED_SUMMARY s JOIN SIS_DEPARTMENT d ON s.OFFER_DEPT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME NOT IN ('Physics', 'Biology') GROUP BY d.DEPARTMENT_NAME"
+    },
+    "sql_reading_B": {
+      "note": "STDDEV_SAMP chosen as the explicit sample standard deviation",
+      "sql": "SELECT d.DEPARTMENT_NAME, STDDEV_SAMP(s.TOTAL_UNITS) / AVG(s.TOTAL_UNITS) AS cv FROM SUBJECT_OFFERED_SUMMARY s JOIN SIS_DEPARTMENT d ON s.OFFER_DEPT_CODE = d.DEPARTMENT_CODE WHERE d.IS_DEGREE_GRANTING = 1 AND d.DEPARTMENT_NAME NOT IN ('Physics', 'Biology') GROUP BY d.DEPARTMENT_NAME"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). K1: 'using STDDEV only and never STDDEV_POP' requires external knowledge of the coefficient-of-variation formula and of which standard-deviation function the SQL dialect exposes; STDDEV (A) and STDDEV_SAMP (B) are the two candidate spellings.",
+  "question_id": "dw_1014",
+  "question_text": "For each department that is degree-granting, excluding the Physics and Biology (Course 7) departments, provide the department name, the coefficient of variation (using STDDEV only and never STDDEV_POP) of the total units for courses offered by that department, the average of the total units for subjects offered by that department in the 2022 academic year, and the variance of the total units for those subjects. List the department name, coefficient of variation (using STDDEV only and never STDDEV_POP), average total units (2022), and variance of total units (2022) in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "K1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 200,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp162",
+      "start": 162,
+      "text": "using STDDEV only and never STDDEV_POP"
+    }
+  ]
+}

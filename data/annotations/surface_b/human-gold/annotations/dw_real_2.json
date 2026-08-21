@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": null,
+  "question_id": "dw_real_2",
+  "question_text": "List the unique course instructor names, course titles, and the amount of material for each course instructor key and the key of subject offered.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "WITH units_stats AS (\n    SELECT\n        d.department_code,\n        d.department_name,\n        AVG(s.total_units) AS avg_total_units,\n        VARIANCE(s.total_units) AS variance_total_units,\n        STDDEV(s.total_units) AS stddev_total_units,\n        COUNT(*) AS subject_count\n    FROM SIS_DEPARTMENT d\n    JOIN SUBJECT_SUMMARY s\n      ON s.department_code = d.department_code\n    WHERE d.is_degree_granting = 'Y'\n      AND d.department_name <> 'Chemistry'\n      AND s.total_units > 0\n    GROUP BY d.department_code, d.department_name\n),\ntop_subjects AS (\n    SELECT\n        d.department_code,\n        d.department_name,\n        COUNT(*) AS subject_count\n    FROM SIS_DEPARTMENT d\n    JOIN COURSE_CATALOG_SUBJECT_OFFERED c\n      ON c.department_code = d.department_code\n    WHERE d.is_degree_granting = 'Y'\n      AND NOT (\n          d.department_name = 'Political Science'\n          OR c.subject_number = '17'\n      )\n      AND c.academic_year = '2022'\n    GROUP BY d.department_code, d.department_name\n),\ntop10 AS (\n    SELECT *\n    FROM (\n        SELECT\n            t.*,\n            ROW_NUMBER() OVER (ORDER BY t.subject_count DESC) AS rn\n        FROM top_subjects t\n    )\n    WHERE rn <= 10\n)\nSELECT\n    department_name,\n    avg_total_units,\n    variance_total_units,\n    stddev_total_units,\n    subject_count,\n    'UnitsStats' AS reason_for_inclusion\nFROM units_stats\n\nUNION ALL\n\nSELECT\n    department_name,\n    NULL AS avg_total_units,\n    NULL AS variance_total_units,\n    NULL AS stddev_total_units,\n    subject_count,\n    'TopSubjects2022' AS reason_for_inclusion\nFROM top10;"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "WITH units_stats AS (\n    SELECT\n        d.department_code,\n        d.department_name,\n        AVG(s.total_units) AS avg_total_units,\n        VARIANCE(s.total_units) AS variance_total_units,\n        STDDEV(s.total_units) AS stddev_total_units,\n        COUNT(*) AS subject_count\n    FROM SIS_DEPARTMENT d\n    JOIN SUBJECT_SUMMARY s\n      ON s.department_code = d.department_code\n    WHERE d.is_degree_granting = 'Y'\n      AND d.department_name <> 'Chemistry'\n      AND s.total_units > 0\n    GROUP BY d.department_code, d.department_name\n),\ntop_subjects AS (\n    SELECT\n        d.department_code,\n        d.department_name,\n        COUNT(*) AS subject_count\n    FROM SIS_DEPARTMENT d\n    JOIN COURSE_CATALOG_SUBJECT_OFFERED c\n      ON c.department_code = d.department_code\n    WHERE d.is_degree_granting = 'Y'\n      AND NOT (\n          d.department_name = 'Political Science'\n          OR c.subject_number = '17'\n      )\n      AND c.academic_year = '2022'\n    GROUP BY d.department_code, d.department_name\n),\ntop10 AS (\n    SELECT *\n    FROM (\n        SELECT\n            t.*,\n            ROW_NUMBER() OVER (ORDER BY t.subject_count DESC) AS rn\n        FROM top_subjects t\n    )\n    WHERE rn <= 10\n)\nSELECT\n    u.department_name,\n    u.avg_total_units,\n    u.variance_total_units,\n    u.stddev_total_units,\n    u.subject_count,\n    'UnitsStats' AS reason_for_inclusion\nFROM units_stats u\nWHERE NOT EXISTS (\n    SELECT 1\n    FROM top10 t\n    WHERE t.department_code = u.department_code\n)\n\nUNION ALL\n\nSELECT\n    t.department_name,\n    NULL AS avg_total_units,\n    NULL AS variance_total_units,\n    NULL AS stddev_total_units,\n    t.subject_count,\n    'TopSubjects2022' AS reason_for_inclusion\nFROM top10 t\nWHERE NOT EXISTS (\n    SELECT 1\n    FROM units_stats u\n    WHERE u.department_code = t.department_code\n);"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_1011",
+  "question_text": "List, for each department, either (a) the department name along with the average, range, and variance of the total units for letter graded subjects offered in the 2022 academic year (for degree-granting departments except Biology), or (b) the department name, department full name, and the maximum total units among subjects offered in the 2021FA term (for degree-granting departments except Chemistry that offered at least one subject), and indicate the reason for inclusion as either '2022 Letter Graded' or '2021FA Max Units'. The columns should be: department name, department full name, average total units, range of total units, variance of total units, maximum total units, and reason for inclusion, in that order. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "S1",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 34,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp27",
+      "start": 27,
+      "text": "either "
+    }
+  ]
+}

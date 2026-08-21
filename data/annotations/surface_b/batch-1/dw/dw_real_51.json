@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: counts of students, departments, and schools associated with the named mailing list.",
+  "question_id": "dw_real_51",
+  "question_text": "Regarding the mailing list about duo users, provide the number of students in this list, and the number of departments and schools associated with these students.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

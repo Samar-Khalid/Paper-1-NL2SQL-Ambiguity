@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-1-nl2sql-ambiguity"
+version = "1.0.0"
+description = "Paper 1: Detecting and classifying ambiguity in NL2SQL questions — M1.5 taxonomy, deterministic baseline, and Human Gold evaluation."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Eng Samar", email = "eng.samar@example.com" },
+]
+keywords = ["nl2sql", "ambiguity-detection", "text-to-sql", "llm", "evaluation"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# ------------------------------------------------------------------
+# Runtime dependencies. Only added when a module actually requires them;
+# never speculatively. The core contracts/registry/observability/experiments
+# packages need pydantic (contracts + config), PyYAML (configs), and
+# structlog (structured logging; falls back to stdlib logging if absent).
+# ------------------------------------------------------------------
+dependencies = [
+  "pydantic>=2.0",
+  "PyYAML>=6.0",
+  "structlog>=24.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+  "mypy>=1.10",
+  "types-PyYAML>=6.0",
+  "pre-commit>=3.7",
+]
+docs = [
+  "mkdocs-material>=9.5",
+  "mkdocstrings>=0.24",
+]
+
+[tool.setuptools]
+# Package discovery rooted in src/. The framework lives under the `eaa.*`
+# namespace (e.g. eaa.core, eaa.datasets) to avoid top-level name collisions
+# with popular PyPI packages (most notably the Hugging Face `datasets`
+# library). See architecture/adrs/ADR-005-namespace-layout.md.
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.entry-points."eaa.datasets"]
+beaver = "eaa.datasets.adapters.beaver:plugin"
+
+[project.scripts]
+eaa-ambiguity-demo = "eaa.experiments.ambiguity_demo:main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "S", "SIM", "D"]
+ignore = ["D203", "D213"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]  # assertions are the language of tests
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+  "unit: fast unit tests without external I/O",
+  "integration: tests touching real (small) databases",
+  "conformance: adapter contract conformance tests",
+  "e2e: end-to-end smoke tests on tiny benchmark subsets",
+  "determinism: seed/reproducibility tests",
+  "security: prompt injection and redaction tests",
+]

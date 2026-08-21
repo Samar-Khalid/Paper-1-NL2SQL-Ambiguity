@@ -1,0 +1,28 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "interpretations": {
+    "sql_reading_A": {
+      "note": null,
+      "sql": "SELECT\n    COUNT(DISTINCT d.IAP_SUBJECT_DETAIL_KEY) AS total_subjects,\n    SUM(d.FEE) AS total_fee,\n    MIN(\n        (TO_DATE(s.SESSION_END_TIME, 'HH24:MI')\n       - TO_DATE(s.SESSION_START_TIME, 'HH24:MI')) * 24 * 60\n    ) AS shortest_session_minutes,\n    MAX(\n        (TO_DATE(s.SESSION_END_TIME, 'HH24:MI')\n       - TO_DATE(s.SESSION_START_TIME, 'HH24:MI')) * 24 * 60\n    ) AS longest_session_minutes\nFROM IAP_SUBJECT_DETAIL d\nJOIN IAP_SUBJECT_SESSION s\n  ON d.IAP_SUBJECT_SESSION_KEY = s.IAP_SUBJECT_SESSION_KEY\nWHERE LOWER(s.SESSION_LOCATION) = 'virtual';"
+    },
+    "sql_reading_B": {
+      "note": null,
+      "sql": "SELECT\n    COUNT(*) AS total_subjects_or_sessions,\n    SUM(d.FEE) AS total_fee,\n    MIN(\n        (TO_DATE(s.SESSION_END_TIME, 'HH24:MI')\n       - TO_DATE(s.SESSION_START_TIME, 'HH24:MI')) * 24 * 60\n    ) AS shortest_session_minutes,\n    MAX(\n        (TO_DATE(s.SESSION_END_TIME, 'HH24:MI')\n       - TO_DATE(s.SESSION_START_TIME, 'HH24:MI')) * 24 * 60\n    ) AS longest_session_minutes\nFROM IAP_SUBJECT_DETAIL d\nJOIN IAP_SUBJECT_SESSION s\n  ON d.IAP_SUBJECT_SESSION_KEY = s.IAP_SUBJECT_SESSION_KEY\nWHERE LOWER(s.SESSION_LOCATION) = 'virtual';"
+    }
+  },
+  "notes": null,
+  "question_id": "dw_real_16",
+  "spans": [
+    {
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "metadata_resolution": false,
+      "phrase": "all virtual IAP sessions",
+      "resolution_channel": "clarification",
+      "type": "S1"
+    }
+  ]
+}

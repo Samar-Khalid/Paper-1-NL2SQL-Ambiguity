@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: the building with the largest floor number is a single, well-defined lookup.",
+  "question_id": "dw_real_10",
+  "question_text": "List the name and floor of the building with the largest floor number.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

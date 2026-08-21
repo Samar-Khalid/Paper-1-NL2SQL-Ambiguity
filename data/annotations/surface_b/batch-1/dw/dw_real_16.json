@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). No genuine ambiguity: virtual IAP sessions with subject count, total fee, shortest and longest sessions - all measures are explicit.",
+  "question_id": "dw_real_16",
+  "question_text": "What is total number of subjects, the total fee, and the shortest and longest sessions, for all virtual IAP sessions?",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "square footage from SPACE_DETAIL",
+      "sql": "SELECT f.FLOOR_NAME, MAX(sd.ROOM_SQUARE_FOOTAGE) FROM SPACE_FLOOR f JOIN SPACE_DETAIL sd ON f.FLOOR_KEY = sd.FLOOR_KEY JOIN BUILDINGS b ON sd.BUILDING_KEY = b.BUILDING_KEY WHERE b.BUILDING_NAME = 'Stata' GROUP BY f.FLOOR_NAME HAVING MAX(sd.ROOM_SQUARE_FOOTAGE) > 100"
+    },
+    "sql_reading_B": {
+      "note": "square footage derived from FAC_ROOMS.AREA",
+      "sql": "SELECT f.FLOOR, MAX(r.AREA) FROM FAC_FLOOR f JOIN FAC_ROOMS r ON f.FLOOR_KEY = r.FLOOR_KEY JOIN BUILDINGS b ON r.BUILDING_KEY = b.BUILDING_KEY WHERE b.BUILDING_NAME = 'Stata' GROUP BY f.FLOOR HAVING MAX(r.AREA) > 100"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R2: 'room square footage' maps to ROOM_SQUARE_FOOTAGE in SPACE_DETAIL (A) or to AREA in the FAC/FCLT room tables (B); both exist in the schema and both are plausible.",
+  "question_id": "dw_1003",
+  "question_text": "For each floor in the Stata building (building 32), for rooms loaded into the warehouse on 19-DEC-24, where the largest room square footage on the floor is greater than 100, give the floor name, the name of the building room with the largest square footage, the largest room square footage, and for each space unit on that floor with a room square footage greater than 10, show the building room name, room number, room square footage, and the average room square footage within the floor, ordered by floor name and then by room square footage. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R2",
+      "assumption_risk": "medium",
+      "clarification_required": true,
+      "end": 139,
+      "metadata_resolution": false,
+      "resolution_channel": "clarification",
+      "span_id": "sp120",
+      "start": 120,
+      "text": "room square footage"
+    }
+  ]
+}

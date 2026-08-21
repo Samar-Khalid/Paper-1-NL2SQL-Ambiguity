@@ -1,0 +1,1820 @@
+{
+  "categories": {
+    "false_positive": [
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "all"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "number of"
+          ],
+          [
+            "C3",
+            "not"
+          ]
+        ],
+        "question_id": "dw_10"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "all"
+          ],
+          [
+            "S2",
+            "For"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C2",
+            "highest"
+          ],
+          [
+            "C3",
+            "never"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_100"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "all"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C3",
+            "never"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_1001"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C2",
+            "highest"
+          ],
+          [
+            "C3",
+            "excluding"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_1004"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C2",
+            "least"
+          ],
+          [
+            "C3",
+            "at least"
+          ]
+        ],
+        "question_id": "dw_1005"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C3",
+            "never"
+          ],
+          [
+            "T1",
+            "this year"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_1007"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C3",
+            "excluding"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_1014"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "number of"
+          ],
+          [
+            "C2",
+            "least"
+          ],
+          [
+            "C3",
+            "at least"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_1015"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "maximum"
+          ],
+          [
+            "C3",
+            "never"
+          ],
+          [
+            "K1",
+            "IAP"
+          ]
+        ],
+        "question_id": "dw_1016"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "all"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C2",
+            "least"
+          ],
+          [
+            "C3",
+            "at least"
+          ],
+          [
+            "T1",
+            "Previous"
+          ],
+          [
+            "K1",
+            "STDDEV"
+          ]
+        ],
+        "question_id": "dw_1022"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "C1",
+            "number of"
+          ],
+          [
+            "C2",
+            "rank"
+          ],
+          [
+            "C3",
+            "not"
+          ],
+          [
+            "T1",
+            "current"
+          ]
+        ],
+        "question_id": "dw_103"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "all"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "R2",
+            "CIP"
+          ],
+          [
+            "C2",
+            "least"
+          ],
+          [
+            "C3",
+            "at least"
+          ],
+          [
+            "K1",
+            "CIP"
+          ],
+          [
+            "I2",
+            "email"
+          ]
+        ],
+        "question_id": "dw_1033"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "any"
+          ],
+          [
+            "S2",
+            "by"
+          ],
+          [
+            "R2",
+            "CIP"
+          ],
+          [
+            "C2",
+            "rank"
+          ],
+          [
+            "C3",
+            "not"
+          ],
+          [
+            "K1",
+            "CIP"
+          ],
+          [
+            "I2",
+            "email"
+          ]
+        ],
+        "question_id": "dw_1061"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "all"
+          ],
+          [
+            "C1",
+            "average"
+          ],
+          [
+            "C3",
+            "not"
+          ]
+        ],
+        "question_id": "dw_2931"
+      },
+      {
+        "predicted_spans": [
+          [
+            "C2",
+            "largest"
+          ]
+        ],
+        "question_id": "dw_real_10"
+      },
+      {
+        "predicted_spans": [
+          [
+            "C1",
+            "number of"
+          ]
+        ],
+        "question_id": "dw_real_117"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "each"
+          ],
+          [
+            "C1",
+            "number of"
+          ]
+        ],
+        "question_id": "dw_real_120"
+      },
+      {
+        "predicted_spans": [
+          [
+            "S1",
+            "each"
+          ]
+        ],
+        "question_id": "dw_real_2"
+      },
+      {
+        "predicted_spans": [
+          [
+            "C1",
+            "percentage"
+          ]
+        ],
+        "question_id": "dw_real_33"
+      }
+    ],
+    "missed_ambiguity": [],
+    "missed_span": [
+      {
+        "gold_code": "S1",
+        "question_id": "dw_0",
+        "text": "all such courses"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1",
+        "text": "those with a non-null HR department code"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_1000",
+        "text": "subjects in the Mathematics department"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1002",
+        "text": "for the department (considering only Chemistry and Biology departments)"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_1002",
+        "text": "the number of reserved course materials"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1003",
+        "text": "for rooms loaded into the warehouse on 19-DEC-24"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1006",
+        "text": "variance"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1008",
+        "text": "for the top 10 Mathematics department and academic year pairs with the highest number of subjects offered in the fall term"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1009",
+        "text": "either (a) are degree granting and, excluding Chemistry, have at least one subject with more than 0 total units (showing for each such department its name, the average, variance, and standard deviation (using STDDEV only and never STDDEV_POP) of total units for its subjects), or (b) are among the top 10 degree-granting departments by number of subjects offered in the 2022 academic year (excluding Political Science/Course 17)"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_101",
+        "text": "or subjects in the current academic term that are in the Political Science department"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1010",
+        "text": "the subjects offered by the Mathematics department"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1011",
+        "text": "either "
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_1012",
+        "text": "also present in the CIS course catalog"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1018",
+        "text": "this year"
+      },
+      {
+        "gold_code": "R1",
+        "question_id": "dw_102",
+        "text": "HR department names"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_1025",
+        "text": "for all degree-granting courses in that department"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_1030",
+        "text": "in the Mathematics department"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_1031",
+        "text": "within each school name group"
+      },
+      {
+        "gold_code": "C1",
+        "question_id": "dw_2713",
+        "text": "variance"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_2766",
+        "text": "variance"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_2979",
+        "text": "variance"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_real_114",
+        "text": "unique subjects"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_real_116",
+        "text": "the most floors"
+      },
+      {
+        "gold_code": "S1",
+        "question_id": "dw_real_16",
+        "text": "all virtual IAP sessions"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_real_34",
+        "text": "the floor area and building"
+      },
+      {
+        "gold_code": "S2",
+        "question_id": "dw_real_51",
+        "text": "mailing list about duo users"
+      }
+    ],
+    "multi_span_errors": [
+      {
+        "num_errors": 5,
+        "num_fn": 1,
+        "num_fp": 4,
+        "question_id": "dw_0"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 1,
+        "num_fp": 5,
+        "question_id": "dw_1"
+      },
+      {
+        "num_errors": 4,
+        "num_fn": 0,
+        "num_fp": 4,
+        "question_id": "dw_10"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 0,
+        "num_fp": 6,
+        "question_id": "dw_100"
+      },
+      {
+        "num_errors": 8,
+        "num_fn": 1,
+        "num_fp": 7,
+        "question_id": "dw_1000"
+      },
+      {
+        "num_errors": 5,
+        "num_fn": 0,
+        "num_fp": 5,
+        "question_id": "dw_1001"
+      },
+      {
+        "num_errors": 8,
+        "num_fn": 2,
+        "num_fp": 6,
+        "question_id": "dw_1002"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 1,
+        "num_fp": 6,
+        "question_id": "dw_1003"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 0,
+        "num_fp": 6,
+        "question_id": "dw_1004"
+      },
+      {
+        "num_errors": 5,
+        "num_fn": 0,
+        "num_fp": 5,
+        "question_id": "dw_1005"
+      },
+      {
+        "num_errors": 8,
+        "num_fn": 1,
+        "num_fp": 7,
+        "question_id": "dw_1006"
+      },
+      {
+        "num_errors": 5,
+        "num_fn": 0,
+        "num_fp": 5,
+        "question_id": "dw_1007"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 1,
+        "num_fp": 5,
+        "question_id": "dw_1008"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 1,
+        "num_fp": 6,
+        "question_id": "dw_1009"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 1,
+        "num_fp": 6,
+        "question_id": "dw_101"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 1,
+        "num_fp": 5,
+        "question_id": "dw_1010"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 1,
+        "num_fp": 5,
+        "question_id": "dw_1011"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 1,
+        "num_fp": 5,
+        "question_id": "dw_1012"
+      },
+      {
+        "num_errors": 5,
+        "num_fn": 0,
+        "num_fp": 5,
+        "question_id": "dw_1014"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 0,
+        "num_fp": 6,
+        "question_id": "dw_1015"
+      },
+      {
+        "num_errors": 5,
+        "num_fn": 0,
+        "num_fp": 5,
+        "question_id": "dw_1016"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 1,
+        "num_fp": 5,
+        "question_id": "dw_1018"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 1,
+        "num_fp": 6,
+        "question_id": "dw_102"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 0,
+        "num_fp": 6,
+        "question_id": "dw_1022"
+      },
+      {
+        "num_errors": 8,
+        "num_fn": 1,
+        "num_fp": 7,
+        "question_id": "dw_1025"
+      },
+      {
+        "num_errors": 6,
+        "num_fn": 0,
+        "num_fp": 6,
+        "question_id": "dw_103"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 1,
+        "num_fp": 6,
+        "question_id": "dw_1030"
+      },
+      {
+        "num_errors": 9,
+        "num_fn": 1,
+        "num_fp": 8,
+        "question_id": "dw_1031"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 0,
+        "num_fp": 7,
+        "question_id": "dw_1033"
+      },
+      {
+        "num_errors": 7,
+        "num_fn": 0,
+        "num_fp": 7,
+        "question_id": "dw_1061"
+      },
+      {
+        "num_errors": 4,
+        "num_fn": 1,
+        "num_fp": 3,
+        "question_id": "dw_2713"
+      },
+      {
+        "num_errors": 4,
+        "num_fn": 1,
+        "num_fp": 3,
+        "question_id": "dw_2766"
+      },
+      {
+        "num_errors": 3,
+        "num_fn": 0,
+        "num_fp": 3,
+        "question_id": "dw_2931"
+      },
+      {
+        "num_errors": 4,
+        "num_fn": 1,
+        "num_fp": 3,
+        "question_id": "dw_2979"
+      },
+      {
+        "num_errors": 4,
+        "num_fn": 1,
+        "num_fp": 3,
+        "question_id": "dw_real_114"
+      },
+      {
+        "num_errors": 3,
+        "num_fn": 1,
+        "num_fp": 2,
+        "question_id": "dw_real_116"
+      },
+      {
+        "num_errors": 2,
+        "num_fn": 0,
+        "num_fp": 2,
+        "question_id": "dw_real_120"
+      },
+      {
+        "num_errors": 4,
+        "num_fn": 1,
+        "num_fp": 3,
+        "question_id": "dw_real_16"
+      },
+      {
+        "num_errors": 2,
+        "num_fn": 1,
+        "num_fp": 1,
+        "question_id": "dw_real_34"
+      },
+      {
+        "num_errors": 2,
+        "num_fn": 1,
+        "num_fp": 1,
+        "question_id": "dw_real_51"
+      }
+    ],
+    "wrong_family": [],
+    "wrong_span": [
+      {
+        "pred_code": "S1",
+        "question_id": "dw_0",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_0",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_0",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_0",
+        "text": "not"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1",
+        "text": "For"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1",
+        "text": "excluding"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1",
+        "text": "HR"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_10",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_10",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_10",
+        "text": "number of"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_10",
+        "text": "not"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_100",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_100",
+        "text": "For"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_100",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_100",
+        "text": "highest"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_100",
+        "text": "never"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_100",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1000",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1000",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1000",
+        "text": "total"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1000",
+        "text": "first"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1000",
+        "text": "except"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1000",
+        "text": "recent"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1000",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1001",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1001",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1001",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1001",
+        "text": "never"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1001",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1002",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1002",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1002",
+        "text": "minimum"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1002",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1002",
+        "text": "at least"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1002",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1003",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1003",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1003",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1003",
+        "text": "largest"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1003",
+        "text": "not"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1003",
+        "text": "DEC"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1004",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1004",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1004",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1004",
+        "text": "highest"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1004",
+        "text": "excluding"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1004",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1005",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1005",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1005",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1005",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1005",
+        "text": "at least"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1006",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1006",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1006",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1006",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1006",
+        "text": "at least"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1006",
+        "text": "this year"
+      },
+      {
+        "pred_code": "I2",
+        "question_id": "dw_1006",
+        "text": "email"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1007",
+        "text": "any"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1007",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1007",
+        "text": "never"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1007",
+        "text": "this year"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1007",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1008",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1008",
+        "text": "for"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1008",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1008",
+        "text": "highest"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1008",
+        "text": "excluding"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1009",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1009",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1009",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1009",
+        "text": "first"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1009",
+        "text": "at least"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1009",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_101",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_101",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_101",
+        "text": "maximum"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_101",
+        "text": "not"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_101",
+        "text": "current"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_101",
+        "text": "ID"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1010",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1010",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1010",
+        "text": "number of"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1010",
+        "text": "never"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1010",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1011",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1011",
+        "text": "for"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1011",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1011",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1011",
+        "text": "at least"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1012",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1012",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1012",
+        "text": "minimum"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1012",
+        "text": "not"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1012",
+        "text": "CIS"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1014",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1014",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1014",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1014",
+        "text": "excluding"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1014",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1015",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1015",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1015",
+        "text": "number of"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1015",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1015",
+        "text": "at least"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1015",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1016",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1016",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1016",
+        "text": "maximum"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1016",
+        "text": "never"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1016",
+        "text": "IAP"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1018",
+        "text": "all"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1018",
+        "text": "minimum"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1018",
+        "text": "highest"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1018",
+        "text": "not"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1018",
+        "text": "this year"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_102",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_102",
+        "text": "by"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_102",
+        "text": "rank"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_102",
+        "text": "not"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_102",
+        "text": "current"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_102",
+        "text": "HR"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1022",
+        "text": "all"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1022",
+        "text": "average"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1022",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1022",
+        "text": "at least"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1022",
+        "text": "Previous"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1022",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1025",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1025",
+        "text": "by"
+      },
+      {
+        "pred_code": "R2",
+        "question_id": "dw_1025",
+        "text": "CIP"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1025",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1025",
+        "text": "excluding"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1025",
+        "text": "CIP"
+      },
+      {
+        "pred_code": "I2",
+        "question_id": "dw_1025",
+        "text": "email"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_103",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_103",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_103",
+        "text": "number of"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_103",
+        "text": "rank"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_103",
+        "text": "not"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_103",
+        "text": "current"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1030",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1030",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1030",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1030",
+        "text": "never"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1030",
+        "text": "this year"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1030",
+        "text": "STDDEV"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1031",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1031",
+        "text": "by"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_1031",
+        "text": "maximum"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1031",
+        "text": "first"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1031",
+        "text": "not"
+      },
+      {
+        "pred_code": "T1",
+        "question_id": "dw_1031",
+        "text": "current"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1031",
+        "text": "id"
+      },
+      {
+        "pred_code": "I2",
+        "question_id": "dw_1031",
+        "text": "email"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1033",
+        "text": "all"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1033",
+        "text": "by"
+      },
+      {
+        "pred_code": "R2",
+        "question_id": "dw_1033",
+        "text": "CIP"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1033",
+        "text": "least"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1033",
+        "text": "at least"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1033",
+        "text": "CIP"
+      },
+      {
+        "pred_code": "I2",
+        "question_id": "dw_1033",
+        "text": "email"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_1061",
+        "text": "any"
+      },
+      {
+        "pred_code": "S2",
+        "question_id": "dw_1061",
+        "text": "by"
+      },
+      {
+        "pred_code": "R2",
+        "question_id": "dw_1061",
+        "text": "CIP"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_1061",
+        "text": "rank"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_1061",
+        "text": "not"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_1061",
+        "text": "CIP"
+      },
+      {
+        "pred_code": "I2",
+        "question_id": "dw_1061",
+        "text": "email"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_2713",
+        "text": "all"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_2713",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_2713",
+        "text": "not"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_2766",
+        "text": "all"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_2766",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_2766",
+        "text": "not"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_2931",
+        "text": "all"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_2931",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_2931",
+        "text": "not"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_2979",
+        "text": "any"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_2979",
+        "text": "average"
+      },
+      {
+        "pred_code": "C3",
+        "question_id": "dw_2979",
+        "text": "not"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_real_10",
+        "text": "largest"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_real_114",
+        "text": "each"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_114",
+        "text": "number of"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_real_114",
+        "text": "IAP"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_real_116",
+        "text": "each"
+      },
+      {
+        "pred_code": "C2",
+        "question_id": "dw_real_116",
+        "text": "most"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_117",
+        "text": "number of"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_real_120",
+        "text": "each"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_120",
+        "text": "number of"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_real_16",
+        "text": "all"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_16",
+        "text": "number of"
+      },
+      {
+        "pred_code": "K1",
+        "question_id": "dw_real_16",
+        "text": "IAP"
+      },
+      {
+        "pred_code": "S1",
+        "question_id": "dw_real_2",
+        "text": "each"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_33",
+        "text": "percentage"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_34",
+        "text": "percentage"
+      },
+      {
+        "pred_code": "C1",
+        "question_id": "dw_real_51",
+        "text": "number of"
+      }
+    ],
+    "wrong_type": []
+  },
+  "summary": {
+    "false_positive": 19,
+    "missed_ambiguity": 0,
+    "missed_span": 26,
+    "multi_span_errors": 40,
+    "wrong_family": 0,
+    "wrong_span": 200,
+    "wrong_type": 0
+  },
+  "total_gold_spans": 26,
+  "total_predicted_spans": 200,
+  "total_questions": 45
+}

@@ -1,0 +1,34 @@
+{
+  "answerability": {
+    "confidence": 1.0,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": {
+    "sql_reading_A": {
+      "note": "TIP material link resolved through TIP_DETAIL",
+      "sql": "SELECT c.SUBJECT_ID, c.SUBJECT_TITLE FROM COURSE_CATALOG_SUBJECT_OFFERED c JOIN TIP_DETAIL td ON c.SUBJECT_ID = td.SUBJECT_ID WHERE c.ACADEMIC_YEAR = 2022 AND c.DEPARTMENT_NAME = 'Mathematics'"
+    },
+    "sql_reading_B": {
+      "note": "TIP material link resolved through TIP_SUBJECT_OFFERED",
+      "sql": "SELECT c.SUBJECT_ID, c.SUBJECT_TITLE FROM COURSE_CATALOG_SUBJECT_OFFERED c JOIN TIP_SUBJECT_OFFERED tso ON c.SUBJECT_ID = tso.SUBJECT_ID WHERE c.ACADEMIC_YEAR = 2022 AND c.DEPARTMENT_NAME = 'Mathematics'"
+    }
+  },
+  "notes": "ai-generated annotation (annotation_source=ai_generated; backend=opencode/big-pickle; not human gold; no human annotator ids; no kappa; no adjudication). R1 candidate, metadata resolution DEFERRED: 'at least one associated TIP material' can join through TIP_DETAIL (A) or TIP_SUBJECT_OFFERED (B); the intended TIP link requires metadata and is deferred.",
+  "question_id": "dw_1036",
+  "question_text": "For all subjects offered in the academic year 2022 by the Mathematics department that have at least one associated TIP material and are also offered this year as letter graded, show the subject ID, subject title, term code, term description, the rank of each subject within its term (ordered by subject ID), subject code, subject number, department name, academic year, and the maximum total units for each subject considering the current row and the next 2 rows ordered by subject code. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": [
+    {
+      "ambiguity_type": "R1",
+      "assumption_risk": "high",
+      "clarification_required": false,
+      "end": 127,
+      "metadata_resolution": false,
+      "resolution_channel": "metadata",
+      "span_id": "sp91",
+      "start": 91,
+      "text": "at least one associated TIP material"
+    }
+  ]
+}

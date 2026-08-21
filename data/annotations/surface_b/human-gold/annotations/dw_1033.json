@@ -1,0 +1,13 @@
+{
+  "answerability": {
+    "confidence": 0.95,
+    "label": "answerable"
+  },
+  "database_id": "dw",
+  "interpretations": null,
+  "notes": "السؤال معقد جدًا وتظهر فيه عدة screening signals (quantifier-scope, attachment, ranking, existence-negation, granularity) لكن القراءة الكاملة لا تكشف عن strict ambiguity حقيقي. نطاق الـMathematics departments والـgraduate students مفصول بوضوح، وعبارة even if they have no such students تحسم أن department-level CIP aggregates يجب أن تظهر حتى في غياب students. dense rank over the school code يمكن تفسيرها مباشرة كـ ranking ordered by school code. أما كون CIP code مخزنًا كـVARCHAR2 فهو تحدٍ تنفيذي/نوع بيانات وليس ambiguity في صياغة السؤال",
+  "question_id": "dw_1033",
+  "question_text": "Show the department name, department full name, student full name, student email address, dense rank over the school code, CIP program code range, and CIP program code variance for all graduate students in degree-granting Mathematics departments, as well as for all Mathematics departments that are degree granting and have at least one course with a non-null CIP program code, including the CIP program code range and variance for those departments even if they have no such students. List the results ordered by department full name and student full name. Do not return any rounded answers.",
+  "schema_version": "annotation-schema-v1",
+  "spans": []
+}

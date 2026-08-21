@@ -1,0 +1,57 @@
+{
+  "config": "configs/experiments/phase1_beaver_eval.yaml",
+  "created_at": "2026-08-19T20:05:33.193923+00:00",
+  "database_id": "dw",
+  "evaluation_mode": "HUMAN_GOLD_VALIDATION",
+  "gold": {
+    "annotator": "samar",
+    "batch_root": "data/annotations/surface_b/human-gold",
+    "frozen_sha256": "1df1ee495b67f2430da995a1ab8ea1c5a693c2b1c32e2737ad9a6e55fee210a4",
+    "num_questions": 45,
+    "source": "human_gold",
+    "strata": {
+      "persistent_ambiguity": 25,
+      "unambiguous": 18,
+      "unanswerable": 2
+    }
+  },
+  "human_gold_vs_ai_gold": {
+    "common_questions": 45,
+    "existence_agreement": 24,
+    "existence_agreement_rate": 0.5333,
+    "existence_disagreement": 21,
+    "span_type_disagreements": 36
+  },
+  "legs": [
+    "baseline",
+    "combined"
+  ],
+  "legs_detail": {
+    "baseline": {
+      "detector": "signal-annotator-v1",
+      "note": null,
+      "num_failed": 0,
+      "num_questions": 45
+    },
+    "combined": {
+      "detector": "combined (baseline-only since reasoning is N/A)",
+      "note": "merge of enabled legs; only baseline is enabled",
+      "num_failed": 0,
+      "num_questions": 45
+    },
+    "metadata": {
+      "detector": "metadata-grounded",
+      "note": "N/A \u2014 no legitimate enrichment.json exists",
+      "num_failed": 0,
+      "num_questions": 0
+    },
+    "reasoning": {
+      "detector": "reasoning-based",
+      "note": "N/A \u2014 no real LLM backend configured; EchoBackend is test-only and never backs research numbers",
+      "num_failed": 0,
+      "num_questions": 0
+    }
+  },
+  "run_tag": "surface-b-human-gold-eval",
+  "statement": "final human-gold benchmark evaluation for Paper 1; measures detector accuracy against independent human annotations"
+}

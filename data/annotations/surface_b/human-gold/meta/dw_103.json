@@ -1,0 +1,10 @@
+{
+  "answerability": {
+    "confidence": 0.96,
+    "label": "answerable"
+  },
+  "interpretations": null,
+  "notes": "The wording is semantically sufficient. by the Chemistry department clearly refers to the offering department, reinforced by the requested offering-department output. current and 2 preceding rows specifies a three-row rolling frame ordered by enrolled students descending; its difficulty is SQL implementation rather than linguistic ambiguity. have course materials can be resolved from the explicit IS_NO_COURSE_MATERIAL indicator in TIP_SUBJECT_OFFERED, so no strict ambiguity span is necessary.",
+  "question_id": "dw_103",
+  "spans": []
+}
