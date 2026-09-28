@@ -47,17 +47,17 @@ FAMILY_DISPLAY = {
     "R": {
         "name": "Schema Reference",
         "icon": "\U0001f517",
-        "desc": "Shared terms across tables",
+        "desc": "Table selection and join paths",
     },
     "C": {
         "name": "Computational",
         "icon": "\u26a1",
-        "desc": "Implicit comparisons and aggregation",
+        "desc": "Aggregation, ranking, negation, constraint boundaries",
     },
     "T": {
         "name": "Temporal",
         "icon": "\U0001f550",
-        "desc": "Calendar vs fiscal time references",
+        "desc": "Relative time and calendar/fiscal conventions",
     },
     "K": {
         "name": "Knowledge",
@@ -67,17 +67,22 @@ FAMILY_DISPLAY = {
     "I": {
         "name": "Intent",
         "icon": "\U0001f3af",
-        "desc": "User intent mismatch",
+        "desc": "Answer shape, channel/encoding, chart type",
     },
     "V": {
         "name": "Semantic Value",
         "icon": "\U0001f3f7",
-        "desc": "Value-literal and entity reference",
+        "desc": "Value/entity literals, units and scale, granularity",
     },
     "L": {
         "name": "Lexical",
         "icon": "\U0001f4dd",
-        "desc": "Word-level ambiguity",
+        "desc": "Over-generality and synonym collision",
+    },
+    "U": {
+        "name": "Unanswerability",
+        "icon": "❓",
+        "desc": "Data absence, false premise, contradiction, out of scope",
     },
 }
 
@@ -561,14 +566,15 @@ def _render_architecture_page():
         with st.expander(f"{info['icon']} **{code}** — {info['name']}"):
             st.markdown(info["desc"])
             family_codes = {
-                "S": ["S1 — Quantifier-scope", "S2 — Attachment-ambiguity"],
-                "R": ["R1 — Shared-term-across-tables", "R2 — Aggregation-order"],
-                "C": ["C1 — Implicit-comparison", "C2 — Temporal-ambiguity", "C3 — Negation-scope"],
-                "T": ["T1 — Chart-type-mismatch"],
-                "K": ["K1 — Business-rule"],
-                "I": ["I2 — Implicit-join"],
-                "V": ["V1 — Value-literal"],
-                "L": [],
+                "L": ["L1 — Lexical over-generality", "L2 — Synonym collision"],
+                "S": ["S1 — Quantifier scope", "S2 — Attachment"],
+                "R": ["R1 — Table-selection ambiguity", "R2 — Join-path ambiguity"],
+                "V": ["V1 — Value/entity literal", "V2 — Unit/scale/currency", "V3 — Granularity"],
+                "C": ["C1 — Aggregation/metric", "C2 — Top-N/ranking", "C3 — Existence/negation", "C4 — Constraint boundary"],
+                "T": ["T1 — Relative temporal", "T2 — Calendar/fiscal convention"],
+                "K": ["K1 — External-world knowledge gap", "K2 — Business-rule definition"],
+                "I": ["I1 — Answer shape", "I2 — Channel/encoding", "I3 — Chart type"],
+                "U": ["U1 — Data absence", "U2 — False premise", "U3 — Contradiction", "U4 — Out of scope"],
             }
             for fc in family_codes.get(code, []):
                 st.markdown(f"- {fc}")
@@ -630,7 +636,7 @@ def _render_about_page():
     st.markdown("### Key Components")
 
     components = [
-        ("M1.5 Taxonomy", "10 ambiguity types across 6 families"),
+        ("M1.5 Taxonomy", "24 codes: 8 ambiguity families + unanswerability branch"),
         ("SignalAnnotator", "Deterministic baseline detector"),
         ("ReasoningBasedDetector", "LLM-based detector (requires backend)"),
         ("MetadataGroundedDetector", "Enrichment-based detector (requires data)"),

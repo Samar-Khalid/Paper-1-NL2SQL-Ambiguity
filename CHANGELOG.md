@@ -2,6 +2,34 @@
 
 All notable changes to Paper 1: NL2SQL Ambiguity Detection are documented here.
 
+## [Unreleased]
+
+### Fixed
+- README "Human Gold Evaluation Set" table: the SHA-256 row now prints the canonical freeze
+  digest `1df1ee495b67f2430da995a1ab8ea1c5a693c2b1c32e2737ad9a6e55fee210a4` recorded in
+  `human-gold.v1.lock` (previously `be7a76e2…`, which is the raw SHA-256 of `tasks.json` —
+  a file the freeze set excludes by design). Verified by recomputation on 2026-09-26 using
+  the repository's own `_freeze_digest`; no frozen label, lock, or evaluation output changed.
+- Restored `src/eaa/metadata/` (byte-identical to the framework tree; the export
+  snapshot omitted it even though its tests were included and the export manifest
+  never excluded it). Clean-checkout `pytest tests/` now collects fully and passes
+  **256/256** (previously 181 passed while the 75 detector tests failed collection).
+  Also removed the now-obsolete `type: ignore[import-untyped]` on the lazy
+  `eaa.metadata` import in `src/eaa/experiments/baseline.py` (comment only — the
+  lazy import and all behavior are unchanged) and let ruff re-sort two test import
+  blocks now that `eaa.metadata` resolves as first-party. `ruff check src/ tests/`
+  and `mypy src/` (120 files) are clean. The metadata evaluation leg remains N/A
+  (no enrichment source exists for the evaluated data); no evaluation output changed.
+
+### Changed
+- Taxonomy documentation synchronized to the canonical 24-code implementation
+  (`src/eaa/core/contracts/ambiguity.py`: eight ambiguity families plus a separate
+  unanswerability branch, nine family letters). Corrected in `README.md`,
+  `PAPER1.md`, `docs/24_Paper1_UI.md`, and the UI description string. The
+  "10 ambiguity types across 6 families" phrasing under `[0.5.0]` reflects the
+  superseded draft design and is kept only as historical record. No enum member,
+  detector, label file, or evaluation output changed.
+
 ## [1.0.0] - 2026-08-21
 
 ### Final Release — Paper 1 Frozen

@@ -11,7 +11,7 @@ Natural-language questions are often ambiguous when translated to SQL. A questio
 
 Without clarification, an NL2SQL system must guess — and wrong guesses produce silently incorrect SQL. This Paper 1 artifact introduces:
 
-- A **M1.5 ambiguity taxonomy** with 10 types across 6 families (Structural, Reasoning, Conditional, Referential, Type, Knowledge)
+- A **M1.5 ambiguity taxonomy** with 24 codes across eight ambiguity families (Lexical, Structural, Schema reference, Semantic value, Computational, Temporal, Knowledge, Intent) plus a separate unanswerability branch (nine family letters in total)
 - Three **detector architectures**: deterministic SignalAnnotator, LLM-based ReasoningBasedDetector, and metadata-grounded MetadataGroundedDetector
 - A **Human Gold evaluation set** of 45 annotated questions
 - A **deterministic baseline** with reproducible evaluation
@@ -61,17 +61,16 @@ make typecheck   # or: mypy src/
 ```
 Paper 1: NL2SQL Ambiguity Detection
 │
-├── M1.5 Taxonomy (10 types, 6 families)
-│   ├── S1: quantifier-scope      (Structural)
-│   ├── S2: attachment-ambiguity  (Structural)
-│   ├── R1: shared-term-across    (Reasoning)
-│   ├── R2: aggregation-order     (Reasoning)
-│   ├── C1: implicit-comparison   (Conditional)
-│   ├── C2: temporal-ambiguity    (Conditional)
-│   ├── C3: negation-scope        (Conditional)
-│   ├── T1: chart-type-mismatch   (Type)
-│   ├── I2: implicit-join         (Referential)
-│   └── K1: business-rule         (Knowledge)
+├── M1.5 Taxonomy (24 codes: 8 ambiguity families + unanswerability branch)
+│   ├── L: L1 over-generality, L2 synonym collision (Lexical)
+│   ├── S: S1 quantifier scope, S2 attachment (Structural)
+│   ├── R: R1 table selection, R2 join path (Schema reference)
+│   ├── V: V1 value/entity literal, V2 unit/scale/currency, V3 granularity (Semantic value)
+│   ├── C: C1 aggregation/metric, C2 top-N/ranking, C3 existence/negation, C4 constraint boundary (Computational)
+│   ├── T: T1 relative temporal, T2 calendar/fiscal (Temporal)
+│   ├── K: K1 external knowledge, K2 business rule (Knowledge)
+│   ├── I: I1 answer shape, I2 channel/encoding, I3 chart type (Intent)
+│   └── U: U1 data absence, U2 false premise, U3 contradiction, U4 out of scope (Unanswerability)
 │
 ├── Detectors
 │   ├── SignalAnnotator (deterministic baseline)
@@ -102,7 +101,12 @@ Paper 1: NL2SQL Ambiguity Detection
 | Total spans | 26 |
 | Annotator | samar |
 | Frozen | Yes |
-| SHA-256 | `be7a76e2a23a63e16f16366d31fdf24ea0e4b17f22bf79db0b185dadacccfc29` |
+| SHA-256 | `1df1ee495b67f2430da995a1ab8ea1c5a693c2b1c32e2737ad9a6e55fee210a4` |
+
+The SHA-256 is the freeze digest recorded in `human-gold.v1.lock`
+(`sha256(concat(relpath + \0 + file_bytes) sorted by relpath)` over the 45 annotation files plus
+`provenance-v1.json`; `tasks.json` is excluded from the freeze). It is reproducible from the
+current bytes with the repository's own `eaa.ambiguity_resolution.annotations.qc._freeze_digest`.
 
 ## Baseline Results
 

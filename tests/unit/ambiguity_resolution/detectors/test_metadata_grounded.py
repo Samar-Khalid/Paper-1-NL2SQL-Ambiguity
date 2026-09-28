@@ -1,6 +1,5 @@
 """Tests for the metadata-grounded ambiguity detector (docs/14 §4A)."""
 import pytest
-from eaa.metadata import enrich_schema
 
 from eaa.ambiguity_resolution.detectors.metadata_grounded import (
     BUSINESS_RULE_CONFIDENCE,
@@ -27,6 +26,7 @@ from eaa.core.contracts.schema import (
 from eaa.core.contracts.task import TaskEnvelope, TaskHeader
 from eaa.core.interfaces.ambiguity import AmbiguityResolver
 from eaa.core.registry import envelope_for
+from eaa.metadata import enrich_schema
 
 pytestmark = pytest.mark.unit
 

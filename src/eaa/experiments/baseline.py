@@ -333,7 +333,7 @@ def _maybe_enrich(config: RuntimeConfig, adapter: BenchmarkAdapter, provider: An
             "schema.enriched is true but the adapter exposes no metadata() "
             "source; the metadata-ON arm needs an enrichment sidecar (ADR-015)"
         )
-    from eaa.metadata import EnrichedSchemaProvider  # type: ignore[import-untyped]
+    from eaa.metadata import EnrichedSchemaProvider
 
     return EnrichedSchemaProvider(base=provider, metadata=metadata)
 

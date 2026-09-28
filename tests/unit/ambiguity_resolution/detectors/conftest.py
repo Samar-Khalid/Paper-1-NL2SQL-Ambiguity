@@ -6,7 +6,6 @@ domain values, descriptions) pins readings that the question text does not
 name literally.
 """
 import pytest
-from eaa.metadata import enrich_schema
 
 from eaa.core.contracts.schema import (
     ColumnSchema,
@@ -17,6 +16,7 @@ from eaa.core.contracts.schema import (
     ForeignKeySpec,
     TableSchema,
 )
+from eaa.metadata import enrich_schema
 
 
 def _base_schema() -> DatabaseSchema:

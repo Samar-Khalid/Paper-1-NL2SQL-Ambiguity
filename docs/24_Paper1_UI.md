@@ -45,7 +45,7 @@ Data source: `experiments/runs/surface_b_human_gold_eval/metrics/baseline.json`
 Visual overview of:
 
 - Detection pipeline (Question → Detection → Clarification → NL2SQL → Visualization)
-- M1.5 taxonomy (10 types across 8 families)
+- M1.5 taxonomy (24 codes: 8 ambiguity families + unanswerability branch)
 - Detector architecture and status
 
 ### About
